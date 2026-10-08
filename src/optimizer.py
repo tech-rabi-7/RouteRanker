@@ -254,3 +254,58 @@ class RouteOptimizer:
                 "passenger_wait_time_reduction_pct": 24.5
             }
         }
+
+    def calculate_ev_transition_suitability(self, profiles_df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Evaluates PM-eBus Sewa / FAME II electrification suitability for each route corridor.
+        Standard 12m Electric Bus specs:
+        - Battery capacity: 250 kWh
+        - Real-world range: 180 km (single charge)
+        - Energy consumption: 1.15 kWh/km
+        - Electricity tariff: INR 6.50 / kWh (INR 7.48 / km)
+        - Conventional Diesel: 0.35 L/km @ INR 90/L (INR 31.50 / km)
+        - Energy cost delta: INR ~24.00 saved per vehicle-km
+        """
+        df = profiles_df.copy()
+        ev_records = []
+
+        for _, r in df.iterrows():
+            dist_km = r["route_length_km"]
+            daily_trips = r["total_daily_trips"]
+            daily_km = dist_km * daily_trips
+            single_trip_km = dist_km
+
+            # EV Feasibility Tier
+            if dist_km <= 22.0 and daily_km <= 220:
+                tier = "Tier 1: Immediate EV Adoption"
+                charge_strategy = "Overnight Depot Slow Charging (No mid-day charge required)"
+                ev_readiness_score = 95
+            elif dist_km <= 32.0:
+                tier = "Tier 2: Opportunity Fast-Charging"
+                charge_strategy = "Overnight Charging + 30-min Mid-day Depot Top-up"
+                ev_readiness_score = 78
+            else:
+                tier = "Tier 3: Long-Haul (Phase 2)"
+                charge_strategy = "Requires En-route High-Power Pantograph or Hybrid Shift"
+                ev_readiness_score = 55
+
+            # Fiscal & Environmental EV Impact
+            diesel_cost_daily = daily_km * (0.35 * 90.0)
+            ev_cost_daily = daily_km * (1.15 * 6.50)
+            daily_ev_savings_inr = round(diesel_cost_daily - ev_cost_daily, 0)
+            annual_ev_savings_inr = round(daily_ev_savings_inr * 365, 0)
+            daily_co2_eliminated_kg = round(daily_km * 0.35 * 2.68, 1)
+
+            ev_records.append({
+                "route_id": r["route_id"],
+                "route_short_name": r["route_short_name"],
+                "ev_tier": tier,
+                "ev_readiness_score": ev_readiness_score,
+                "charge_strategy": charge_strategy,
+                "daily_ev_km": round(daily_km, 1),
+                "daily_ev_savings_inr": daily_ev_savings_inr,
+                "annual_ev_savings_inr": annual_ev_savings_inr,
+                "daily_co2_eliminated_kg": daily_co2_eliminated_kg
+            })
+
+        return pd.DataFrame(ev_records)
