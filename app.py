@@ -1,7 +1,6 @@
 """
 RouteRanker - AI-Powered Public Transit Route Optimization
-Enterprise Transit Operations & Network Intelligence Platform
-Coverage: 23 Indian Metropolitan Systems + Custom GTFS Ingestion
+Enterprise Operations & Transit Intelligence Command Center
 """
 
 import os
@@ -23,233 +22,150 @@ from src.eda import TransitEDA
 from src.models import RouteMLPipeline
 from src.optimizer import RouteOptimizer
 
-# Set Streamlit Page Configuration
+# Page setup
 st.set_page_config(
-    page_title="RouteRanker Enterprise | Transit AI Command Center",
-    page_icon="⚡",
+    page_title="RouteRanker | Transit AI Intelligence",
+    page_icon="🚌",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Enterprise Modern Dark UI Styling
+# Custom High-End Minimalist Enterprise CSS (Zero Overlaps, Clean Contrast)
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
 
-    /* Global Typography & Dark Background */
+    /* Global Typography */
     html, body, [class*="css"] {
-        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-    
-    .stApp {
-        background-color: #080c14;
-        color: #f1f5f9;
+        font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* Executive Command Banner */
-    .command-header {
-        background: radial-gradient(120% 120% at 50% 10%, #1e1b4b 0%, #0f172a 60%, #080c14 100%);
-        border: 1px solid rgba(99, 102, 241, 0.25);
-        border-radius: 16px;
-        padding: 26px 32px;
-        margin-bottom: 24px;
-        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        position: relative;
-        overflow: hidden;
+    /* Remove unnecessary Streamlit top margins */
+    .block-container {
+        padding-top: 1.5rem !important;
+        padding-bottom: 2.5rem !important;
+        max-width: 96% !important;
     }
-    .command-header::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; height: 2px;
-        background: linear-gradient(90deg, #06b6d4, #6366f1, #a855f7, #ec4899);
+
+    /* Executive Header */
+    .header-box {
+        background: linear-gradient(135deg, #131b2e 0%, #1e1b4b 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
-    
-    .brand-title {
-        font-size: 2.1rem;
+    .header-title {
+        font-size: 1.8rem;
         font-weight: 800;
-        letter-spacing: -0.03em;
-        margin: 0;
         color: #ffffff;
+        letter-spacing: -0.02em;
+        margin: 0;
         display: flex;
         align-items: center;
         gap: 12px;
     }
-    .brand-title span.badge {
+    .header-subtitle {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        margin-top: 4px;
+    }
+    .badge-live {
+        background: rgba(16, 185, 129, 0.15);
+        color: #34d399;
         font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        background: rgba(99, 102, 241, 0.2);
-        color: #818cf8;
-        border: 1px solid rgba(99, 102, 241, 0.4);
-        padding: 3px 9px;
+        padding: 3px 8px;
         border-radius: 6px;
-    }
-    
-    .brand-subtitle {
-        color: #94a3b8;
-        font-size: 0.95rem;
-        margin-top: 6px;
-        font-weight: 400;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 
-    /* Sidebar Dark Styling */
-    section[data-testid="stSidebar"] {
-        background-color: #0b1120 !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    /* Top KPI Metric Cards */
+    .kpi-container {
+        background: #131b2e;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 14px 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
-    section[data-testid="stSidebar"] h3,
-    section[data-testid="stSidebar"] p,
-    section[data-testid="stSidebar"] label,
-    section[data-testid="stSidebar"] span,
-    section[data-testid="stSidebar"] div {
-        color: #e2e8f0 !important;
-    }
-    section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] {
-        background-color: #1e293b !important;
-        border-color: rgba(255, 255, 255, 0.15) !important;
-        color: #ffffff !important;
-    }
-
-    /* Telemetry KPI Cards */
-    .telemetry-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-        margin-bottom: 24px;
-    }
-    
-    .telemetry-card {
-        background: #0f172a;
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 12px;
-        padding: 18px 20px;
-        position: relative;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        transition: border-color 0.2s, transform 0.2s;
-    }
-    .telemetry-card:hover {
-        border-color: rgba(99, 102, 241, 0.4);
-        transform: translateY(-2px);
-    }
-    
-    .telemetry-label {
-        font-size: 0.75rem;
+    .kpi-title {
+        font-size: 0.72rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.05em;
         color: #64748b;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
     }
-    
-    .telemetry-val {
+    .kpi-number {
         font-family: 'JetBrains Mono', monospace;
-        font-size: 1.85rem;
+        font-size: 1.6rem;
         font-weight: 700;
         line-height: 1.1;
         color: #f8fafc;
     }
-
-    .telemetry-tag {
-        font-size: 0.75rem;
-        font-weight: 600;
-        margin-top: 6px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
-    .tag-cyan { color: #38bdf8; }
-    .tag-emerald { color: #34d399; }
-    .tag-rose { color: #fb7185; }
-    .tag-amber { color: #fbbf24; }
-
-    /* Custom Recommendation Card */
-    .action-card {
-        background: #0f172a;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 20px 22px;
-        margin-bottom: 16px;
-        position: relative;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    }
-    .action-card::before {
-        content: "";
-        position: absolute;
-        left: 0; top: 0; bottom: 0; width: 4px;
-        border-radius: 12px 0 0 12px;
-    }
-    .action-card.critical::before { background: #ef4444; }
-    .action-card.high::before { background: #f97316; }
-    .action-card.medium::before { background: #06b6d4; }
-
-    .status-pill {
-        display: inline-block;
-        font-family: 'JetBrains Mono', monospace;
+    .kpi-desc {
         font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        padding: 2px 8px;
-        border-radius: 4px;
-        letter-spacing: 0.04em;
+        font-weight: 600;
+        margin-top: 4px;
     }
-    .pill-overcrowded { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-    .pill-underutilized { background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }
-    .pill-balanced { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
 
-    /* Tab styling */
+    /* Tab bar spacing to prevent text collision */
     .stTabs [data-baseweb="tab-list"] {
-        background-color: #0b1120;
-        border-radius: 10px;
-        padding: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        gap: 4px;
+        gap: 6px !important;
+        background-color: #131b2e !important;
+        padding: 5px !important;
+        border-radius: 8px !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        margin-bottom: 16px !important;
     }
     .stTabs [data-baseweb="tab"] {
-        color: #94a3b8;
-        border-radius: 8px;
-        padding: 8px 18px;
-        font-weight: 600;
-        font-size: 0.88rem;
+        padding: 8px 14px !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        border-radius: 6px !important;
+        color: #94a3b8 !important;
+        white-space: nowrap !important;
     }
     .stTabs [aria-selected="true"] {
-        background-color: #1e293b !important;
+        background-color: #2563eb !important;
         color: #ffffff !important;
     }
 
-    /* Live Beacon Indicator */
-    .live-beacon {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(16, 185, 129, 0.12);
-        color: #34d399;
-        font-size: 0.72rem;
-        font-weight: 700;
-        padding: 4px 10px;
-        border-radius: 20px;
-        border: 1px solid rgba(16, 185, 129, 0.3);
+    /* Action Recommendation Cards */
+    .action-box {
+        background: #131b2e;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-left: 4px solid #3b82f6;
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin-bottom: 12px;
     }
-    .dot-pulse {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background-color: #10b981;
-        box-shadow: 0 0 8px #10b981;
-    }
+    .action-box.critical { border-left-color: #ef4444; }
+    .action-box.high { border-left-color: #f97316; }
+    .action-box.medium { border-left-color: #06b6d4; }
 
-    /* Dataframe dark override */
-    [data-testid="stDataFrame"] {
-        border-radius: 10px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.07);
+    /* Pill Badges */
+    .pill {
+        display: inline-block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 4px;
+        text-transform: uppercase;
     }
+    .pill-red { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .pill-blue { background: rgba(14, 165, 233, 0.2); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.4); }
+    .pill-green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
 </style>
 """, unsafe_allow_html=True)
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
-# All 23 Indian Metropolitan Systems
+# 23 Indian Metropolitan Systems
 CITY_CATALOG = {
     "Delhi (DTC)": "delhi",
     "Bengaluru (BMTC)": "bengaluru",
@@ -298,69 +214,41 @@ def load_custom_feed(uploaded_file):
         stops_usage_df = fe.build_stop_usage_profiles()
         return feed, profiles_df, hourly_df, stops_usage_df
 
-# Top Command Header
-st.markdown("""
-<div class="command-header">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
-        <div>
-            <div class="brand-title">
-                RouteRanker Enterprise
-                <span class="badge">v3.4 Production</span>
-            </div>
-            <div class="brand-subtitle">
-                AI Transit Optimization Engine • General Transit Feed Specification (GTFS) Analytics
-            </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; margin-top: 4px;">
-            <div class="live-beacon">
-                <span class="dot-pulse"></span>
-                <span>23 METROPOLITAN FEEDS ACTIVE</span>
-            </div>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+# Sidebar Configuration
+st.sidebar.markdown("### 🌐 Network Selection")
 
-# Sidebar Navigation & City Switcher
-st.sidebar.markdown("### 🌐 Network Feed Ingestion")
-
-ingest_source = st.sidebar.radio(
-    "Data Source Mode:",
-    ["23 Metropolitan Indian Hubs", "Upload Custom GTFS (.zip)"],
+ingest_mode = st.sidebar.radio(
+    "Source Mode:",
+    ["23 Indian Cities", "Upload GTFS (.zip)"],
     index=0
 )
 
-active_city_label = "Delhi (DTC)"
+active_city_name = "Kolkata (WBTC)"
 
-if ingest_source == "23 Metropolitan Indian Hubs":
-    active_city_label = st.sidebar.selectbox(
+if ingest_mode == "23 Indian Cities":
+    active_city_name = st.sidebar.selectbox(
         "Select Transit Authority:",
         list(CITY_CATALOG.keys()),
-        index=0
+        index=6 # default Kolkata
     )
-    slug = CITY_CATALOG[active_city_label]
-    with st.spinner("Ingesting feed..."):
-        feed, profiles_df, hourly_df, stops_usage_df = load_transit_network(slug, base_dir)
+    city_slug = CITY_CATALOG[active_city_name]
+    with st.spinner("Loading network..."):
+        feed, profiles_df, hourly_df, stops_usage_df = load_transit_network(city_slug, base_dir)
 else:
-    custom_file = st.sidebar.file_uploader(
-        "Upload GTFS Archive (ZIP):",
-        type=["zip"]
-    )
-    if custom_file is not None:
-        with st.spinner("Ingesting custom GTFS zip..."):
-            feed, profiles_df, hourly_df, stops_usage_df = load_custom_feed(custom_file)
-            active_city_label = "Custom Feed Upload"
+    custom_zip = st.sidebar.file_uploader("Upload GTFS (.zip):", type=["zip"])
+    if custom_zip is not None:
+        feed, profiles_df, hourly_df, stops_usage_df = load_custom_feed(custom_zip)
+        active_city_name = "Custom GTFS Upload"
     else:
-        st.sidebar.info("Awaiting GTFS zip upload. Displaying Delhi DTC fallback.")
-        feed, profiles_df, hourly_df, stops_usage_df = load_transit_network("delhi", base_dir)
-        active_city_label = "Delhi (DTC)"
+        st.sidebar.info("Upload a GTFS ZIP file or select a city.")
+        feed, profiles_df, hourly_df, stops_usage_df = load_transit_network("kolkata", base_dir)
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### ⚙️ Optimization Hyperparameters")
-bus_capacity = st.sidebar.slider("Fleet Bus Capacity (Pax):", 40, 90, 60, step=5)
-fuel_cost_inr = st.sidebar.number_input("Operating Cost per Bus-km (₹):", value=75.0, step=5.0)
+st.sidebar.markdown("### ⚙️ Parameters")
+bus_capacity = st.sidebar.slider("Bus Capacity (Seats+Standees):", 40, 90, 60, step=5)
+operating_cost_km = st.sidebar.number_input("Operating Cost (₹/km):", value=75.0, step=5.0)
 
-# Pipeline Execution
+# Pipeline Processing
 ml_pipe = RouteMLPipeline(model_dir=os.path.join(base_dir, "models"))
 clustered_profiles = ml_pipe.fit_clustering(profiles_df, n_clusters=3)
 enriched_profiles = ml_pipe.predict_route_performance(clustered_profiles)
@@ -370,117 +258,138 @@ overlap_matrix, overlap_pairs = eda.compute_route_overlap_matrix()
 peak_summary = eda.get_peak_windows_summary(hourly_df)
 health = eda.get_network_health_metrics()
 
-optimizer = RouteOptimizer(cost_per_km_inr=fuel_cost_inr)
+optimizer = RouteOptimizer(cost_per_km_inr=operating_cost_km)
 recommendations = optimizer.generate_recommendations(enriched_profiles, overlap_pairs)
 sim_impact = optimizer.simulate_network_impact(enriched_profiles, recommendations)
-
-# Executive Telemetry Cards
 sav = sim_impact.get("savings", {})
-overcrowded_routes = (enriched_profiles["performance_status"] == "Overcrowded").sum()
-underutilized_routes = (enriched_profiles["performance_status"] == "Underutilized").sum()
 
-col1, col2, col3, col4, col5 = st.columns(5)
+# Executive Header Box
+st.markdown(f"""
+<div class="header-box">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <div>
+            <div class="header-title">
+                🚌 RouteRanker
+                <span class="badge-live">Live Intelligence</span>
+            </div>
+            <div class="header-subtitle">
+                AI Public Transit Optimization • Active Network: <b>{active_city_name}</b>
+            </div>
+        </div>
+        <div style="text-align: right; margin-top: 6px;">
+            <span style="font-size: 0.8rem; color: #cbd5e1; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 6px;">
+                GTFS 2.0 Compliant • 23 Indian Metropolitan Feeds
+            </span>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
-with col1:
+# Top KPI Metric Cards (Clean Grid, No Overlap)
+kpi1, kpi2, kpi3, kpi4, kpi5 = st.columns(5)
+
+with kpi1:
     st.markdown(f"""
-    <div class="telemetry-card">
-        <div class="telemetry-label">Network Routes</div>
-        <div class="telemetry-val">{len(enriched_profiles)}</div>
-        <div class="telemetry-tag tag-cyan">⚡ {health.get('total_network_km', 0):.0f} km Total Span</div>
+    <div class="kpi-container">
+        <div class="kpi-title">Active Routes</div>
+        <div class="kpi-number">{len(enriched_profiles)}</div>
+        <div class="kpi-desc" style="color: #38bdf8;">{health.get('total_network_km', 0):.0f} km Network</div>
     </div>
     """, unsafe_allow_html=True)
 
-with col2:
+with kpi2:
     st.markdown(f"""
-    <div class="telemetry-card">
-        <div class="telemetry-label">Daily Scheduled Trips</div>
-        <div class="telemetry-val">{health.get('total_daily_trips', 0):,}</div>
-        <div class="telemetry-tag tag-emerald">● Across {len(feed.stops)} Hub Stops</div>
+    <div class="kpi-container">
+        <div class="kpi-title">Scheduled Trips</div>
+        <div class="kpi-number">{health.get('total_daily_trips', 0):,}</div>
+        <div class="kpi-desc" style="color: #34d399;">{len(feed.stops)} Bus Stops</div>
     </div>
     """, unsafe_allow_html=True)
 
-with col3:
+with kpi3:
+    over_cnt = (enriched_profiles["performance_status"] == "Overcrowded").sum()
     st.markdown(f"""
-    <div class="telemetry-card">
-        <div class="telemetry-label">Overcrowded Bottlenecks</div>
-        <div class="telemetry-val" style="color: #f43f5e;">{overcrowded_routes}</div>
-        <div class="telemetry-tag tag-rose">⚠ > 100% Peak Utilization</div>
+    <div class="kpi-container">
+        <div class="kpi-title">Overcrowded Routes</div>
+        <div class="kpi-number" style="color: #f43f5e;">{over_cnt}</div>
+        <div class="kpi-desc" style="color: #f87171;">>100% Peak Utilization</div>
     </div>
     """, unsafe_allow_html=True)
 
-with col4:
+with kpi4:
+    under_cnt = (enriched_profiles["performance_status"] == "Underutilized").sum()
     st.markdown(f"""
-    <div class="telemetry-card">
-        <div class="telemetry-label">Underutilized Corridors</div>
-        <div class="telemetry-val" style="color: #38bdf8;">{underutilized_routes}</div>
-        <div class="telemetry-tag tag-amber">↓ < 45% Avg Capacity</div>
+    <div class="kpi-container">
+        <div class="kpi-title">Underutilized Routes</div>
+        <div class="kpi-number" style="color: #38bdf8;">{under_cnt}</div>
+        <div class="kpi-desc" style="color: #67e8f9;"><45% Capacity Usage</div>
     </div>
     """, unsafe_allow_html=True)
 
-with col5:
-    ann_savings = sav.get("cost_saved_annual_inr", 0)
+with kpi5:
+    ann_sav = sav.get("cost_saved_annual_inr", 0)
     st.markdown(f"""
-    <div class="telemetry-card">
-        <div class="telemetry-label">Estimated Annual Savings</div>
-        <div class="telemetry-val" style="color: #34d399;">₹{ann_savings/1e5:.1f}L</div>
-        <div class="telemetry-tag tag-emerald">✦ {sav.get('net_km_saved_daily', 0):.0f} km/day Saved</div>
+    <div class="kpi-container">
+        <div class="kpi-title">Savings Potential</div>
+        <div class="kpi-number" style="color: #34d399;">₹{ann_sav/1e5:.1f}L</div>
+        <div class="kpi-desc" style="color: #a7f3d0;">Est. Annual Savings</div>
     </div>
     """, unsafe_allow_html=True)
 
 st.write("")
 
-# Main View Navigation Tabs
+# Navigation Tabs (Short, Clean, Non-colliding Titles)
 tab_gis, tab_eda, tab_ai, tab_action, tab_roi = st.tabs([
-    "🗺️ Network GIS & Corridors",
-    "📊 Demand Analytics & Overlap",
-    "🤖 ML Models & Archetype Profiling",
-    "⚡ Actionable Interventions & What-If",
-    "📈 Executive ROI & Decision Brief"
+    "📍 Transit Map",
+    "📊 Analytics & Overlap",
+    "🤖 ML Models",
+    "⚡ Route Optimizer",
+    "📈 Impact & ROI"
 ])
 
-# ----------------- TAB 1: GIS Map & Corridors -----------------
+# ----------------- TAB 1: GIS Map -----------------
 with tab_gis:
-    st.markdown("#### 🌐 Spatial Topology & Real-Time Alignment Inspector")
+    st.markdown("##### 📍 Interactive Transit Map & Corridors")
 
-    col_filter, col_map = st.columns([1, 3])
+    col_ctrl, col_map = st.columns([1, 2.5])
 
-    with col_filter:
-        st.markdown("**Corridor Filter**")
-        status_sel = st.multiselect(
-            "Filter Performance Archetype:",
+    with col_ctrl:
+        st.markdown("**Filters & Inspection**")
+        status_filter = st.multiselect(
+            "Filter Status:",
             ["Overcrowded", "Balanced", "Underutilized"],
             default=["Overcrowded", "Balanced", "Underutilized"]
         )
-        filtered_view = enriched_profiles[enriched_profiles["performance_status"].isin(status_sel)]
+        filtered_routes = enriched_profiles[enriched_profiles["performance_status"].isin(status_filter)]
 
-        route_options = ["All Network Corridors"] + list(filtered_view["route_short_name"] + " : " + filtered_view["route_long_name"])
-        chosen_corridor = st.selectbox("Isolate Specific Corridor:", route_options)
+        route_list = ["All Routes"] + list(filtered_routes["route_short_name"] + " - " + filtered_routes["route_long_name"])
+        selected_route_str = st.selectbox("Highlight Corridor:", route_list)
 
-        show_stops = st.checkbox("Show Passenger Hub Halos", value=True)
-        show_corridors = st.checkbox("Render Line Alignments", value=True)
+        show_stops = st.checkbox("Show Bus Stops", value=True)
+        show_lines = st.checkbox("Draw Route Lines", value=True)
 
         st.markdown("---")
-        if chosen_corridor != "All Network Corridors":
-            sel_id = chosen_corridor.split(" : ")[0]
-            cr = enriched_profiles[enriched_profiles["route_short_name"] == sel_id].iloc[0]
-            pill_type = f"pill-{cr['performance_status'].lower()}"
-            st.markdown(f"##### Route `{cr['route_short_name']}` <span class='status-pill {pill_type}'>{cr['performance_status']}</span>", unsafe_allow_html=True)
-            st.markdown(f"**Path**: {cr['route_long_name']}")
-            st.markdown(f"**Length**: `{cr['route_length_km']} km` | **Stops**: `{cr['num_stops']}`")
-            st.markdown(f"**Peak Load**: `{cr['peak_load_factor']}%` | **Headway**: `{cr['avg_headway_min']}m`")
-            st.markdown(f"**Daily Ridership**: `{cr['estimated_daily_passengers']:,} pax/day`")
+        if selected_route_str != "All Routes":
+            r_code = selected_route_str.split(" - ")[0]
+            r_data = enriched_profiles[enriched_profiles["route_short_name"] == r_code].iloc[0]
+            p_class = "pill-red" if r_data['performance_status'] == "Overcrowded" else ("pill-blue" if r_data['performance_status'] == "Underutilized" else "pill-green")
+            st.markdown(f"**Route**: `{r_data['route_short_name']}` <span class='pill {p_class}'>{r_data['performance_status']}</span>", unsafe_allow_html=True)
+            st.write(f"**Corridor**: {r_data['route_long_name']}")
+            st.write(f"**Length**: {r_data['route_length_km']} km | **Stops**: {r_data['num_stops']}")
+            st.write(f"**Peak Load**: {r_data['peak_load_factor']}% | **Headway**: {r_data['avg_headway_min']}m")
+            st.write(f"**Ridership**: {r_data['estimated_daily_passengers']:,} pax/day")
         else:
-            st.info("Select a route from the dropdown to inspect corridor telemetry.")
+            st.info("Pick a route above to see detailed corridor metrics.")
 
     with col_map:
         stops_df = feed.stops
         if not stops_df.empty:
-            c_lat = stops_df["stop_lat"].mean()
-            c_lon = stops_df["stop_lon"].mean()
+            c_lat = float(stops_df["stop_lat"].mean())
+            c_lon = float(stops_df["stop_lon"].mean())
         else:
-            c_lat, c_lon = 28.6139, 77.2090
+            c_lat, c_lon = 22.5726, 88.3639
 
-        # Clean high-detail OpenStreetMap without watermarks or API keys
+        # Clean high-detail OpenStreetMap (Zero watermarks, Zero API keys)
         m = folium.Map(
             location=[c_lat, c_lon],
             zoom_start=12,
@@ -488,60 +397,60 @@ with tab_gis:
         )
 
         neon_colors = {
-            "Overcrowded": "#f43f5e",   # Neon Coral Red
-            "Balanced": "#10b981",      # Emerald
-            "Underutilized": "#06b6d4"  # Electric Cyan
+            "Overcrowded": "#dc2626",   # Red
+            "Balanced": "#16a34a",      # Green
+            "Underutilized": "#0284c7"  # Blue
         }
 
-        routes_to_render = filtered_view if chosen_corridor == "All Network Corridors" else filtered_view[
-            filtered_view["route_short_name"] == chosen_corridor.split(" : ")[0]
+        routes_to_plot = filtered_routes if selected_route_str == "All Routes" else filtered_routes[
+            filtered_routes["route_short_name"] == selected_route_str.split(" - ")[0]
         ]
 
-        if show_corridors:
-            for _, r in routes_to_render.iterrows():
+        if show_lines:
+            for _, r in routes_to_plot.iterrows():
                 coords = feed.get_route_coordinates(r["route_id"])
                 if len(coords) >= 2:
-                    col = neon_colors.get(r["performance_status"], "#818cf8")
+                    col = neon_colors.get(r["performance_status"], "#4f46e5")
                     folium.PolyLine(
                         coords,
                         color=col,
-                        weight=6 if chosen_corridor != "All Network Corridors" else 3.5,
+                        weight=5 if selected_route_str != "All Routes" else 3.5,
                         opacity=0.9,
-                        tooltip=f"Route {r['route_short_name']} ({r['performance_status']}) - {r['peak_load_factor']}% Peak Load"
+                        tooltip=f"Route {r['route_short_name']}: {r['route_long_name']} ({r['performance_status']})"
                     ).add_to(m)
 
         if show_stops and not stops_usage_df.empty:
-            for _, s in stops_usage_df.head(45).iterrows():
-                ff = s.get("est_daily_footfall", 1000)
+            for _, s in stops_usage_df.head(40).iterrows():
+                ff = int(s.get("est_daily_footfall", 1000))
                 folium.CircleMarker(
                     location=[s["stop_lat"], s["stop_lon"]],
-                    radius=max(4, min(10, int(ff / 2000))),
-                    color="#818cf8",
+                    radius=max(4, min(9, int(ff / 2000))),
+                    color="#4338ca",
                     fill=True,
                     fill_color="#6366f1",
                     fill_opacity=0.8,
-                    popup=f"<b>{s['stop_name']}</b><br>Daily Footfall: {ff:,} pax",
-                    tooltip=f"{s['stop_name']} ({ff:,} pax)"
+                    popup=f"<b>{s['stop_name']}</b><br>Footfall: {ff:,} pax/day",
+                    tooltip=s["stop_name"]
                 ).add_to(m)
 
-        st_folium(m, use_container_width=True, height=520)
+        st_folium(m, use_container_width=True, height=480)
 
-    # Telemetry Inventory
-    st.markdown("##### 📋 Corridor Fleet Telemetry Matrix")
+    # Routes Table
+    st.markdown("##### 📋 Complete Route Telemetry")
     st.dataframe(
-        filtered_view[[
+        filtered_routes[[
             "route_short_name", "route_long_name", "performance_status",
             "route_length_km", "num_stops", "total_daily_trips",
             "avg_headway_min", "peak_load_factor", "avg_load_factor",
             "estimated_daily_passengers"
         ]].rename(columns={
             "route_short_name": "Line",
-            "route_long_name": "Corridor Path",
-            "performance_status": "Classification",
-            "route_length_km": "Distance (km)",
+            "route_long_name": "Corridor Description",
+            "performance_status": "Status",
+            "route_length_km": "Length (km)",
             "num_stops": "Stops",
             "total_daily_trips": "Trips/Day",
-            "avg_headway_min": "Headway (m)",
+            "avg_headway_min": "Headway (min)",
             "peak_load_factor": "Peak Load %",
             "avg_load_factor": "Avg Load %",
             "estimated_daily_passengers": "Daily Pax"
@@ -549,110 +458,107 @@ with tab_gis:
         use_container_width=True
     )
 
-# ----------------- TAB 2: Demand Analytics & Overlap -----------------
+# ----------------- TAB 2: Analytics & Overlap -----------------
 with tab_eda:
-    st.markdown("#### 📊 Temporal Rush Distributions & Corridor Overlap Matrix")
+    st.markdown("##### 📊 Demand Curves & Route Overlap Heatmap")
 
-    eda_c1, eda_c2 = st.columns(2)
+    eda1, eda2 = st.columns(2)
 
-    with eda_c1:
+    with eda1:
         st.markdown("**24-Hour Passenger Demand vs Scheduled Trips**")
-        fig_hour = go.Figure()
-        fig_hour.add_trace(go.Bar(
+        fig_h = go.Figure()
+        fig_h.add_trace(go.Bar(
             x=hourly_df["hour"],
             y=hourly_df["active_trips"],
             name="Scheduled Trips",
-            marker=dict(color="rgba(148, 163, 184, 0.35)", line=dict(color="#64748b", width=1)),
+            marker_color="#64748b",
+            opacity=0.5,
             yaxis="y2"
         ))
-        fig_hour.add_trace(go.Scatter(
+        fig_h.add_trace(go.Scatter(
             x=hourly_df["hour"],
             y=hourly_df["estimated_passengers"],
             name="Passenger Volume (Pax/hr)",
-            line=dict(color="#06b6d4", width=3, shape="spline"),
+            line=dict(color="#38bdf8", width=3),
             mode="lines+markers"
         ))
-        fig_hour.update_layout(
+        fig_h.update_layout(
             template="plotly_dark",
-            paper_bgcolor="#0f172a",
-            plot_bgcolor="#0f172a",
-            xaxis=dict(title="Hour of Day (00:00 - 23:00)", gridcolor="rgba(255,255,255,0.05)"),
-            yaxis=dict(title="Estimated Pax / Hour", gridcolor="rgba(255,255,255,0.05)"),
-            yaxis2=dict(title="Active Bus Trips", side="right", overlaying="y", showgrid=False),
-            legend=dict(x=0.02, y=0.98, bgcolor="rgba(15,23,42,0.8)"),
-            height=370,
+            paper_bgcolor="#131b2e",
+            plot_bgcolor="#131b2e",
+            xaxis=dict(title="Hour (0-23)", gridcolor="rgba(255,255,255,0.05)"),
+            yaxis=dict(title="Pax / Hour", gridcolor="rgba(255,255,255,0.05)"),
+            yaxis2=dict(title="Active Trips", side="right", overlaying="y", showgrid=False),
+            legend=dict(x=0.02, y=0.98, bgcolor="rgba(19,27,46,0.8)"),
+            height=340,
             margin=dict(l=10, r=10, t=20, b=20)
         )
-        st.plotly_chart(fig_hour, use_container_width=True)
+        st.plotly_chart(fig_h, use_container_width=True)
 
-    with eda_c2:
+    with eda2:
         st.markdown("**Peak Load Factor vs Route Distance**")
-        fig_dist = px.scatter(
+        fig_sc = px.scatter(
             enriched_profiles,
             x="route_length_km",
             y="peak_load_factor",
             size="estimated_daily_passengers",
             color="performance_status",
-            color_discrete_map={"Overcrowded": "#f43f5e", "Balanced": "#10b981", "Underutilized": "#06b6d4"},
+            color_discrete_map={"Overcrowded": "#f43f5e", "Balanced": "#10b981", "Underutilized": "#38bdf8"},
             hover_name="route_short_name",
-            hover_data=["num_stops", "avg_headway_min"],
             template="plotly_dark"
         )
-        fig_dist.add_hline(y=100, line_dash="dash", line_color="#f43f5e", annotation_text="Overcrowd Threshold")
-        fig_dist.add_hline(y=45, line_dash="dash", line_color="#06b6d4", annotation_text="Underutilize Threshold")
-        fig_dist.update_layout(
-            paper_bgcolor="#0f172a",
-            plot_bgcolor="#0f172a",
-            height=370,
+        fig_sc.add_hline(y=100, line_dash="dash", line_color="#f43f5e", annotation_text="Overcrowded (100%)")
+        fig_sc.add_hline(y=45, line_dash="dash", line_color="#38bdf8", annotation_text="Underutilized (45%)")
+        fig_sc.update_layout(
+            paper_bgcolor="#131b2e",
+            plot_bgcolor="#131b2e",
+            height=340,
             margin=dict(l=10, r=10, t=20, b=20)
         )
-        st.plotly_chart(fig_dist, use_container_width=True)
+        st.plotly_chart(fig_sc, use_container_width=True)
 
     st.markdown("---")
-    st.markdown("#### 🔁 Pairwise Corridor Overlap & Redundancy Matrix")
+    st.markdown("##### 🔁 Route Overlap & Redundancy Detection")
 
     if not overlap_matrix.empty:
-        heat_c1, heat_c2 = st.columns([3, 2])
-        with heat_c1:
-            fig_heat = px.imshow(
+        col_m, col_p = st.columns([3, 2])
+        with col_m:
+            fig_hm = px.imshow(
                 overlap_matrix,
-                labels=dict(x="Corridor", y="Corridor", color="Jaccard Index"),
-                x=overlap_matrix.columns,
-                y=overlap_matrix.index,
+                labels=dict(x="Route", y="Route", color="Overlap"),
                 color_continuous_scale="Purples",
                 template="plotly_dark"
             )
-            fig_heat.update_layout(
-                paper_bgcolor="#0f172a",
-                plot_bgcolor="#0f172a",
-                height=380,
+            fig_hm.update_layout(
+                paper_bgcolor="#131b2e",
+                plot_bgcolor="#131b2e",
+                height=360,
                 margin=dict(l=10, r=10, t=10, b=10)
             )
-            st.plotly_chart(fig_heat, use_container_width=True)
+            st.plotly_chart(fig_hm, use_container_width=True)
 
-        with heat_c2:
-            st.markdown("##### Detected Parallel Redundancies")
+        with col_p:
+            st.markdown("**Detected Parallel Corridors**")
             if overlap_pairs:
                 for p in overlap_pairs:
                     st.markdown(f"""
-                    <div style="background: #1e293b; border-left: 4px solid #f97316; border-radius: 6px; padding: 12px 14px; margin-bottom: 8px;">
-                        <div style="font-weight: 700; color: #f8fafc; font-size: 0.9rem;">{p['route_1_name']} ⟷ {p['route_2_name']}</div>
-                        <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;">
+                    <div style="background: #1e293b; border-left: 3px solid #f97316; border-radius: 6px; padding: 10px 12px; margin-bottom: 8px;">
+                        <div style="font-weight: 700; color: #f8fafc; font-size: 0.88rem;">{p['route_1_name']} ⟷ {p['route_2_name']}</div>
+                        <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 3px;">
                             Shared Stops: <b>{p['shared_stops']}</b> | Corridor Overlap: <b>{p['corridor_overlap_pct']}%</b>
                         </div>
-                        <div style="font-size: 0.78rem; color: #fb923c; font-weight: 600; margin-top: 4px;">
-                            Action: Consolidate into synchronized trunk service
+                        <div style="font-size: 0.78rem; color: #fb923c; font-weight: 600; margin-top: 3px;">
+                            ⚡ Recommendation: Merge into coordinated express line
                         </div>
                     </div>
                     """, unsafe_allow_html=True)
             else:
-                st.info("No significant corridor overlap detected (>50% threshold).")
+                st.info("No redundant route overlap detected above 50% threshold.")
 
-# ----------------- TAB 3: ML Models & Archetypes -----------------
+# ----------------- TAB 3: ML Models -----------------
 with tab_ai:
-    st.markdown("#### 🤖 Machine Learning Model Benchmarks & Unsupervised Profiling")
+    st.markdown("##### 🤖 Machine Learning Model Benchmarks & Clustering")
 
-    # Metrics Summary
     metrics_file = os.path.join(base_dir, "models", "training_metrics.json")
     if os.path.exists(metrics_file):
         with open(metrics_file, "r") as f:
@@ -660,48 +566,48 @@ with tab_ai:
     else:
         benchmarks = {}
 
-    rf_data = benchmarks.get("rf_metrics", {"accuracy": 1.0, "f1_score": 1.0, "precision": 1.0, "recall": 1.0})
-    xgb_data = benchmarks.get("xgb_metrics", {"accuracy": 1.0, "f1_score": 1.0, "precision": 1.0, "recall": 1.0})
+    rf_m = benchmarks.get("rf_metrics", {"accuracy": 1.0, "f1_score": 1.0, "precision": 1.0, "recall": 1.0})
+    xgb_m = benchmarks.get("xgb_metrics", {"accuracy": 1.0, "f1_score": 1.0, "precision": 1.0, "recall": 1.0})
 
-    ai_m1, ai_m2 = st.columns(2)
+    m_col1, m_col2 = st.columns(2)
 
-    with ai_m1:
+    with m_col1:
         st.markdown(f"""
-        <div style="background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px 22px;">
+        <div style="background: #131b2e; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px 18px;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h5 style="margin: 0; color: #f8fafc;">Random Forest Classifier (Ensemble)</h5>
-                <span class="status-pill pill-balanced">Validated</span>
+                <h5 style="margin: 0; color: #f8fafc;">Random Forest Classifier</h5>
+                <span class="pill pill-green">Active</span>
             </div>
-            <div style="display: flex; gap: 24px; margin-top: 14px;">
-                <div><div style="font-size: 0.72rem; color: #64748b;">ACCURACY</div><div style="font-size: 1.5rem; font-family: monospace; font-weight: 700; color: #34d399;">{rf_data['accuracy']*100:.1f}%</div></div>
-                <div><div style="font-size: 0.72rem; color: #64748b;">F1-SCORE</div><div style="font-size: 1.5rem; font-family: monospace; font-weight: 700; color: #34d399;">{rf_data['f1_score']*100:.1f}%</div></div>
-                <div><div style="font-size: 0.72rem; color: #64748b;">PRECISION</div><div style="font-size: 1.5rem; font-family: monospace; font-weight: 700; color: #34d399;">{rf_data['precision']*100:.1f}%</div></div>
+            <div style="display: flex; gap: 20px; margin-top: 12px;">
+                <div><div style="font-size: 0.7rem; color: #64748b;">ACCURACY</div><div style="font-size: 1.4rem; font-family: monospace; font-weight: 700; color: #34d399;">{rf_m['accuracy']*100:.1f}%</div></div>
+                <div><div style="font-size: 0.7rem; color: #64748b;">F1-SCORE</div><div style="font-size: 1.4rem; font-family: monospace; font-weight: 700; color: #34d399;">{rf_m['f1_score']*100:.1f}%</div></div>
+                <div><div style="font-size: 0.7rem; color: #64748b;">PRECISION</div><div style="font-size: 1.4rem; font-family: monospace; font-weight: 700; color: #34d399;">{rf_m['precision']*100:.1f}%</div></div>
             </div>
-            <p style="font-size: 0.82rem; color: #94a3b8; margin: 12px 0 0 0;">Multi-tree bagging model classifying route health across 11 engineered spatial and temporal features.</p>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin: 10px 0 0 0;">Ensemble model classifying routes into Overcrowded, Balanced, and Underutilized categories.</p>
         </div>
         """, unsafe_allow_html=True)
 
-    with ai_m2:
+    with m_col2:
         st.markdown(f"""
-        <div style="background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px 22px;">
+        <div style="background: #131b2e; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px 18px;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h5 style="margin: 0; color: #f8fafc;">XGBoost Gradient Boosting Classifier</h5>
-                <span class="status-pill pill-underutilized">High Performance</span>
+                <h5 style="margin: 0; color: #f8fafc;">XGBoost Gradient Booster</h5>
+                <span class="pill pill-blue">Active</span>
             </div>
-            <div style="display: flex; gap: 24px; margin-top: 14px;">
-                <div><div style="font-size: 0.72rem; color: #64748b;">ACCURACY</div><div style="font-size: 1.5rem; font-family: monospace; font-weight: 700; color: #38bdf8;">{xgb_data['accuracy']*100:.1f}%</div></div>
-                <div><div style="font-size: 0.72rem; color: #64748b;">F1-SCORE</div><div style="font-size: 1.5rem; font-family: monospace; font-weight: 700; color: #38bdf8;">{xgb_data['f1_score']*100:.1f}%</div></div>
-                <div><div style="font-size: 0.72rem; color: #64748b;">PRECISION</div><div style="font-size: 1.5rem; font-family: monospace; font-weight: 700; color: #38bdf8;">{xgb_data['precision']*100:.1f}%</div></div>
+            <div style="display: flex; gap: 20px; margin-top: 12px;">
+                <div><div style="font-size: 0.7rem; color: #64748b;">ACCURACY</div><div style="font-size: 1.4rem; font-family: monospace; font-weight: 700; color: #38bdf8;">{xgb_m['accuracy']*100:.1f}%</div></div>
+                <div><div style="font-size: 0.7rem; color: #64748b;">F1-SCORE</div><div style="font-size: 1.4rem; font-family: monospace; font-weight: 700; color: #38bdf8;">{xgb_m['f1_score']*100:.1f}%</div></div>
+                <div><div style="font-size: 0.7rem; color: #64748b;">PRECISION</div><div style="font-size: 1.4rem; font-family: monospace; font-weight: 700; color: #38bdf8;">{xgb_m['precision']*100:.1f}%</div></div>
             </div>
-            <p style="font-size: 0.82rem; color: #94a3b8; margin: 12px 0 0 0;">Second-order gradient boosting detecting non-linear headway bunching and peak crowd surges.</p>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin: 10px 0 0 0;">Regularized gradient booster detecting subtle non-linear dependencies in headways and passenger loads.</p>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("---")
-    feat_c1, feat_c2 = st.columns(2)
+    f_c1, f_c2 = st.columns(2)
 
-    with feat_c1:
-        st.markdown("##### Feature Importance Weights")
+    with f_c1:
+        st.markdown("**Feature Importance Weights**")
         rf_imp = benchmarks.get("rf_feature_importance", [
             {"feature": "peak_load_factor", "importance": 0.42},
             {"feature": "avg_load_factor", "importance": 0.28},
@@ -711,177 +617,158 @@ with tab_ai:
             {"feature": "avg_speed_kmh", "importance": 0.03},
         ])
         df_imp = pd.DataFrame(rf_imp).sort_values("importance", ascending=True)
-        fig_feat = px.bar(
-            df_imp,
-            x="importance",
-            y="feature",
-            orientation="h",
-            color="importance",
-            color_continuous_scale="Tealgrn",
-            template="plotly_dark"
+        fig_f = px.bar(
+            df_imp, x="importance", y="feature", orientation="h",
+            color="importance", color_continuous_scale="Tealgrn", template="plotly_dark"
         )
-        fig_feat.update_layout(
-            paper_bgcolor="#0f172a",
-            plot_bgcolor="#0f172a",
-            height=340,
-            margin=dict(l=10, r=10, t=10, b=10),
-            showlegend=False
+        fig_f.update_layout(
+            paper_bgcolor="#131b2e", plot_bgcolor="#131b2e",
+            height=320, margin=dict(l=10, r=10, t=10, b=10), showlegend=False
         )
-        st.plotly_chart(fig_feat, use_container_width=True)
+        st.plotly_chart(fig_f, use_container_width=True)
 
-    with feat_c2:
-        st.markdown("##### KMeans Archetype Clusters (PCA Space)")
+    with f_c2:
+        st.markdown("**KMeans Route Archetypes (PCA Space)**")
         if "pca_1" in enriched_profiles.columns and "pca_2" in enriched_profiles.columns:
-            fig_pca = px.scatter(
-                enriched_profiles,
-                x="pca_1",
-                y="pca_2",
-                color="kmeans_archetype",
-                hover_name="route_short_name",
-                hover_data=["peak_load_factor", "avg_headway_min"],
-                template="plotly_dark"
+            fig_p = px.scatter(
+                enriched_profiles, x="pca_1", y="pca_2",
+                color="kmeans_archetype", hover_name="route_short_name", template="plotly_dark"
             )
-            fig_pca.update_layout(
-                paper_bgcolor="#0f172a",
-                plot_bgcolor="#0f172a",
-                height=340,
-                margin=dict(l=10, r=10, t=10, b=10),
+            fig_p.update_layout(
+                paper_bgcolor="#131b2e", plot_bgcolor="#131b2e",
+                height=320, margin=dict(l=10, r=10, t=10, b=10),
                 legend=dict(orientation="h", y=-0.2)
             )
-            st.plotly_chart(fig_pca, use_container_width=True)
+            st.plotly_chart(fig_p, use_container_width=True)
 
-# ----------------- TAB 4: Interventions & Simulation -----------------
+# ----------------- TAB 4: Route Optimizer -----------------
 with tab_action:
-    st.markdown("#### ⚡ AI Optimization Interventions & What-If Simulation")
+    st.markdown("##### ⚡ Strategic Route Optimization Plans")
 
-    st.markdown("##### Strategic Action Recommendations")
     if recommendations:
         for rec in recommendations:
             pr = rec["priority"].lower()
             imp = rec["impact"]
-            
-            badge_html = " ".join([
-                f"<span style='background: #1e293b; color: #cbd5e1; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-family: monospace; margin-right: 6px;'>"
+            badges = " ".join([
+                f"<span style='background: #1e293b; color: #cbd5e1; padding: 2px 7px; border-radius: 4px; font-size: 0.72rem; font-family: monospace; margin-right: 5px;'>"
                 f"{k.replace('_', ' ').title()}: <b>{v}</b></span>"
                 for k, v in imp.items()
             ])
 
             st.markdown(f"""
-            <div class="action-card {pr}">
+            <div class="action-box {pr}">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h5 style="margin: 0; color: #f8fafc;">{rec['title']}</h5>
-                    <span style="font-family: monospace; font-size: 0.78rem; font-weight: 700; color: #818cf8;">{rec['action_type']}</span>
+                    <h5 style="margin: 0; color: #f8fafc; font-size: 0.95rem;">{rec['title']}</h5>
+                    <span style="font-family: monospace; font-size: 0.75rem; font-weight: 700; color: #818cf8;">{rec['action_type']}</span>
                 </div>
-                <p style="color: #94a3b8; font-size: 0.88rem; margin: 8px 0 10px 0;">{rec['details']}</p>
-                <div>{badge_html}</div>
+                <p style="color: #94a3b8; font-size: 0.85rem; margin: 6px 0 8px 0;">{rec['details']}</p>
+                <div>{badges}</div>
             </div>
             """, unsafe_allow_html=True)
     else:
-        st.success("All network corridors operating within target equilibrium parameters.")
+        st.success("All network routes are operating at target capacity.")
 
     st.markdown("---")
-    st.markdown("##### 🎛️ Interactive 'What-If' Route Optimization Console")
-    st.write("Tune bus departures and passenger demand to evaluate real-time equilibrium changes.")
+    st.markdown("##### 🎛️ Interactive 'What-If' Simulation")
+    st.write("Adjust bus allocations and demand growth to see immediate simulated outcomes:")
 
-    sim_c1, sim_c2 = st.columns(2)
-
-    with sim_c1:
-        sim_choice = st.selectbox(
-            "Select Route Corridor to Simulate:",
-            enriched_profiles["route_short_name"] + " : " + enriched_profiles["route_long_name"]
+    sim1, sim2 = st.columns(2)
+    with sim1:
+        route_sel = st.selectbox(
+            "Select Route:",
+            enriched_profiles["route_short_name"] + " - " + enriched_profiles["route_long_name"],
+            key="sim_sel"
         )
-        sel_c_code = sim_choice.split(" : ")[0]
-        cur_c = enriched_profiles[enriched_profiles["route_short_name"] == sel_c_code].iloc[0]
+        r_short = route_sel.split(" - ")[0]
+        cur_r = enriched_profiles[enriched_profiles["route_short_name"] == r_short].iloc[0]
 
-        curr_t = int(cur_c["total_daily_trips"])
-        curr_h = float(cur_c["avg_headway_min"])
-        curr_pl = float(cur_c["peak_load_factor"])
+        cur_trips = int(cur_r["total_daily_trips"])
+        cur_hw = float(cur_r["avg_headway_min"])
+        cur_load = float(cur_r["peak_load_factor"])
 
-        st.markdown(f"**Current Headway**: `{curr_h} mins` | **Daily Departures**: `{curr_t}` | **Peak Load**: `{curr_pl}%`")
+        st.markdown(f"**Baseline Headway**: `{cur_hw}m` | **Daily Trips**: `{cur_trips}` | **Peak Load**: `{cur_load}%`")
+        delta_trips = st.slider("Add / Reduce Daily Bus Departures:", -15, 25, 0, step=1)
+        delta_demand = st.slider("Passenger Demand Shift (%):", -30, 50, 0, step=5)
 
-        adj_trips = st.slider("Inject / Remove Daily Bus Departures:", -15, 25, 0, step=1)
-        adj_demand = st.slider("Projected Passenger Demand Shift (%):", -30, 50, 0, step=5)
+    with sim2:
+        sim_trips = max(8, cur_trips + delta_trips)
+        sim_hw = round((16 * 60) / sim_trips, 1)
+        sim_load = round(cur_load * (cur_trips / sim_trips) * (1.0 + delta_demand / 100.0), 1)
+        sim_wait = round(sim_hw / 2.0, 1)
+        old_wait = round(cur_hw / 2.0, 1)
 
-    with sim_c2:
-        new_t = max(8, curr_t + adj_trips)
-        new_h = round((16 * 60) / new_t, 1)
-        sim_pl = round(curr_pl * (curr_t / new_t) * (1.0 + adj_demand / 100.0), 1)
-        sim_wait = round(new_h / 2.0, 1)
-        old_wait = round(curr_h / 2.0, 1)
+        st.markdown("**Simulated Forecast**")
+        sc1, sc2 = st.columns(2)
+        with sc1:
+            st.metric("New Peak Load", f"{sim_load}%", delta=f"{sim_load - cur_load:.1f}%", delta_color="inverse")
+        with sc2:
+            st.metric("New Wait Time", f"{sim_wait} min", delta=f"{sim_wait - old_wait:.1f} min", delta_color="inverse")
 
-        st.markdown("###### Projected Telemetry")
-        r_c1, r_c2 = st.columns(2)
-        with r_c1:
-            st.metric("Projected Peak Load", f"{sim_pl}%", delta=f"{sim_pl - curr_pl:.1f}%", delta_color="inverse")
-        with r_c2:
-            st.metric("Estimated Wait Time", f"{sim_wait} min", delta=f"{sim_wait - old_wait:.1f} min", delta_color="inverse")
-
-        if sim_pl > 100:
-            st.error("Bottleneck Alert: Route remains overcrowded during peak hours.")
-        elif sim_pl < 45:
-            st.warning("Underutilization Alert: Low passenger density risking empty bus mileage.")
+        if sim_load > 100:
+            st.warning("⚠️ Overcrowding remains high. Consider increasing frequency further.")
+        elif sim_load < 45:
+            st.info("ℹ️ Low occupancy detected. Consider switching to mini-buses.")
         else:
-            st.success("Equilibrium Achieved: Route operates in the optimal zone (65%–85% capacity).")
+            st.success("✅ Equilibrium achieved! Route operates in the optimal 65%–85% zone.")
 
-# ----------------- TAB 5: ROI & Stakeholder Brief -----------------
+# ----------------- TAB 5: Impact & ROI -----------------
 with tab_roi:
-    st.markdown("#### 📈 Network Transformation & Executive ROI Metrics")
+    st.markdown("##### 📈 System Impact, Fiscal ROI & Environmental Savings")
 
     bef = sim_impact.get("before", {})
     aft = sim_impact.get("after", {})
 
-    roi_c1, roi_c2, roi_c3, roi_c4 = st.columns(4)
-
-    with roi_c1:
+    r1, r2, r3, r4 = st.columns(4)
+    with r1:
         st.markdown(f"""
-        <div class="telemetry-card">
-            <div class="telemetry-label">Daily Distance Saved</div>
-            <div class="telemetry-val" style="color: #818cf8;">{sav.get('net_km_saved_daily', 0):,} km</div>
-            <div class="telemetry-tag tag-cyan">+{sav.get('efficiency_gain_pct', 0)}% Fleet Efficiency</div>
+        <div class="kpi-container">
+            <div class="kpi-title">Distance Saved / Day</div>
+            <div class="kpi-number" style="color: #818cf8;">{sav.get('net_km_saved_daily', 0):,} km</div>
+            <div class="kpi-desc" style="color: #38bdf8;">+{sav.get('efficiency_gain_pct', 0)}% Efficiency</div>
         </div>
         """, unsafe_allow_html=True)
 
-    with roi_c2:
+    with r2:
         st.markdown(f"""
-        <div class="telemetry-card">
-            <div class="telemetry-label">Fuel Saved / Day</div>
-            <div class="telemetry-val" style="color: #34d399;">{sav.get('fuel_saved_liters_daily', 0):,} L</div>
-            <div class="telemetry-tag tag-emerald">Diesel Equivalent</div>
+        <div class="kpi-container">
+            <div class="kpi-title">Fuel Conserved / Day</div>
+            <div class="kpi-number" style="color: #34d399;">{sav.get('fuel_saved_liters_daily', 0):,} L</div>
+            <div class="kpi-desc" style="color: #34d399;">Diesel Equivalent</div>
         </div>
         """, unsafe_allow_html=True)
 
-    with roi_c3:
+    with r3:
         st.markdown(f"""
-        <div class="telemetry-card">
-            <div class="telemetry-label">Annual CO2 Avoided</div>
-            <div class="telemetry-val" style="color: #10b981;">{sav.get('co2_saved_tonnes_annual', 0)} t</div>
-            <div class="telemetry-tag tag-emerald">{sav.get('co2_saved_kg_daily', 0):.0f} kg / day</div>
+        <div class="kpi-container">
+            <div class="kpi-title">Annual CO2 Avoided</div>
+            <div class="kpi-number" style="color: #10b981;">{sav.get('co2_saved_tonnes_annual', 0)} t</div>
+            <div class="kpi-desc" style="color: #a7f3d0;">{sav.get('co2_saved_kg_daily', 0):.0f} kg / day</div>
         </div>
         """, unsafe_allow_html=True)
 
-    with roi_c4:
+    with r4:
         st.markdown(f"""
-        <div class="telemetry-card">
-            <div class="telemetry-label">Annual Fiscal Savings</div>
-            <div class="telemetry-val" style="color: #fbbf24;">₹{sav.get('cost_saved_annual_inr', 0)/1e5:.1f} Lakh</div>
-            <div class="telemetry-tag tag-amber">₹{sav.get('cost_saved_daily_inr', 0):,}/day</div>
+        <div class="kpi-container">
+            <div class="kpi-title">Annual Cost Savings</div>
+            <div class="kpi-number" style="color: #fbbf24;">₹{sav.get('cost_saved_annual_inr', 0)/1e5:.1f}L</div>
+            <div class="kpi-desc" style="color: #fde68a;">₹{sav.get('cost_saved_daily_inr', 0):,}/day</div>
         </div>
         """, unsafe_allow_html=True)
 
     st.write("")
-    st.markdown("##### ⚖️ Current Baseline vs RouteRanker Optimized")
+    st.markdown("##### ⚖️ Before vs After Network Comparison")
 
-    comp_df = pd.DataFrame({
-        "Strategic Parameter": [
+    comparison_df = pd.DataFrame({
+        "Metric": [
             "Total Daily Vehicle Distance",
-            "Total Scheduled Departures",
+            "Total Daily Bus Trips",
             "Average Bus Headway",
-            "Network Peak Utilization",
-            "Overcrowded Route Bottlenecks",
-            "Underutilized Redundant Lines",
+            "Peak Load Factor",
+            "Overcrowded Routes Count",
+            "Underutilized Routes Count",
             "Average Passenger Wait Time"
         ],
-        "Current Baseline": [
+        "Current (Before)": [
             f"{bef.get('daily_vehicle_km', 0):,} km",
             f"{bef.get('total_daily_trips', 0):,}",
             f"{bef.get('avg_headway_min', 0)} min",
@@ -890,7 +777,7 @@ with tab_roi:
             f"{bef.get('underutilized_routes', 0)}",
             f"{bef.get('avg_headway_min', 20)/2:.1f} min"
         ],
-        "Optimized Outcome": [
+        "RouteRanker (After)": [
             f"{aft.get('daily_vehicle_km', 0):,} km",
             f"{aft.get('total_daily_trips', 0):,}",
             f"{aft.get('avg_headway_min', 0)} min",
@@ -900,35 +787,35 @@ with tab_roi:
             f"{aft.get('avg_headway_min', 16)/2:.1f} min"
         ],
         "Impact Delta": [
-            f"-{sav.get('net_km_saved_daily', 0):,} km/day",
+            f"-{sav.get('net_km_saved_daily', 0):,} km/day saved",
             "Consolidated duplicate corridor runs",
             "Synchronized headways",
-            "Mitigated crushing rush overcrowding",
-            f"-{bef.get('overcrowded_routes', 0) - aft.get('overcrowded_routes', 0)} bottlenecks resolved",
+            "Mitigated peak rush congestion",
+            f"-{bef.get('overcrowded_routes', 0) - aft.get('overcrowded_routes', 0)} routes resolved",
             f"-{bef.get('underutilized_routes', 0) - aft.get('underutilized_routes', 0)} lines right-sized",
             f"-{sav.get('passenger_wait_time_reduction_pct', 24.5)}% wait reduction"
         ]
     })
-    st.dataframe(comp_df, use_container_width=True)
+    st.dataframe(comparison_df, use_container_width=True)
 
     st.markdown("---")
-    st.markdown("##### 📥 Export Strategic Intelligence Brief")
+    st.markdown("##### 📥 Export Reports")
 
-    csv_buf = io.StringIO()
-    enriched_profiles.to_csv(csv_buf, index=False)
+    csv_b = io.StringIO()
+    enriched_profiles.to_csv(csv_b, index=False)
 
-    exp_c1, exp_c2 = st.columns(2)
-    with exp_c1:
+    exp1, exp2 = st.columns(2)
+    with exp1:
         st.download_button(
-            "📥 Export Full Route Intelligence (CSV)",
-            data=csv_buf.getvalue(),
-            file_name=f"RouteRanker_{active_city_label.split()[0]}_Intelligence.csv",
+            "📥 Download Route Data (CSV)",
+            data=csv_b.getvalue(),
+            file_name=f"RouteRanker_{active_city_name.split()[0]}.csv",
             mime="text/csv"
         )
-    with exp_c2:
+    with exp2:
         st.download_button(
-            "📥 Export Action Plan Recommendations (JSON)",
+            "📥 Download Action Plan (JSON)",
             data=json.dumps(recommendations, indent=2, default=str),
-            file_name=f"RouteRanker_{active_city_label.split()[0]}_Recommendations.json",
+            file_name=f"RouteRanker_{active_city_name.split()[0]}_Actions.json",
             mime="application/json"
         )
