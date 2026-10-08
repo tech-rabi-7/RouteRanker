@@ -1,0 +1,16 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_DEL_502,Delhi Transport Corporation (DTC),502,Mehrauli to Kashmere Gate,3,FF5733,FFFFFF
+RT_DEL_534,Delhi Transport Corporation (DTC),534,Anand Vihar to Nehru Place,3,999999,FFFFFF
+RT_DEL_TMS-Ring,Delhi Transport Corporation (DTC),TMS-Ring,Mudrika Outer Ring Road,3,FF5733,FFFFFF
+RT_DEL_711,Delhi Transport Corporation (DTC),711,Janakpuri to Sarai Kale Khan,3,3399FF,FFFFFF
+RT_DEL_729,Delhi Transport Corporation (DTC),729,Dwarka to Kashmere Gate,3,3399FF,FFFFFF
+RT_DEL_615,Delhi Transport Corporation (DTC),615,Vasant Kunj to Connaught Place,3,999999,FFFFFF
+RT_DEL_419,Delhi Transport Corporation (DTC),419,Badarpur to Kashmere Gate,3,3399FF,FFFFFF
+RT_DEL_Airport-Exp,Delhi Transport Corporation (DTC),Airport-Exp,IGI T3 to Connaught Place,3,FF5733,FFFFFF
+RT_DEL_901,Delhi Transport Corporation (DTC),901,Rohini to Anand Vihar,3,999999,FFFFFF
+RT_DEL_502-Dup,Delhi Transport Corporation (DTC),502-Dup,Mehrauli to Old Delhi (Parallel),3,999999,FFFFFF
+RT_DEL_427,Delhi Transport Corporation (DTC),427,Nehru Place to Badarpur,3,3399FF,FFFFFF
+RT_DEL_970,Delhi Transport Corporation (DTC),970,Rohini to Janakpuri,3,FF5733,FFFFFF
+RT_DEL_311,Delhi Transport Corporation (DTC),311,Noida Link to Anand Vihar,3,999999,FFFFFF
+RT_DEL_729-Split,Delhi Transport Corporation (DTC),729-Split,Dwarka to Karol Bagh Feeder,3,3399FF,FFFFFF
+RT_DEL_101-Slow,Delhi Transport Corporation (DTC),101-Slow,Azadpur to Sarai Kale Khan,3,999999,FFFFFF

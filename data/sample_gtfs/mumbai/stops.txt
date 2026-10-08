@@ -1,0 +1,13 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_MUM_001,CSMT Railway Terminus,18.9402,72.8356,ZONE_MUM_2
+ST_MUM_002,Dadar Western Station,19.0178,72.8478,ZONE_MUM_3
+ST_MUM_003,Bandra Kurla Complex (BKC),19.0662,72.8687,ZONE_MUM_4
+ST_MUM_004,Andheri West Station,19.1197,72.8464,ZONE_MUM_1
+ST_MUM_005,Borivali West Depot,19.2307,72.8567,ZONE_MUM_2
+ST_MUM_006,Ghatkopar Railway Station,19.086,72.909,ZONE_MUM_3
+ST_MUM_007,Kurla West Station,19.0657,72.8794,ZONE_MUM_4
+ST_MUM_008,Colaba Electric House,18.915,72.827,ZONE_MUM_1
+ST_MUM_009,Thane Station West,19.186,72.9759,ZONE_MUM_2
+ST_MUM_010,Sion Circle,19.036,72.86,ZONE_MUM_3
+ST_MUM_011,Worli Naka,19.002,72.818,ZONE_MUM_4
+ST_MUM_012,Powai Hiranandani,19.119,72.908,ZONE_MUM_1

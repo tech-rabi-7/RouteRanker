@@ -1,0 +1,11 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_HYD_001,Secunderabad Railway Station,17.4399,78.4983,ZONE_HYD_2
+ST_HYD_002,Koti Bus Station,17.3833,78.4842,ZONE_HYD_3
+ST_HYD_003,Hitec City Cyber Towers,17.4504,78.3808,ZONE_HYD_4
+ST_HYD_004,Mehdipatnam Depot,17.3916,78.4398,ZONE_HYD_1
+ST_HYD_005,Gachibowli Stadium,17.4435,78.3489,ZONE_HYD_2
+ST_HYD_006,Charminar Old City,17.3616,78.4747,ZONE_HYD_3
+ST_HYD_007,Kukatpally Housing Board,17.4933,78.3995,ZONE_HYD_4
+ST_HYD_008,Dilsukhnagar Bus Station,17.3688,78.5247,ZONE_HYD_1
+ST_HYD_009,Ameerpet Metro Junction,17.4375,78.4482,ZONE_HYD_2
+ST_HYD_010,Jubilee Hills Check Post,17.4298,78.4116,ZONE_HYD_3

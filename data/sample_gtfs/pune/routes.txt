@@ -1,0 +1,8 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_PUN_115,Pune Mahanagar Parivahan Mahamandal Ltd (PMPML),115,Swargate to Hinjawadi IT Park,3,FF5733,FFFFFF
+RT_PUN_204,Pune Mahanagar Parivahan Mahamandal Ltd (PMPML),204,Katraj to Pune Station,3,999999,FFFFFF
+RT_PUN_100,Pune Mahanagar Parivahan Mahamandal Ltd (PMPML),100,Kothrud to Viman Nagar,3,FF5733,FFFFFF
+RT_PUN_115-Dup,Pune Mahanagar Parivahan Mahamandal Ltd (PMPML),115-Dup,Swargate to Hinjawadi Parallel,3,3399FF,FFFFFF
+RT_PUN_348,Pune Mahanagar Parivahan Mahamandal Ltd (PMPML),348,Hadapsar to Nigdi BRT,3,3399FF,FFFFFF
+RT_PUN_42,Pune Mahanagar Parivahan Mahamandal Ltd (PMPML),42,Katraj to Nigdi Corridor,3,999999,FFFFFF
+RT_PUN_159,Pune Mahanagar Parivahan Mahamandal Ltd (PMPML),159,Pune Station to Hadapsar,3,3399FF,FFFFFF

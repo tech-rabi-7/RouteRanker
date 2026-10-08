@@ -1,0 +1,13 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_BEN_500-D,Bangalore Metropolitan Transport Corp (BMTC),500-D,Hebbal to Silk Board (ORR),3,FF5733,FFFFFF
+RT_BEN_335-E,Bangalore Metropolitan Transport Corp (BMTC),335-E,Majestic to ITPL Whitefield,3,999999,FFFFFF
+RT_BEN_KIA-9,Bangalore Metropolitan Transport Corp (BMTC),KIA-9,Majestic to Kempegowda Airport,3,FF5733,FFFFFF
+RT_BEN_356-C,Bangalore Metropolitan Transport Corp (BMTC),356-C,Majestic to Electronic City,3,3399FF,FFFFFF
+RT_BEN_201-G,Bangalore Metropolitan Transport Corp (BMTC),201-G,Banashankari to Domlur,3,3399FF,FFFFFF
+RT_BEN_G-2,Bangalore Metropolitan Transport Corp (BMTC),G-2,Shivajinagar to Sarjapur Road,3,999999,FFFFFF
+RT_BEN_500-D-Dup,Bangalore Metropolitan Transport Corp (BMTC),500-D-Dup,Hebbal to Silk Board Redundant,3,3399FF,FFFFFF
+RT_BEN_401-K,Bangalore Metropolitan Transport Corp (BMTC),401-K,Yeshwantpur to Yelahanka,3,FF5733,FFFFFF
+RT_BEN_215-H,Bangalore Metropolitan Transport Corp (BMTC),215-H,Majestic to Banashankari,3,999999,FFFFFF
+RT_BEN_KBS-12,Bangalore Metropolitan Transport Corp (BMTC),KBS-12,Majestic to Kengeri,3,999999,FFFFFF
+RT_BEN_342-F,Bangalore Metropolitan Transport Corp (BMTC),342-F,KBS to Domlur via Indiranagar,3,3399FF,FFFFFF
+RT_BEN_V-360B,Bangalore Metropolitan Transport Corp (BMTC),V-360B,Shivajinagar to ITPL,3,FF5733,FFFFFF

@@ -1,0 +1,19 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_BEN_001,Kempegowda Bus Station (Majestic),12.9772,77.5708,ZONE_BEN_2
+ST_BEN_002,Silk Board Junction,12.9177,77.6238,ZONE_BEN_3
+ST_BEN_003,ITPL Whitefield,12.9856,77.7314,ZONE_BEN_4
+ST_BEN_004,Electronic City Tollgate,12.8452,77.6602,ZONE_BEN_1
+ST_BEN_005,Hebbal Flyover,13.0358,77.597,ZONE_BEN_2
+ST_BEN_006,Indiranagar 100ft Road,12.9784,77.6408,ZONE_BEN_3
+ST_BEN_007,Marathahalli Bridge,12.9569,77.7011,ZONE_BEN_4
+ST_BEN_008,Banashankari TTMC,12.9155,77.5736,ZONE_BEN_1
+ST_BEN_009,Jayanagar 4th Block,12.9304,77.5838,ZONE_BEN_2
+ST_BEN_010,Koramangala Sony World,12.9345,77.6257,ZONE_BEN_3
+ST_BEN_011,Yeshwantpur Railway Station,13.0238,77.5503,ZONE_BEN_4
+ST_BEN_012,Kengeri Satellite Town,12.9176,77.4837,ZONE_BEN_1
+ST_BEN_013,Yelahanka Old Town,13.1007,77.5963,ZONE_BEN_2
+ST_BEN_014,Shivajinagar Bus Station,12.9863,77.6015,ZONE_BEN_3
+ST_BEN_015,Bellandur EcoSpace,12.926,77.6762,ZONE_BEN_4
+ST_BEN_016,Tin Factory KR Puram,12.9972,77.6692,ZONE_BEN_1
+ST_BEN_017,Domlur Flyover,12.961,77.6387,ZONE_BEN_2
+ST_BEN_018,BTM Layout Udupi Garden,12.9166,77.6101,ZONE_BEN_3
