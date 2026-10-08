@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_GUW_G-1,Assam State Transport Corporation (ASTC Guwahati),G-1,Paltan Bazaar to Khanapara,3,EF4444,FFFFFF
+RT_GUW_G-5,Assam State Transport Corporation (ASTC Guwahati),G-5,Jalukbari to ISBT Betkuchi,3,0284C7,FFFFFF
+RT_GUW_G-1D,Assam State Transport Corporation (ASTC Guwahati),G-1D,Paltan Bazaar to Khanapara Parallel,3,10B981,FFFFFF

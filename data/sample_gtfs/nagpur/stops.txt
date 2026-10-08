@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_NAG_001,Nagpur Railway Station,21.152,79.088,ZONE_NAG_2
+ST_NAG_002,Sitabuldi Interchange,21.144,79.083,ZONE_NAG_3
+ST_NAG_003,Dharampeth Traffic Park,21.142,79.062,ZONE_NAG_4
+ST_NAG_004,MIHAN SEZ Metro Terminal,21.042,79.056,ZONE_NAG_1
+ST_NAG_005,Kamptee Cantonment,21.222,79.198,ZONE_NAG_2

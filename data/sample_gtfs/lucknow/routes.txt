@@ -1,0 +1,5 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_LUC_11,Lucknow City Transport Services (LCTSL),11,Charbagh to Gomti Nagar,3,EF4444,FFFFFF
+RT_LUC_25,Lucknow City Transport Services (LCTSL),25,Alambagh to Munshipulia,3,0284C7,FFFFFF
+RT_LUC_11-Dup,Lucknow City Transport Services (LCTSL),11-Dup,Charbagh to Gomti Nagar Parallel,3,10B981,FFFFFF
+RT_LUC_33,Lucknow City Transport Services (LCTSL),33,Chowk to Gomti Nagar Corridor,3,10B981,FFFFFF

@@ -1,0 +1,9 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_CHE_001,Chennai Central Station,13.0836,80.2755,ZONE_CHE_2
+ST_CHE_002,T. Nagar Bus Terminus,13.0418,80.2337,ZONE_CHE_3
+ST_CHE_003,Koyambedu CMBT,13.0694,80.1948,ZONE_CHE_4
+ST_CHE_004,Guindy Kathipara Junction,13.0067,80.2025,ZONE_CHE_1
+ST_CHE_005,Tambaram Sanatorium,12.9279,80.1277,ZONE_CHE_2
+ST_CHE_006,Thiruvanmiyur OMR Junction,12.983,80.2594,ZONE_CHE_3
+ST_CHE_007,Adyar Depot,13.0012,80.2565,ZONE_CHE_4
+ST_CHE_008,Broadway Bus Stand,13.088,80.287,ZONE_CHE_1

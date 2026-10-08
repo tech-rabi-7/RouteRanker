@@ -1,0 +1,6 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_KOL_S-12,West Bengal Transport Corporation (WBTC),S-12,Howrah to Salt Lake Sector V,3,EF4444,FFFFFF
+RT_KOL_AC-43,West Bengal Transport Corporation (WBTC),AC-43,Airport to Gariahat Corridor,3,0284C7,FFFFFF
+RT_KOL_VS-1,West Bengal Transport Corporation (WBTC),VS-1,Howrah to Airport Express,3,10B981,FFFFFF
+RT_KOL_S-12-Dup,West Bengal Transport Corporation (WBTC),S-12-Dup,Howrah to Sector V Redundant,3,10B981,FFFFFF
+RT_KOL_47B,West Bengal Transport Corporation (WBTC),47B,Jadavpur to Esplanade Feeder,3,EF4444,FFFFFF

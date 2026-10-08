@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_IND_iBus-1,Atal Indore City Transport (AiCTSL),iBus-1,Aurobindo to Rajiv Gandhi / Rau,3,EF4444,FFFFFF
+RT_IND_M-11,Atal Indore City Transport (AiCTSL),M-11,Railway Station to Vijay Nagar,3,0284C7,FFFFFF
+RT_IND_iBus-1D,Atal Indore City Transport (AiCTSL),iBus-1D,BRTS Parallel Corridor,3,10B981,FFFFFF

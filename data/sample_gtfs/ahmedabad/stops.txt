@@ -1,0 +1,8 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_AHM_001,Kalupur Railway Station,23.027,72.6012,ZONE_AHM_2
+ST_AHM_002,Lal Darwaja Terminal,23.0232,72.5815,ZONE_AHM_3
+ST_AHM_003,IIM Ahmedabad / Vastrapur,23.0317,72.5298,ZONE_AHM_4
+ST_AHM_004,Sarkhej Sanand Crossroads,22.985,72.496,ZONE_AHM_1
+ST_AHM_005,Ranip Bus Terminal,23.076,72.573,ZONE_AHM_2
+ST_AHM_006,Maninagar Station,22.998,72.602,ZONE_AHM_3
+ST_AHM_007,SG Highway Iscon Cross Road,23.027,72.508,ZONE_AHM_4

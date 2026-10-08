@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_BHU_001,Master Canteen Railway Station,20.268,85.842,ZONE_BHU_2
+ST_BHU_002,Baramunda Bus Stand,20.278,85.795,ZONE_BHU_3
+ST_BHU_003,Patia Infocity IT Hub,20.355,85.818,ZONE_BHU_4
+ST_BHU_004,AIIMS Bhubaneswar Hospital,20.232,85.776,ZONE_BHU_1
+ST_BHU_005,Khandagiri Caves Square,20.258,85.782,ZONE_BHU_2

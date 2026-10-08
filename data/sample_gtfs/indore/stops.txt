@@ -1,0 +1,7 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_IND_001,Indore Central Railway Station,22.718,75.867,ZONE_IND_2
+ST_IND_002,Rajwada Palace Chowk,22.719,75.857,ZONE_IND_3
+ST_IND_003,Palasia Geeta Bhawan,22.723,75.885,ZONE_IND_4
+ST_IND_004,Vijay Nagar Square BRTS,22.753,75.895,ZONE_IND_1
+ST_IND_005,Silicon City Rau,22.645,75.823,ZONE_IND_2
+ST_IND_006,Aurobindo Medical Hospital,22.788,75.856,ZONE_IND_3

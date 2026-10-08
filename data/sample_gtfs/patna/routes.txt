@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_PAT_111,Bihar State Road Transport Corp (BSRTC Patna),111,Gandhi Maidan to Danapur Station,3,EF4444,FFFFFF
+RT_PAT_222,Bihar State Road Transport Corp (BSRTC Patna),222,Patna Junction to Kankarbagh,3,0284C7,FFFFFF
+RT_PAT_111-Dup,Bihar State Road Transport Corp (BSRTC Patna),111-Dup,Gandhi Maidan to Danapur Parallel,3,10B981,FFFFFF

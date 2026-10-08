@@ -1,0 +1,8 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_KOL_001,Howrah Railway Station,22.585,88.3426,ZONE_KOL_2
+ST_KOL_002,Esplanade Bus Terminus,22.5645,88.3524,ZONE_KOL_3
+ST_KOL_003,Salt Lake Sector V IT Hub,22.5802,88.4357,ZONE_KOL_4
+ST_KOL_004,Gariahat Market,22.5186,88.367,ZONE_KOL_1
+ST_KOL_005,Ultadanga Station / VIP Road,22.5975,88.3965,ZONE_KOL_2
+ST_KOL_006,Kolkata Airport Gate 1,22.6547,88.4467,ZONE_KOL_3
+ST_KOL_007,Jadavpur 8B Bus Stand,22.4988,88.3718,ZONE_KOL_4

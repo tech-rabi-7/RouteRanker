@@ -1,0 +1,7 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_CHA_001,ISBT Sector 17,30.741,76.782,ZONE_CHA_2
+ST_CHA_002,ISBT Sector 43,30.718,76.748,ZONE_CHA_3
+ST_CHA_003,PGIMER Hospital,30.763,76.776,ZONE_CHA_4
+ST_CHA_004,Chandigarh Railway Station,30.702,76.828,ZONE_CHA_1
+ST_CHA_005,IT Park Kishangarh,30.728,76.842,ZONE_CHA_2
+ST_CHA_006,Manimajra Housing Board,30.722,76.835,ZONE_CHA_3

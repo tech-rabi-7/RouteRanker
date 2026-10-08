@@ -1,0 +1,7 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_JAI_001,Jaipur Central Railway Station,26.9196,75.7878,ZONE_JAI_2
+ST_JAI_002,Sindhi Camp Central Bus Stand,26.9234,75.7997,ZONE_JAI_3
+ST_JAI_003,Badi Chaupar Old City,26.924,75.8267,ZONE_JAI_4
+ST_JAI_004,Malviya Nagar Gaurav Tower,26.853,75.805,ZONE_JAI_1
+ST_JAI_005,Mansarovar Metro Terminal,26.862,75.76,ZONE_JAI_2
+ST_JAI_006,Sitapura Industrial Area,26.782,75.834,ZONE_JAI_3

@@ -1,24 +1,24 @@
 {
   "rf_metrics": {
-    "accuracy": 0.846,
-    "precision": 0.885,
-    "recall": 0.846,
-    "f1_score": 0.832,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
     "confusion_matrix": [
       [
-        2,
-        2,
+        3,
+        0,
         0
       ],
       [
         0,
-        6,
+        3,
         0
       ],
       [
         0,
         0,
-        3
+        2
       ]
     ],
     "labels": [
@@ -34,19 +34,19 @@
     "f1_score": 1.0,
     "confusion_matrix": [
       [
-        4,
+        3,
         0,
         0
       ],
       [
         0,
-        6,
+        3,
         0
       ],
       [
         0,
         0,
-        3
+        2
       ]
     ],
     "labels": [
@@ -58,72 +58,72 @@
   "rf_feature_importance": [
     {
       "feature": "peak_load_factor",
-      "importance": 0.3488905437322051
+      "importance": 0.3470059167791695
     },
     {
       "feature": "avg_load_factor",
-      "importance": 0.2938475778908909
+      "importance": 0.26048979241688197
     },
     {
       "feature": "avg_trip_duration_min",
-      "importance": 0.08616070482647997
-    },
-    {
-      "feature": "avg_stop_spacing_km",
-      "importance": 0.06255560848072347
-    },
-    {
-      "feature": "avg_speed_kmh",
-      "importance": 0.053297209093084115
+      "importance": 0.11499605107989787
     },
     {
       "feature": "route_length_km",
-      "importance": 0.049539524400359525
+      "importance": 0.08008395015289516
     },
     {
-      "feature": "avg_headway_min",
-      "importance": 0.02796797469082738
+      "feature": "avg_stop_spacing_km",
+      "importance": 0.07589859224573199
     },
     {
-      "feature": "peak_evening_trips",
-      "importance": 0.021941968206100344
+      "feature": "avg_speed_kmh",
+      "importance": 0.06913797951085394
     },
     {
       "feature": "num_stops",
-      "importance": 0.020402066007063836
+      "importance": 0.019236657282324703
     },
     {
       "feature": "total_daily_trips",
-      "importance": 0.01788777606080225
+      "importance": 0.01036217309671389
+    },
+    {
+      "feature": "avg_headway_min",
+      "importance": 0.010133699781880431
+    },
+    {
+      "feature": "peak_evening_trips",
+      "importance": 0.007852774079219763
     },
     {
       "feature": "peak_morning_trips",
-      "importance": 0.017509046611463137
+      "importance": 0.004802413574430767
     }
   ],
   "xgb_feature_importance": [
     {
-      "feature": "avg_load_factor",
-      "importance": 0.5378015637397766
-    },
-    {
       "feature": "peak_load_factor",
-      "importance": 0.4524504244327545
+      "importance": 0.5472195148468018
     },
     {
-      "feature": "route_length_km",
-      "importance": 0.00492506567388773
-    },
-    {
-      "feature": "avg_stop_spacing_km",
-      "importance": 0.004331234842538834
+      "feature": "avg_load_factor",
+      "importance": 0.44136843085289
     },
     {
       "feature": "avg_speed_kmh",
-      "importance": 0.000491713173687458
+      "importance": 0.006319172214716673
+    },
+    {
+      "feature": "route_length_km",
+      "importance": 0.00509290536865592
     },
     {
       "feature": "num_stops",
+      "importance": 0.0
+    },
+    {
+      "feature": "avg_stop_spacing_km",
       "importance": 0.0
     },
     {

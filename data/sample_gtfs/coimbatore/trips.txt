@@ -1,0 +1,95 @@
+route_id,service_id,trip_id,trip_headsign,direction_id,shape_id
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_000,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_001,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_002,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_003,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_004,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_005,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_006,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_007,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_008,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_009,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_010,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_011,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_012,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_013,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_014,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_015,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_016,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_017,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_018,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_019,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_020,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_021,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_022,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_1C,WD_REGULAR,TR_RT_COI_1C_WD_023,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_000,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_001,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_002,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_003,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_004,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_005,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_006,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_007,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_008,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_009,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_010,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_011,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_012,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_013,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_014,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_015,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_016,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_017,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_018,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_019,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_020,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_021,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_022,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_023,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_024,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_025,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_026,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_027,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_028,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_3,WD_REGULAR,TR_RT_COI_3_WD_029,Singanallur Bus Terminal,0,SHP_RT_COI_3
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_000,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_001,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_002,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_003,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_004,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_005,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_006,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_007,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_008,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_009,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_010,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_011,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_012,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_013,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_014,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_015,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_016,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_017,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_018,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_019,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_020,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_021,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_022,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_023,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_024,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_025,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_026,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_027,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_028,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_029,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_030,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_031,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_032,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_033,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_034,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_035,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_036,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_037,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_038,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup
+RT_COI_1C-Dup,WD_REGULAR,TR_RT_COI_1C-Dup_WD_039,Peelamedu Airport / Tidel Park,0,SHP_RT_COI_1C-Dup

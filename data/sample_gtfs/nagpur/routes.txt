@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_NAG_AB-5,Nagpur Mahanagar Parivahan (Aapli Bus),AB-5,Kamptee to Sitabuldi Central,3,EF4444,FFFFFF
+RT_NAG_AB-20,Nagpur Mahanagar Parivahan (Aapli Bus),AB-20,Sitabuldi to MIHAN SEZ,3,0284C7,FFFFFF
+RT_NAG_AB-20D,Nagpur Mahanagar Parivahan (Aapli Bus),AB-20D,Sitabuldi to MIHAN Redundant,3,10B981,FFFFFF

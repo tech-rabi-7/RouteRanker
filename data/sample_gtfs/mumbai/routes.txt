@@ -1,9 +1,7 @@
 route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
-RT_MUM_AS-4,Brihanmumbai Electric Supply & Transport (BEST),AS-4,CSMT to BKC Express,3,FF5733,FFFFFF
-RT_MUM_332,Brihanmumbai Electric Supply & Transport (BEST),332,Andheri West to Kurla Depot,3,999999,FFFFFF
-RT_MUM_C-40,Brihanmumbai Electric Supply & Transport (BEST),C-40,Colaba to Ghatkopar Express,3,FF5733,FFFFFF
-RT_MUM_707-LTD,Brihanmumbai Electric Supply & Transport (BEST),707-LTD,Borivali to Dadar Highway,3,3399FF,FFFFFF
-RT_MUM_83,Brihanmumbai Electric Supply & Transport (BEST),83,Colaba to Thane Central,3,3399FF,FFFFFF
-RT_MUM_312,Brihanmumbai Electric Supply & Transport (BEST),312,Andheri to Powai Tech Park,3,999999,FFFFFF
-RT_MUM_332-Dup,Brihanmumbai Electric Supply & Transport (BEST),332-Dup,Andheri to Kurla Parallel,3,3399FF,FFFFFF
-RT_MUM_105,Brihanmumbai Electric Supply & Transport (BEST),105,Dadar to Worli Ferry Point,3,FF5733,FFFFFF
+RT_MUM_AS-4,Brihanmumbai Electric Supply & Transport (BEST),AS-4,CSMT to BKC Express,3,EF4444,FFFFFF
+RT_MUM_332,Brihanmumbai Electric Supply & Transport (BEST),332,Andheri West to Kurla Depot,3,0284C7,FFFFFF
+RT_MUM_C-40,Brihanmumbai Electric Supply & Transport (BEST),C-40,Colaba to Ghatkopar Express,3,10B981,FFFFFF
+RT_MUM_707-LTD,Brihanmumbai Electric Supply & Transport (BEST),707-LTD,Borivali to Dadar Highway,3,10B981,FFFFFF
+RT_MUM_83,Brihanmumbai Electric Supply & Transport (BEST),83,Colaba to Thane Central,3,EF4444,FFFFFF
+RT_MUM_332-Dup,Brihanmumbai Electric Supply & Transport (BEST),332-Dup,Andheri to Kurla Parallel,3,0284C7,FFFFFF

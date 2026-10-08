@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_VIS_28A,Andhra Pradesh State Road Transport (APSRTC Vizag),28A,RTC Complex to Gajuwaka,3,EF4444,FFFFFF
+RT_VIS_222,Andhra Pradesh State Road Transport (APSRTC Vizag),222,RTC Complex to Madhurawada,3,0284C7,FFFFFF
+RT_VIS_28A-Dup,Andhra Pradesh State Road Transport (APSRTC Vizag),28A-Dup,RTC Complex to Gajuwaka Parallel,3,10B981,FFFFFF

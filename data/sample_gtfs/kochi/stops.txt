@@ -1,0 +1,7 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_KOC_001,Aluva Railway / Metro Hub,10.1076,76.3516,ZONE_KOC_2
+ST_KOC_002,Edappally Toll / LuLu Mall,10.026,76.308,ZONE_KOC_3
+ST_KOC_003,Kaloor Bus Stand,9.994,76.291,ZONE_KOC_4
+ST_KOC_004,Ernakulam South Station,9.967,76.289,ZONE_KOC_1
+ST_KOC_005,Fort Kochi Vypeen Ferry,9.965,76.242,ZONE_KOC_2
+ST_KOC_006,Infopark Kakkanad,10.01,76.362,ZONE_KOC_3

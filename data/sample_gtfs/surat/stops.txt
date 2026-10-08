@@ -1,0 +1,7 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_SUR_001,Surat Railway Station,21.2045,72.8407,ZONE_SUR_2
+ST_SUR_002,Athwa Gate Junction,21.186,72.812,ZONE_SUR_3
+ST_SUR_003,Adajan Patiya Hub,21.198,72.795,ZONE_SUR_4
+ST_SUR_004,Udhna Darwaja,21.175,72.838,ZONE_SUR_1
+ST_SUR_005,Sachin GIDC Terminal,21.085,72.875,ZONE_SUR_2
+ST_SUR_006,Varachha Diamond Market,21.218,72.864,ZONE_SUR_3

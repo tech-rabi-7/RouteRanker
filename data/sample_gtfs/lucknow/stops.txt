@@ -1,0 +1,7 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_LUC_001,Charbagh Railway Station,26.8316,80.9234,ZONE_LUC_2
+ST_LUC_002,Hazratganj Main Market,26.853,80.945,ZONE_LUC_3
+ST_LUC_003,Alambagh Bus Terminal,26.812,80.902,ZONE_LUC_4
+ST_LUC_004,Gomti Nagar Patrakarpuram,26.852,80.998,ZONE_LUC_1
+ST_LUC_005,Munshipulia Metro Station,26.892,80.992,ZONE_LUC_2
+ST_LUC_006,Chowk Medical College,26.868,80.916,ZONE_LUC_3

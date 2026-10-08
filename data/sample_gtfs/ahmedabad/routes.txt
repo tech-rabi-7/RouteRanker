@@ -1,0 +1,5 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_AHM_BRTS-1,Ahmedabad Municipal Transport Service (AMTS & Janmarg),BRTS-1,Ranip to Maninagar Janmarg,3,EF4444,FFFFFF
+RT_AHM_401,Ahmedabad Municipal Transport Service (AMTS & Janmarg),401,Kalupur to SG Highway Iscon,3,0284C7,FFFFFF
+RT_AHM_13-D,Ahmedabad Municipal Transport Service (AMTS & Janmarg),13-D,Lal Darwaja to Sarkhej,3,10B981,FFFFFF
+RT_AHM_401-Dup,Ahmedabad Municipal Transport Service (AMTS & Janmarg),401-Dup,Kalupur to Iscon Parallel,3,10B981,FFFFFF

@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_PAT_001,Patna Junction Station,25.602,85.137,ZONE_PAT_2
+ST_PAT_002,Gandhi Maidan Bus Stand,25.62,85.148,ZONE_PAT_3
+ST_PAT_003,Boring Road Crossing,25.618,85.118,ZONE_PAT_4
+ST_PAT_004,Danapur Cantonment Station,25.628,85.045,ZONE_PAT_1
+ST_PAT_005,Kankarbagh Colony,25.592,85.158,ZONE_PAT_2

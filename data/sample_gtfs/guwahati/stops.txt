@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_GUW_001,Paltan Bazaar Railway Station,26.182,91.752,ZONE_GUW_2
+ST_GUW_002,ISBT Betkuchi,26.118,91.735,ZONE_GUW_3
+ST_GUW_003,Jalukbari Gauhati University,26.155,91.662,ZONE_GUW_4
+ST_GUW_004,Dispur Capital Complex,26.142,91.791,ZONE_GUW_1
+ST_GUW_005,Khanapara Assam-Meghalaya Gate,26.118,91.821,ZONE_GUW_2

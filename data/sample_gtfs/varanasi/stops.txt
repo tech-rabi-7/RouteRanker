@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_VAR_001,Varanasi Cantt Railway Station,25.328,82.986,ZONE_VAR_2
+ST_VAR_002,Godowlia Chowk / Kashi Vishwanath,25.311,83.008,ZONE_VAR_3
+ST_VAR_003,Banaras Hindu University (BHU),25.267,82.991,ZONE_VAR_4
+ST_VAR_004,Sarnath Archaeological Terminal,25.378,83.022,ZONE_VAR_1
+ST_VAR_005,Babatpur Airport Road,25.452,82.858,ZONE_VAR_2

@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_BHU_Mo-10,Capital Region Urban Transport (CRUT Mo Bus),Mo-10,Master Canteen to Patia Infocity,3,EF4444,FFFFFF
+RT_BHU_Mo-18,Capital Region Urban Transport (CRUT Mo Bus),Mo-18,Baramunda to AIIMS Hospital,3,0284C7,FFFFFF
+RT_BHU_Mo-10D,Capital Region Urban Transport (CRUT Mo Bus),Mo-10D,Master Canteen to Infocity Parallel,3,10B981,FFFFFF

@@ -1,0 +1,6 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_CHE_21G,Metropolitan Transport Corporation (MTC Chennai),21G,Broadway to Tambaram Express,3,EF4444,FFFFFF
+RT_CHE_19B,Metropolitan Transport Corporation (MTC Chennai),19B,T. Nagar to OMR IT Corridor,3,0284C7,FFFFFF
+RT_CHE_570,Metropolitan Transport Corporation (MTC Chennai),570,CMBT to OMR Kelambakkam,3,10B981,FFFFFF
+RT_CHE_21G-Dup,Metropolitan Transport Corporation (MTC Chennai),21G-Dup,Broadway to Tambaram Parallel,3,10B981,FFFFFF
+RT_CHE_47A,Metropolitan Transport Corporation (MTC Chennai),47A,CMBT to Thiruvanmiyur,3,EF4444,FFFFFF

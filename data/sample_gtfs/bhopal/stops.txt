@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_BHO_001,Bhopal Junction Station,23.265,77.411,ZONE_BHO_2
+ST_BHO_002,Habibganj / Rani Kamlapati Station,23.218,77.437,ZONE_BHO_3
+ST_BHO_003,New Market Roshanpura,23.235,77.399,ZONE_BHO_4
+ST_BHO_004,Misrod / Mandideep Link,23.165,77.472,ZONE_BHO_1
+ST_BHO_005,Bairagarh Sant Hirdaram,23.275,77.342,ZONE_BHO_2

@@ -1,0 +1,5 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_CHA_CTU-2,Chandigarh Transport Undertaking (CTU),CTU-2,ISBT 43 to IT Park,3,EF4444,FFFFFF
+RT_CHA_CTU-8,Chandigarh Transport Undertaking (CTU),CTU-8,ISBT 17 to PGIMER Hospital,3,0284C7,FFFFFF
+RT_CHA_CTU-2D,Chandigarh Transport Undertaking (CTU),CTU-2D,ISBT 43 to IT Park Duplicate,3,10B981,FFFFFF
+RT_CHA_CTU-15,Chandigarh Transport Undertaking (CTU),CTU-15,Chandigarh Station to PGIMER,3,10B981,FFFFFF

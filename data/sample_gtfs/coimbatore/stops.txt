@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_COI_001,Gandhipuram Central Bus Stand,11.018,76.968,ZONE_COI_2
+ST_COI_002,Coimbatore Junction Station,10.998,76.962,ZONE_COI_3
+ST_COI_003,Ukkadam Bus Stand,10.988,76.955,ZONE_COI_4
+ST_COI_004,Peelamedu Airport / Tidel Park,11.028,77.025,ZONE_COI_1
+ST_COI_005,Singanallur Bus Terminal,10.998,77.028,ZONE_COI_2

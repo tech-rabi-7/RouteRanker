@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_COI_1C,Tamil Nadu State Transport (TNSTC Coimbatore),1C,Gandhipuram to Tidel Park,3,EF4444,FFFFFF
+RT_COI_3,Tamil Nadu State Transport (TNSTC Coimbatore),3,Ukkadam to Singanallur,3,0284C7,FFFFFF
+RT_COI_1C-Dup,Tamil Nadu State Transport (TNSTC Coimbatore),1C-Dup,Gandhipuram to Tidel Park Parallel,3,10B981,FFFFFF

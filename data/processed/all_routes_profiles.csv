@@ -1,51 +1,32 @@
 route_id,route_short_name,route_long_name,route_color,num_stops,route_length_km,avg_trip_duration_min,avg_speed_kmh,avg_stop_spacing_km,total_daily_trips,peak_morning_trips,peak_evening_trips,off_peak_trips,avg_headway_min,estimated_daily_passengers,avg_trip_passengers,peak_trip_passengers,avg_load_factor,peak_load_factor,inefficiency_score,performance_status,city
-RT_DEL_101-Slow,101-Slow,Azadpur to Sarai Kale Khan,999999,4,16.51,60.5,16.4,5.5,30,6,8,16,32.0,1619,42,55,69.2,92.3,2.9,Balanced,Delhi
-RT_DEL_311,311,Noida Link to Anand Vihar,999999,2,5.0,18.3,16.5,5.0,30,6,8,16,32.0,930,24,34,39.8,56.8,30.4,Underutilized,Delhi
-RT_DEL_419,419,Badarpur to Kashmere Gate,3399FF,4,20.9,75.7,16.6,6.97,45,9,11,25,21.3,2368,40,62,67.5,102.9,35.2,Overcrowded,Delhi
-RT_DEL_427,427,Nehru Place to Badarpur,3399FF,2,7.4,26.2,17.0,7.4,45,9,11,25,21.3,1225,21,37,34.9,61.7,40.2,Underutilized,Delhi
-RT_DEL_502,502,Mehrauli to Kashmere Gate,FF5733,4,16.16,58.9,16.5,5.39,22,4,5,13,43.6,1416,50,58,82.6,96.6,3.8,Balanced,Delhi
-RT_DEL_502-Dup,502-Dup,Mehrauli to Old Delhi (Parallel),999999,4,16.16,59.5,16.3,5.39,30,6,8,16,32.0,887,23,30,37.9,50.5,34.2,Underutilized,Delhi
-RT_DEL_534,534,Anand Vihar to Nehru Place,999999,4,13.28,50.3,15.9,4.43,30,6,8,16,32.0,1628,42,59,69.6,98.8,2.7,Balanced,Delhi
-RT_DEL_615,615,Vasant Kunj to Connaught Place,999999,3,13.16,48.1,16.4,6.58,30,6,8,16,32.0,1560,40,54,66.7,89.4,4.1,Balanced,Delhi
-RT_DEL_711,711,Janakpuri to Sarai Kale Khan,3399FF,4,20.0,70.2,19.6,6.67,45,9,11,25,21.3,2748,47,60,78.3,99.6,1.6,Balanced,Delhi
-RT_DEL_729,729,Dwarka to Kashmere Gate,3399FF,4,21.81,76.2,18.8,7.27,45,9,11,25,21.3,2799,48,55,79.7,91.8,2.4,Balanced,Delhi
-RT_DEL_729-Split,729-Split,Dwarka to Karol Bagh Feeder,3399FF,3,19.62,67.8,19.9,9.81,45,9,11,25,21.3,1534,26,36,43.7,60.5,22.6,Underutilized,Delhi
-RT_DEL_901,901,Rohini to Anand Vihar,999999,4,21.76,78.9,16.6,7.25,30,6,8,16,32.0,1693,43,54,72.4,89.6,1.3,Balanced,Delhi
-RT_DEL_970,970,Rohini to Janakpuri,FF5733,3,14.02,51.4,16.4,7.01,22,4,5,13,43.6,1462,51,58,85.3,97.5,5.1,Balanced,Delhi
-RT_DEL_Airport-Exp,Airport-Exp,IGI T3 to Connaught Place,FF5733,3,14.14,51.7,16.4,7.07,22,4,5,13,43.6,1466,51,62,85.4,103.0,35.4,Overcrowded,Delhi
-RT_DEL_TMS-Ring,TMS-Ring,Mudrika Outer Ring Road,FF5733,8,53.57,191.4,16.8,7.65,22,4,5,13,43.6,2032,71,97,118.5,161.8,100.0,Overcrowded,Delhi
-RT_BEN_201-G,201-G,Banashankari to Domlur,3399FF,4,9.82,39.4,15.0,3.27,45,9,11,25,21.3,1104,19,33,31.5,54.2,47.0,Underutilized,Bengaluru
-RT_BEN_215-H,215-H,Majestic to Banashankari,999999,3,7.38,28.5,15.6,3.69,30,6,8,16,32.0,1101,28,38,47.1,62.6,13.9,Balanced,Bengaluru
-RT_BEN_335-E,335-E,Majestic to ITPL Whitefield,999999,4,18.93,69.0,16.5,6.31,30,6,8,16,32.0,2261,58,88,96.7,147.2,100.0,Overcrowded,Bengaluru
-RT_BEN_342-F,342-F,KBS to Domlur via Indiranagar,3399FF,3,9.53,36.0,15.9,4.77,45,9,11,25,21.3,1130,19,39,32.2,65.5,45.6,Underutilized,Bengaluru
-RT_BEN_356-C,356-C,Majestic to Electronic City,3399FF,4,18.93,66.9,19.4,6.31,45,9,11,25,21.3,2638,45,54,75.2,90.4,0.1,Balanced,Bengaluru
-RT_BEN_401-K,401-K,Yeshwantpur to Yelahanka,FF5733,3,12.45,46.1,16.2,6.22,22,4,5,13,43.6,1090,38,62,63.5,102.6,34.7,Overcrowded,Bengaluru
-RT_BEN_500-D,500-D,Hebbal to Silk Board (ORR),FF5733,5,24.7,89.5,16.6,6.18,22,4,5,13,43.6,1930,68,83,112.5,138.7,99.7,Overcrowded,Bengaluru
-RT_BEN_500-D-Dup,500-D-Dup,Hebbal to Silk Board Redundant,3399FF,4,24.02,85.6,16.9,8.01,45,9,11,25,21.3,1127,19,33,32.1,54.3,45.8,Underutilized,Bengaluru
-RT_BEN_G-2,G-2,Shivajinagar to Sarjapur Road,999999,3,10.54,38.8,16.3,5.27,30,6,8,16,32.0,1852,47,60,79.2,100.5,30.9,Overcrowded,Bengaluru
-RT_BEN_KBS-12,KBS-12,Majestic to Kengeri,999999,2,11.53,40.7,17.0,11.53,30,6,8,16,32.0,1758,45,60,75.2,100.0,0.1,Balanced,Bengaluru
-RT_BEN_KIA-9,KIA-9,Majestic to Kempegowda Airport,FF5733,4,16.22,60.1,16.2,5.41,22,4,5,13,43.6,1151,40,62,67.1,102.6,34.7,Overcrowded,Bengaluru
-RT_BEN_V-360B,V-360B,Shivajinagar to ITPL,FF5733,4,15.88,59.7,16.0,5.29,22,4,5,13,43.6,1676,59,88,97.7,147.0,100.0,Overcrowded,Bengaluru
-RT_MUM_105,105,Dadar to Worli Ferry Point,FF5733,2,3.59,13.7,15.8,3.59,22,4,5,13,43.6,757,26,44,44.1,73.6,21.8,Underutilized,Mumbai
-RT_MUM_312,312,Andheri to Powai Tech Park,999999,2,6.47,24.1,16.1,6.47,30,6,8,16,32.0,720,18,32,30.8,52.9,48.4,Underutilized,Mumbai
-RT_MUM_332,332,Andheri West to Kurla Depot,999999,3,7.52,29.1,15.5,3.76,30,6,8,16,32.0,1082,28,43,46.2,71.1,14.4,Balanced,Mumbai
-RT_MUM_332-Dup,332-Dup,Andheri to Kurla Parallel,3399FF,3,7.52,29.2,15.5,3.76,45,9,11,25,21.3,1272,22,32,36.3,53.0,37.4,Underutilized,Mumbai
-RT_MUM_707-LTD,707-LTD,Borivali to Dadar Highway,3399FF,4,24.6,88.0,16.8,8.2,45,9,11,25,21.3,3646,62,93,103.9,155.7,100.0,Overcrowded,Mumbai
-RT_MUM_83,83,Colaba to Thane Central,3399FF,4,34.74,121.9,17.1,11.58,45,9,11,25,21.3,2539,43,59,72.3,98.6,1.4,Balanced,Mumbai
-RT_MUM_AS-4,AS-4,CSMT to BKC Express,FF5733,3,14.54,52.4,16.7,7.27,22,4,5,13,43.6,1806,63,100,105.3,167.3,100.0,Overcrowded,Mumbai
-RT_MUM_C-40,C-40,Colaba to Ghatkopar Express,FF5733,5,21.64,79.3,16.4,5.41,22,4,5,13,43.6,1881,66,87,109.6,144.9,100.0,Overcrowded,Mumbai
-RT_PUN_100,100,Kothrud to Viman Nagar,FF5733,4,13.96,52.0,16.1,4.65,22,4,5,13,43.6,1351,47,52,78.8,87.2,1.9,Balanced,Pune
-RT_PUN_115,115,Swargate to Hinjawadi IT Park,FF5733,4,17.68,61.1,25.5,5.89,22,4,5,13,43.6,1162,41,61,67.7,101.6,32.9,Overcrowded,Pune
-RT_PUN_115-Dup,115-Dup,Swargate to Hinjawadi Parallel,3399FF,4,17.68,64.0,16.6,5.89,45,9,11,25,21.3,1041,18,30,29.7,50.0,50.6,Underutilized,Pune
-RT_PUN_159,159,Pune Station to Hadapsar,3399FF,2,6.37,23.8,16.1,6.37,45,9,11,25,21.3,1317,23,41,37.5,67.6,35.0,Underutilized,Pune
-RT_PUN_204,204,Katraj to Pune Station,999999,3,8.58,32.9,15.7,4.29,30,6,8,16,32.0,822,21,35,35.2,57.8,39.6,Underutilized,Pune
-RT_PUN_348,348,Hadapsar to Nigdi BRT,3399FF,4,25.06,89.9,16.7,8.35,45,9,11,25,21.3,2394,41,54,68.2,90.4,3.4,Balanced,Pune
-RT_PUN_42,42,Katraj to Nigdi Corridor,999999,4,24.32,87.8,16.6,8.11,30,6,8,16,32.0,2200,56,103,94.0,172.0,100.0,Overcrowded,Pune
-RT_HYD_10H,10H,Secunderabad to Hitec City,FF5733,4,13.29,49.9,16.0,4.43,22,4,5,13,43.6,1094,38,55,63.8,91.4,5.6,Balanced,Hyderabad
-RT_HYD_10H-Dup,10H-Dup,Secunderabad to Hitec City Redundant,3399FF,3,12.61,45.8,16.5,6.31,45,9,11,25,21.3,1075,18,30,30.6,50.5,48.8,Underutilized,Hyderabad
-RT_HYD_127K,127K,Koti to Kukatpally KPHB,FF5733,3,15.21,53.7,17.0,7.6,22,4,5,13,43.6,1100,38,59,64.1,97.7,5.5,Balanced,Hyderabad
-RT_HYD_187,187,Kukatpally to Gachibowli Feeder,FF5733,3,8.64,33.6,15.4,4.32,22,4,5,13,43.6,834,29,39,48.6,65.7,13.2,Balanced,Hyderabad
-RT_HYD_216,216,Mehdipatnam to Gachibowli,999999,2,11.24,39.5,17.1,11.24,30,6,8,16,32.0,1508,39,60,64.5,100.0,5.2,Balanced,Hyderabad
-RT_HYD_218,218,Dilsukhnagar to Hitec City,3399FF,4,18.44,68.9,16.1,6.15,45,9,11,25,21.3,2770,47,58,78.9,96.5,2.0,Balanced,Hyderabad
-RT_HYD_222,222,Koti to Hitec City via Mehdipatnam,999999,4,19.51,71.8,16.3,6.5,30,6,8,16,32.0,1829,47,57,78.2,95.6,1.6,Balanced,Hyderabad
-RT_HYD_9X,9X,Charminar to Secunderabad,3399FF,3,9.08,33.4,16.3,4.54,45,9,11,25,21.3,1611,28,39,45.9,65.4,14.6,Balanced,Hyderabad
+RT_DEL_419,419,Badarpur to Kashmere Gate,0284C7,3,13.5,48.4,16.7,6.75,30,6,8,16,32.0,1865,48,54,79.7,90.2,2.4,Balanced,Delhi
+RT_DEL_427,427,Nehru Place to AIIMS Feeder,0284C7,3,5.55,21.1,15.8,2.77,30,6,8,16,32.0,722,19,39,30.9,65.5,48.2,Underutilized,Delhi
+RT_DEL_502,502,Mehrauli to Kashmere Gate,EF4444,4,16.16,57.7,16.8,5.39,24,5,6,13,40.0,1195,38,58,63.9,96.3,5.6,Balanced,Delhi
+RT_DEL_502-Dup,502-Dup,Mehrauli to Old Delhi (Parallel),EF4444,4,16.16,57.7,16.8,5.39,24,5,6,13,40.0,610,20,33,32.6,54.2,44.8,Underutilized,Delhi
+RT_DEL_534,534,Anand Vihar to Nehru Place,0284C7,3,12.93,46.0,16.9,6.47,30,6,8,16,32.0,1545,40,62,66.0,103.2,35.8,Overcrowded,Delhi
+RT_DEL_711,711,Janakpuri to Sarai Kale Khan,10B981,4,21.97,77.9,16.9,7.32,40,8,10,22,24.0,2622,50,55,84.1,91.7,4.5,Balanced,Delhi
+RT_DEL_729,729,Dwarka to Kashmere Gate,EF4444,4,21.81,74.5,19.2,7.27,24,5,6,13,40.0,1421,46,53,76.0,88.3,0.5,Balanced,Delhi
+RT_DEL_TMS-Ring,TMS-Ring,Mudrika Outer Ring Road,10B981,7,43.26,152.8,17.0,7.21,40,8,10,22,24.0,3128,60,93,100.3,154.7,100.0,Overcrowded,Delhi
+RT_BEN_201-G,201-G,Banashankari to Indiranagar,10B981,4,13.55,50.0,16.3,4.52,40,8,10,22,24.0,2178,42,57,69.8,94.5,2.6,Balanced,Bengaluru
+RT_BEN_215-H,215-H,Majestic to Banashankari,0284C7,3,7.38,27.0,16.4,3.69,30,6,8,16,32.0,941,24,31,40.2,51.0,29.6,Underutilized,Bengaluru
+RT_BEN_335-E,335-E,Majestic to ITPL Whitefield,0284C7,4,19.12,69.2,16.6,6.37,30,6,8,16,32.0,2302,59,105,98.4,174.9,100.0,Overcrowded,Bengaluru
+RT_BEN_356-C,356-C,Majestic to Electronic City,10B981,4,18.93,66.7,17.0,6.31,40,8,10,22,24.0,2416,46,55,77.4,92.5,1.2,Balanced,Bengaluru
+RT_BEN_500-D,500-D,Hebbal to Silk Board (ORR),EF4444,5,24.7,87.9,16.9,6.18,24,5,6,13,40.0,1839,59,103,98.3,171.2,100.0,Overcrowded,Bengaluru
+RT_BEN_500-D-Dup,500-D-Dup,Hebbal to Silk Board Redundant,EF4444,4,24.02,83.8,17.2,8.01,24,5,6,13,40.0,764,24,28,40.8,46.5,28.4,Underutilized,Bengaluru
+RT_MUM_332,332,Andheri West to Kurla Depot,0284C7,3,7.52,28.3,15.9,3.76,30,6,8,16,32.0,719,18,40,30.8,67.3,48.4,Underutilized,Mumbai
+RT_MUM_332-Dup,332-Dup,Andheri to Kurla Parallel,0284C7,3,7.52,28.1,16.1,3.76,30,6,8,16,32.0,872,22,26,37.3,43.8,35.4,Underutilized,Mumbai
+RT_MUM_707-LTD,707-LTD,Borivali to Dadar Highway,10B981,4,24.6,86.6,17.0,8.2,40,8,10,22,24.0,3033,58,99,97.2,165.2,100.0,Overcrowded,Mumbai
+RT_MUM_83,83,Colaba to Thane Central,EF4444,4,34.74,112.5,19.6,11.58,24,5,6,13,40.0,1508,48,54,80.6,90.0,2.8,Balanced,Mumbai
+RT_MUM_AS-4,AS-4,CSMT to BKC Express,EF4444,3,14.54,51.8,16.9,7.27,24,5,6,13,40.0,2339,75,84,125.0,139.6,100.0,Overcrowded,Mumbai
+RT_MUM_C-40,C-40,Colaba to Ghatkopar Express,10B981,4,21.61,77.2,16.8,7.2,40,8,10,22,24.0,2917,56,88,93.5,147.2,100.0,Overcrowded,Mumbai
+RT_PUN_100,100,Kothrud to Hadapsar,10B981,4,14.25,52.2,16.4,4.75,40,8,10,22,24.0,2488,48,52,79.8,87.2,2.4,Balanced,Pune
+RT_PUN_115,115,Swargate to Hinjawadi IT Park,EF4444,3,16.59,58.6,17.0,8.29,24,5,6,13,40.0,1423,46,55,76.1,92.2,0.5,Balanced,Pune
+RT_PUN_115-Dup,115-Dup,Swargate to Hinjawadi Parallel,10B981,3,16.59,58.7,17.0,8.29,40,8,10,22,24.0,1002,19,31,32.1,51.3,45.8,Underutilized,Pune
+RT_PUN_204,204,Katraj to Pune Station,0284C7,3,8.58,32.1,16.0,4.29,30,6,8,16,32.0,910,23,39,38.9,64.7,32.2,Underutilized,Pune
+RT_PUN_42,42,Katraj to Nigdi Corridor,EF4444,4,24.32,85.9,17.0,8.11,24,5,6,13,40.0,2224,71,92,118.8,152.8,100.0,Overcrowded,Pune
+RT_HYD_10H,10H,Secunderabad to Hitec City,EF4444,3,12.61,44.8,16.9,6.31,24,5,6,13,40.0,1390,45,53,74.3,88.4,0.4,Balanced,Hyderabad
+RT_HYD_10H-Dup,10H-Dup,Secunderabad to Hitec City Redundant,10B981,3,12.61,45.0,16.8,6.31,40,8,10,22,24.0,950,18,33,30.5,55.1,49.0,Underutilized,Hyderabad
+RT_HYD_127K,127K,Koti to Kukatpally,10B981,3,15.21,53.2,17.2,7.6,40,8,10,22,24.0,2115,41,59,67.8,98.8,3.6,Balanced,Hyderabad
+RT_HYD_216,216,Mehdipatnam to Gachibowli,0284C7,2,11.24,39.0,17.3,11.24,30,6,8,16,32.0,1690,43,57,72.2,94.7,1.4,Balanced,Hyderabad
+RT_HYD_222,222,Koti to Gachibowli Corridor,0284C7,3,16.04,56.7,17.0,8.02,30,6,8,16,32.0,2617,67,92,111.9,152.7,100.0,Overcrowded,Hyderabad
+RT_HYD_9X,9X,Charminar to Secunderabad,EF4444,3,9.08,32.8,16.6,4.54,24,5,6,13,40.0,636,20,35,34.0,58.7,42.0,Underutilized,Hyderabad

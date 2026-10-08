@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_SUR_BRTS-10,Surat Sitilink BRTS,BRTS-10,Surat Station to Sachin GIDC,3,EF4444,FFFFFF
+RT_SUR_21,Surat Sitilink BRTS,21,Adajan to Varachha Diamond Hub,3,0284C7,FFFFFF
+RT_SUR_BRTS-10D,Surat Sitilink BRTS,BRTS-10D,Station to Sachin Parallel,3,10B981,FFFFFF

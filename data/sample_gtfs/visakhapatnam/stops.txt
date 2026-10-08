@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_VIS_001,RTC Complex Dwaraka Nagar,17.724,83.303,ZONE_VIS_2
+ST_VIS_002,Visakhapatnam Railway Station,17.721,83.292,ZONE_VIS_3
+ST_VIS_003,Gajuwaka Industrial Hub,17.698,83.185,ZONE_VIS_4
+ST_VIS_004,Madhurawada IT SEZ,17.818,83.355,ZONE_VIS_1
+ST_VIS_005,RK Beach INS Kurusura,17.716,83.332,ZONE_VIS_2

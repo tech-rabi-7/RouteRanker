@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon,zone_id
+ST_THI_001,Thampanoor Central Bus Station,8.488,76.952,ZONE_THI_2
+ST_THI_002,East Fort Bus Terminal,8.483,76.948,ZONE_THI_3
+ST_THI_003,Technopark Kazhakkoottam,8.558,76.881,ZONE_THI_4
+ST_THI_004,Pattom Junction,8.528,76.942,ZONE_THI_1
+ST_THI_005,Kovalam Beach Junction,8.402,76.978,ZONE_THI_2

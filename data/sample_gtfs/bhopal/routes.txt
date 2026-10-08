@@ -1,0 +1,4 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+RT_BHO_TR-1,Bhopal City Link Ltd (BCLL MyBus),TR-1,Bairagarh to Rani Kamlapati,3,EF4444,FFFFFF
+RT_BHO_SR-2,Bhopal City Link Ltd (BCLL MyBus),SR-2,Bhopal Junction to Misrod,3,0284C7,FFFFFF
+RT_BHO_TR-1D,Bhopal City Link Ltd (BCLL MyBus),TR-1D,Bairagarh to Kamlapati Parallel,3,10B981,FFFFFF

@@ -1,9 +1,7 @@
 route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
-RT_HYD_10H,Telangana State Road Transport Corp (TSRTC),10H,Secunderabad to Hitec City,3,FF5733,FFFFFF
-RT_HYD_216,Telangana State Road Transport Corp (TSRTC),216,Mehdipatnam to Gachibowli,3,999999,FFFFFF
-RT_HYD_127K,Telangana State Road Transport Corp (TSRTC),127K,Koti to Kukatpally KPHB,3,FF5733,FFFFFF
-RT_HYD_10H-Dup,Telangana State Road Transport Corp (TSRTC),10H-Dup,Secunderabad to Hitec City Redundant,3,3399FF,FFFFFF
-RT_HYD_9X,Telangana State Road Transport Corp (TSRTC),9X,Charminar to Secunderabad,3,3399FF,FFFFFF
-RT_HYD_222,Telangana State Road Transport Corp (TSRTC),222,Koti to Hitec City via Mehdipatnam,3,999999,FFFFFF
-RT_HYD_218,Telangana State Road Transport Corp (TSRTC),218,Dilsukhnagar to Hitec City,3,3399FF,FFFFFF
-RT_HYD_187,Telangana State Road Transport Corp (TSRTC),187,Kukatpally to Gachibowli Feeder,3,FF5733,FFFFFF
+RT_HYD_10H,Telangana State Road Transport Corp (TSRTC),10H,Secunderabad to Hitec City,3,EF4444,FFFFFF
+RT_HYD_216,Telangana State Road Transport Corp (TSRTC),216,Mehdipatnam to Gachibowli,3,0284C7,FFFFFF
+RT_HYD_127K,Telangana State Road Transport Corp (TSRTC),127K,Koti to Kukatpally,3,10B981,FFFFFF
+RT_HYD_10H-Dup,Telangana State Road Transport Corp (TSRTC),10H-Dup,Secunderabad to Hitec City Redundant,3,10B981,FFFFFF
+RT_HYD_9X,Telangana State Road Transport Corp (TSRTC),9X,Charminar to Secunderabad,3,EF4444,FFFFFF
+RT_HYD_222,Telangana State Road Transport Corp (TSRTC),222,Koti to Gachibowli Corridor,3,0284C7,FFFFFF
