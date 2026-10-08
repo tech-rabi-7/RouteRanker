@@ -93,6 +93,24 @@ st.markdown("""
         font-weight: 400;
     }
 
+    /* Sidebar Dark Styling */
+    section[data-testid="stSidebar"] {
+        background-color: #0b1120 !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] label,
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] div {
+        color: #e2e8f0 !important;
+    }
+    section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] {
+        background-color: #1e293b !important;
+        border-color: rgba(255, 255, 255, 0.15) !important;
+        color: #ffffff !important;
+    }
+
     /* Telemetry KPI Cards */
     .telemetry-grid {
         display: grid;
@@ -462,12 +480,11 @@ with tab_gis:
         else:
             c_lat, c_lon = 28.6139, 77.2090
 
-        # High-tech Dark Matter Canvas
+        # Clean high-detail OpenStreetMap without watermarks or API keys
         m = folium.Map(
             location=[c_lat, c_lon],
             zoom_start=12,
-            tiles="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-            attr='&copy; <a href="https://carto.com/">CARTO</a>'
+            tiles="OpenStreetMap"
         )
 
         neon_colors = {
@@ -507,7 +524,7 @@ with tab_gis:
                     tooltip=f"{s['stop_name']} ({ff:,} pax)"
                 ).add_to(m)
 
-        st_folium(m, width=920, height=480)
+        st_folium(m, use_container_width=True, height=520)
 
     # Telemetry Inventory
     st.markdown("##### 📋 Corridor Fleet Telemetry Matrix")
