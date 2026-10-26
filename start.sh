@@ -25,7 +25,7 @@ trap cleanup SIGINT SIGTERM EXIT
 
 # 1. Start Backend
 echo "1. Starting FastAPI Backend on http://127.0.0.1:8000 ..."
-.venv/bin/uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload &
+.venv/bin/uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload &
 
 # Wait briefly for backend to bind port
 sleep 2
@@ -33,7 +33,7 @@ sleep 2
 # 2. Start Frontend
 echo "2. Starting React Vite Frontend on http://127.0.0.1:5173 ..."
 cd "$ROOT_DIR/frontend"
-npm run dev -- --host 127.0.0.1 --port 5173 &
+npm run dev -- --host 0.0.0.0 --port 5173 &
 
 echo "=========================================================="
 echo " RouteRanker is now running!"

@@ -29,8 +29,8 @@ export const NetworkOverviewPage: React.FC = () => {
     const map = L.map(mapRef.current).setView([41.8781, -87.6298], 11);
     leafletMap.current = map;
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://carto.com/">CARTO</a>, CTA GTFS',
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, CTA GTFS',
       maxZoom: 19,
     }).addTo(map);
 

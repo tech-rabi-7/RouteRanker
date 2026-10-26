@@ -34,8 +34,8 @@ export const RouteComparisonPage: React.FC = () => {
     const map = L.map(mapRef.current).setView([41.8781, -87.68], 11);
     leafletMap.current = map;
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; CARTO, CTA GTFS',
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, CTA GTFS',
       maxZoom: 19,
     }).addTo(map);
 
