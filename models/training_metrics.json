@@ -1,150 +1,4563 @@
 {
-  "rf_metrics": {
-    "accuracy": 1.0,
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1_score": 1.0,
-    "confusion_matrix": [
-      [
-        3,
-        0,
-        0
+  "artifact_version": "2.0.0",
+  "generated_at": "2026-10-26T10:28:29.446794+00:00",
+  "metadata": {
+    "artifact_version": "2.0.0",
+    "release_delay_assumption": "Retrospective experiment (complete lag_1d history available)",
+    "exclude_lag1": false,
+    "release_delay_days": 0,
+    "feature_schema": {
+      "categorical": [
+        "route",
+        "daytype"
       ],
-      [
-        0,
-        3,
-        0
+      "calendar": [
+        "day_of_week",
+        "month",
+        "is_weekend"
       ],
-      [
-        0,
-        0,
-        2
+      "lag_features": [
+        "lag_1d",
+        "lag_7d",
+        "lag_14d",
+        "lag_21d",
+        "lag_28d"
+      ],
+      "seasonal_aggregate": [
+        "seasonal_mean_lag",
+        "n_seasonal_lags_available"
+      ],
+      "service_features": [
+        "scheduled_trips",
+        "scheduled_service_hours"
       ]
-    ],
-    "labels": [
-      "Underutilized",
-      "Balanced",
-      "Overcrowded"
+    },
+    "training_date_ranges": {
+      "demand_only": {
+        "train": [
+          "2024-08-01",
+          "2026-01-31"
+        ],
+        "val": [
+          "2026-02-01",
+          "2026-04-30"
+        ],
+        "test": [
+          "2026-05-01",
+          "2026-07-31"
+        ]
+      },
+      "matched_service": {
+        "train": [
+          "2025-11-23",
+          "2026-03-31"
+        ],
+        "val": [
+          "2026-04-01",
+          "2026-05-31"
+        ],
+        "test": [
+          "2026-06-01",
+          "2026-07-31"
+        ]
+      }
+    },
+    "source_sha256_hashes": {
+      "cta_ridership": "",
+      "mdb-389-202511230128": "",
+      "mdb-389-202512190112": "",
+      "mdb-389-202601080131": "",
+      "mdb-389-202602100132": "",
+      "mdb-389-202603260020": "",
+      "mdb-389-202604240144": "",
+      "mdb-389-202605300003": "",
+      "mdb-389-202607110020": ""
+    }
+  },
+  "demand_only": {
+    "split": "demand_only",
+    "split_sizes": {
+      "train": 63143,
+      "val": 10246,
+      "test": 10608
+    },
+    "baselines": {
+      "lag_7d": {
+        "val": {
+          "label": "lag_7d_val",
+          "n": 10246,
+          "mae": 503.3282,
+          "rmse": 658.622,
+          "wape": 0.178723,
+          "wape_available": true
+        },
+        "test": {
+          "label": "lag_7d_test",
+          "n": 10608,
+          "mae": 506.3409,
+          "rmse": 657.2064,
+          "wape": 0.179456,
+          "wape_available": true
+        }
+      },
+      "seasonal_mean": {
+        "val": {
+          "label": "seasonal_mean_val",
+          "n": 10246,
+          "mae": 395.0029,
+          "rmse": 515.7901,
+          "wape": 0.140259,
+          "wape_available": true
+        },
+        "test": {
+          "label": "seasonal_mean_test",
+          "n": 10608,
+          "mae": 392.7151,
+          "rmse": 512.7546,
+          "wape": 0.139185,
+          "wape_available": true
+        }
+      }
+    },
+    "models": {
+      "ridge_pooled": {
+        "val": {
+          "label": "ridge_pooled_val",
+          "n": 10246,
+          "mae": 386.0984,
+          "rmse": 491.2498,
+          "wape": 0.137097,
+          "wape_available": true
+        },
+        "test": {
+          "label": "ridge_pooled_test",
+          "n": 10608,
+          "mae": 383.8475,
+          "rmse": 488.0119,
+          "wape": 0.136042,
+          "wape_available": true
+        }
+      },
+      "random_forest": {
+        "val": {
+          "label": "random_forest_val",
+          "n": 10246,
+          "mae": 382.6213,
+          "rmse": 490.4327,
+          "wape": 0.135862,
+          "wape_available": true
+        },
+        "test": {
+          "label": "random_forest_test",
+          "n": 10608,
+          "mae": 381.4391,
+          "rmse": 486.2796,
+          "wape": 0.135188,
+          "wape_available": true
+        }
+      },
+      "xgboost": {
+        "val": {
+          "label": "xgboost_val",
+          "n": 10246,
+          "mae": 372.1896,
+          "rmse": 479.2907,
+          "wape": 0.132158,
+          "wape_available": true
+        },
+        "test": {
+          "label": "xgboost_test",
+          "n": 10608,
+          "mae": 372.3767,
+          "rmse": 477.1435,
+          "wape": 0.131977,
+          "wape_available": true
+        }
+      }
+    },
+    "route_level_test": {
+      "best_model": "xgboost",
+      "route_count": 125,
+      "route_metrics": [
+        {
+          "label": "1",
+          "n": 84,
+          "mae": 351.4909,
+          "rmse": 429.7797,
+          "wape": 0.121474,
+          "wape_available": true
+        },
+        {
+          "label": "100",
+          "n": 84,
+          "mae": 366.089,
+          "rmse": 446.0217,
+          "wape": 0.127058,
+          "wape_available": true
+        },
+        {
+          "label": "103",
+          "n": 84,
+          "mae": 369.7603,
+          "rmse": 442.3797,
+          "wape": 0.132474,
+          "wape_available": true
+        },
+        {
+          "label": "106",
+          "n": 85,
+          "mae": 338.3716,
+          "rmse": 444.5691,
+          "wape": 0.122559,
+          "wape_available": true
+        },
+        {
+          "label": "108",
+          "n": 85,
+          "mae": 338.5552,
+          "rmse": 420.6078,
+          "wape": 0.117909,
+          "wape_available": true
+        },
+        {
+          "label": "11",
+          "n": 85,
+          "mae": 365.2423,
+          "rmse": 431.9068,
+          "wape": 0.125654,
+          "wape_available": true
+        },
+        {
+          "label": "111",
+          "n": 85,
+          "mae": 366.8989,
+          "rmse": 454.2535,
+          "wape": 0.133284,
+          "wape_available": true
+        },
+        {
+          "label": "112",
+          "n": 85,
+          "mae": 385.336,
+          "rmse": 484.8412,
+          "wape": 0.142752,
+          "wape_available": true
+        },
+        {
+          "label": "115",
+          "n": 85,
+          "mae": 374.3409,
+          "rmse": 498.2062,
+          "wape": 0.138236,
+          "wape_available": true
+        },
+        {
+          "label": "119",
+          "n": 85,
+          "mae": 456.3806,
+          "rmse": 634.9866,
+          "wape": 0.164966,
+          "wape_available": true
+        },
+        {
+          "label": "12",
+          "n": 85,
+          "mae": 362.5223,
+          "rmse": 459.0677,
+          "wape": 0.129504,
+          "wape_available": true
+        },
+        {
+          "label": "120",
+          "n": 83,
+          "mae": 346.928,
+          "rmse": 425.5447,
+          "wape": 0.121895,
+          "wape_available": true
+        },
+        {
+          "label": "121",
+          "n": 84,
+          "mae": 376.7994,
+          "rmse": 456.2234,
+          "wape": 0.129701,
+          "wape_available": true
+        },
+        {
+          "label": "124",
+          "n": 84,
+          "mae": 335.7984,
+          "rmse": 438.2398,
+          "wape": 0.11802,
+          "wape_available": true
+        },
+        {
+          "label": "125",
+          "n": 84,
+          "mae": 362.691,
+          "rmse": 437.8567,
+          "wape": 0.12932,
+          "wape_available": true
+        },
+        {
+          "label": "126",
+          "n": 84,
+          "mae": 363.407,
+          "rmse": 458.44,
+          "wape": 0.130869,
+          "wape_available": true
+        },
+        {
+          "label": "130",
+          "n": 84,
+          "mae": 343.9784,
+          "rmse": 432.6482,
+          "wape": 0.122964,
+          "wape_available": true
+        },
+        {
+          "label": "134",
+          "n": 84,
+          "mae": 335.4946,
+          "rmse": 428.6619,
+          "wape": 0.120979,
+          "wape_available": true
+        },
+        {
+          "label": "135",
+          "n": 84,
+          "mae": 350.1626,
+          "rmse": 444.6282,
+          "wape": 0.124261,
+          "wape_available": true
+        },
+        {
+          "label": "136",
+          "n": 84,
+          "mae": 395.5617,
+          "rmse": 499.765,
+          "wape": 0.135688,
+          "wape_available": true
+        },
+        {
+          "label": "143",
+          "n": 84,
+          "mae": 429.4488,
+          "rmse": 515.9641,
+          "wape": 0.15478,
+          "wape_available": true
+        },
+        {
+          "label": "146",
+          "n": 84,
+          "mae": 347.3591,
+          "rmse": 468.4026,
+          "wape": 0.123929,
+          "wape_available": true
+        },
+        {
+          "label": "147",
+          "n": 84,
+          "mae": 381.5036,
+          "rmse": 476.9782,
+          "wape": 0.139214,
+          "wape_available": true
+        },
+        {
+          "label": "148",
+          "n": 85,
+          "mae": 319.0917,
+          "rmse": 399.89,
+          "wape": 0.113494,
+          "wape_available": true
+        },
+        {
+          "label": "151",
+          "n": 85,
+          "mae": 412.9277,
+          "rmse": 499.9132,
+          "wape": 0.14897,
+          "wape_available": true
+        },
+        {
+          "label": "152",
+          "n": 85,
+          "mae": 414.531,
+          "rmse": 522.9921,
+          "wape": 0.151597,
+          "wape_available": true
+        },
+        {
+          "label": "156",
+          "n": 86,
+          "mae": 337.6203,
+          "rmse": 409.5154,
+          "wape": 0.122103,
+          "wape_available": true
+        },
+        {
+          "label": "157",
+          "n": 85,
+          "mae": 399.7687,
+          "rmse": 500.6457,
+          "wape": 0.143354,
+          "wape_available": true
+        },
+        {
+          "label": "165",
+          "n": 87,
+          "mae": 337.938,
+          "rmse": 423.4913,
+          "wape": 0.122073,
+          "wape_available": true
+        },
+        {
+          "label": "169",
+          "n": 86,
+          "mae": 395.6328,
+          "rmse": 489.826,
+          "wape": 0.144091,
+          "wape_available": true
+        },
+        {
+          "label": "171",
+          "n": 84,
+          "mae": 362.717,
+          "rmse": 452.8164,
+          "wape": 0.128592,
+          "wape_available": true
+        },
+        {
+          "label": "172",
+          "n": 85,
+          "mae": 370.4167,
+          "rmse": 445.0639,
+          "wape": 0.131829,
+          "wape_available": true
+        },
+        {
+          "label": "18",
+          "n": 85,
+          "mae": 386.1956,
+          "rmse": 501.554,
+          "wape": 0.139607,
+          "wape_available": true
+        },
+        {
+          "label": "192",
+          "n": 85,
+          "mae": 339.3938,
+          "rmse": 436.3718,
+          "wape": 0.12129,
+          "wape_available": true
+        },
+        {
+          "label": "2",
+          "n": 86,
+          "mae": 309.8466,
+          "rmse": 387.8853,
+          "wape": 0.111788,
+          "wape_available": true
+        },
+        {
+          "label": "20",
+          "n": 85,
+          "mae": 582.9471,
+          "rmse": 725.2083,
+          "wape": 0.146297,
+          "wape_available": true
+        },
+        {
+          "label": "201",
+          "n": 85,
+          "mae": 458.7054,
+          "rmse": 621.8366,
+          "wape": 0.165339,
+          "wape_available": true
+        },
+        {
+          "label": "206",
+          "n": 86,
+          "mae": 331.4235,
+          "rmse": 417.9624,
+          "wape": 0.116127,
+          "wape_available": true
+        },
+        {
+          "label": "21",
+          "n": 85,
+          "mae": 317.6126,
+          "rmse": 391.1205,
+          "wape": 0.11617,
+          "wape_available": true
+        },
+        {
+          "label": "22",
+          "n": 85,
+          "mae": 510.2782,
+          "rmse": 646.476,
+          "wape": 0.137701,
+          "wape_available": true
+        },
+        {
+          "label": "24",
+          "n": 85,
+          "mae": 362.6842,
+          "rmse": 439.1462,
+          "wape": 0.131818,
+          "wape_available": true
+        },
+        {
+          "label": "26",
+          "n": 85,
+          "mae": 322.419,
+          "rmse": 407.6935,
+          "wape": 0.118401,
+          "wape_available": true
+        },
+        {
+          "label": "28",
+          "n": 86,
+          "mae": 356.2508,
+          "rmse": 435.4031,
+          "wape": 0.129532,
+          "wape_available": true
+        },
+        {
+          "label": "29",
+          "n": 85,
+          "mae": 343.9247,
+          "rmse": 413.879,
+          "wape": 0.122429,
+          "wape_available": true
+        },
+        {
+          "label": "3",
+          "n": 85,
+          "mae": 361.0699,
+          "rmse": 460.5924,
+          "wape": 0.126452,
+          "wape_available": true
+        },
+        {
+          "label": "30",
+          "n": 86,
+          "mae": 353.8791,
+          "rmse": 438.6634,
+          "wape": 0.127049,
+          "wape_available": true
+        },
+        {
+          "label": "300",
+          "n": 85,
+          "mae": 360.7078,
+          "rmse": 458.0585,
+          "wape": 0.127374,
+          "wape_available": true
+        },
+        {
+          "label": "301",
+          "n": 85,
+          "mae": 445.8301,
+          "rmse": 605.2601,
+          "wape": 0.163169,
+          "wape_available": true
+        },
+        {
+          "label": "302",
+          "n": 85,
+          "mae": 372.866,
+          "rmse": 465.8044,
+          "wape": 0.132572,
+          "wape_available": true
+        },
+        {
+          "label": "303",
+          "n": 85,
+          "mae": 359.6286,
+          "rmse": 443.6828,
+          "wape": 0.127828,
+          "wape_available": true
+        },
+        {
+          "label": "304",
+          "n": 85,
+          "mae": 412.5895,
+          "rmse": 511.7314,
+          "wape": 0.143873,
+          "wape_available": true
+        },
+        {
+          "label": "305",
+          "n": 85,
+          "mae": 430.5128,
+          "rmse": 547.0106,
+          "wape": 0.150452,
+          "wape_available": true
+        },
+        {
+          "label": "306",
+          "n": 85,
+          "mae": 419.1816,
+          "rmse": 585.668,
+          "wape": 0.156236,
+          "wape_available": true
+        },
+        {
+          "label": "307",
+          "n": 84,
+          "mae": 416.3942,
+          "rmse": 516.3204,
+          "wape": 0.153254,
+          "wape_available": true
+        },
+        {
+          "label": "308",
+          "n": 84,
+          "mae": 392.3375,
+          "rmse": 486.899,
+          "wape": 0.139143,
+          "wape_available": true
+        },
+        {
+          "label": "309",
+          "n": 84,
+          "mae": 389.9789,
+          "rmse": 572.4312,
+          "wape": 0.136469,
+          "wape_available": true
+        },
+        {
+          "label": "31",
+          "n": 85,
+          "mae": 327.2095,
+          "rmse": 401.5096,
+          "wape": 0.114551,
+          "wape_available": true
+        },
+        {
+          "label": "310",
+          "n": 84,
+          "mae": 366.0976,
+          "rmse": 459.7468,
+          "wape": 0.123447,
+          "wape_available": true
+        },
+        {
+          "label": "311",
+          "n": 84,
+          "mae": 308.4675,
+          "rmse": 386.3441,
+          "wape": 0.110037,
+          "wape_available": true
+        },
+        {
+          "label": "312",
+          "n": 84,
+          "mae": 425.5713,
+          "rmse": 518.1624,
+          "wape": 0.150795,
+          "wape_available": true
+        },
+        {
+          "label": "313",
+          "n": 84,
+          "mae": 410.2498,
+          "rmse": 516.406,
+          "wape": 0.148496,
+          "wape_available": true
+        },
+        {
+          "label": "314",
+          "n": 84,
+          "mae": 391.192,
+          "rmse": 476.1703,
+          "wape": 0.136737,
+          "wape_available": true
+        },
+        {
+          "label": "34",
+          "n": 87,
+          "mae": 333.8014,
+          "rmse": 450.5842,
+          "wape": 0.122229,
+          "wape_available": true
+        },
+        {
+          "label": "35",
+          "n": 85,
+          "mae": 331.8249,
+          "rmse": 416.8496,
+          "wape": 0.120002,
+          "wape_available": true
+        },
+        {
+          "label": "36",
+          "n": 85,
+          "mae": 407.0766,
+          "rmse": 597.1374,
+          "wape": 0.15354,
+          "wape_available": true
+        },
+        {
+          "label": "37",
+          "n": 86,
+          "mae": 402.9584,
+          "rmse": 494.998,
+          "wape": 0.1466,
+          "wape_available": true
+        },
+        {
+          "label": "39",
+          "n": 85,
+          "mae": 396.0482,
+          "rmse": 489.0962,
+          "wape": 0.142463,
+          "wape_available": true
+        },
+        {
+          "label": "4",
+          "n": 85,
+          "mae": 336.8742,
+          "rmse": 438.9947,
+          "wape": 0.121131,
+          "wape_available": true
+        },
+        {
+          "label": "43",
+          "n": 86,
+          "mae": 346.964,
+          "rmse": 428.3089,
+          "wape": 0.124021,
+          "wape_available": true
+        },
+        {
+          "label": "44",
+          "n": 85,
+          "mae": 319.9557,
+          "rmse": 403.5723,
+          "wape": 0.112359,
+          "wape_available": true
+        },
+        {
+          "label": "47",
+          "n": 85,
+          "mae": 354.2474,
+          "rmse": 457.471,
+          "wape": 0.12896,
+          "wape_available": true
+        },
+        {
+          "label": "48",
+          "n": 85,
+          "mae": 342.0982,
+          "rmse": 430.9748,
+          "wape": 0.124918,
+          "wape_available": true
+        },
+        {
+          "label": "49",
+          "n": 85,
+          "mae": 500.6753,
+          "rmse": 601.2204,
+          "wape": 0.133858,
+          "wape_available": true
+        },
+        {
+          "label": "50",
+          "n": 86,
+          "mae": 334.3297,
+          "rmse": 422.7017,
+          "wape": 0.121744,
+          "wape_available": true
+        },
+        {
+          "label": "51",
+          "n": 85,
+          "mae": 387.1683,
+          "rmse": 498.3767,
+          "wape": 0.137719,
+          "wape_available": true
+        },
+        {
+          "label": "52",
+          "n": 85,
+          "mae": 386.2006,
+          "rmse": 519.0372,
+          "wape": 0.137111,
+          "wape_available": true
+        },
+        {
+          "label": "53",
+          "n": 86,
+          "mae": 335.0575,
+          "rmse": 417.9422,
+          "wape": 0.120771,
+          "wape_available": true
+        },
+        {
+          "label": "54",
+          "n": 85,
+          "mae": 358.8942,
+          "rmse": 452.4208,
+          "wape": 0.126935,
+          "wape_available": true
+        },
+        {
+          "label": "55",
+          "n": 85,
+          "mae": 328.5116,
+          "rmse": 402.5687,
+          "wape": 0.117193,
+          "wape_available": true
+        },
+        {
+          "label": "56",
+          "n": 85,
+          "mae": 394.7121,
+          "rmse": 492.6278,
+          "wape": 0.14308,
+          "wape_available": true
+        },
+        {
+          "label": "57",
+          "n": 86,
+          "mae": 313.4291,
+          "rmse": 394.9361,
+          "wape": 0.112061,
+          "wape_available": true
+        },
+        {
+          "label": "59",
+          "n": 87,
+          "mae": 401.565,
+          "rmse": 506.0933,
+          "wape": 0.14303,
+          "wape_available": true
+        },
+        {
+          "label": "6",
+          "n": 85,
+          "mae": 377.2372,
+          "rmse": 473.1265,
+          "wape": 0.130948,
+          "wape_available": true
+        },
+        {
+          "label": "60",
+          "n": 85,
+          "mae": 396.3858,
+          "rmse": 490.5622,
+          "wape": 0.14466,
+          "wape_available": true
+        },
+        {
+          "label": "62",
+          "n": 86,
+          "mae": 323.3871,
+          "rmse": 399.1966,
+          "wape": 0.116845,
+          "wape_available": true
+        },
+        {
+          "label": "63",
+          "n": 85,
+          "mae": 374.6855,
+          "rmse": 486.585,
+          "wape": 0.131439,
+          "wape_available": true
+        },
+        {
+          "label": "65",
+          "n": 85,
+          "mae": 344.2405,
+          "rmse": 457.3335,
+          "wape": 0.122479,
+          "wape_available": true
+        },
+        {
+          "label": "66",
+          "n": 85,
+          "mae": 530.1409,
+          "rmse": 666.886,
+          "wape": 0.132587,
+          "wape_available": true
+        },
+        {
+          "label": "67",
+          "n": 86,
+          "mae": 436.6127,
+          "rmse": 624.2346,
+          "wape": 0.156781,
+          "wape_available": true
+        },
+        {
+          "label": "7",
+          "n": 86,
+          "mae": 347.1253,
+          "rmse": 427.0103,
+          "wape": 0.126728,
+          "wape_available": true
+        },
+        {
+          "label": "70",
+          "n": 84,
+          "mae": 380.6494,
+          "rmse": 503.7175,
+          "wape": 0.14224,
+          "wape_available": true
+        },
+        {
+          "label": "71",
+          "n": 85,
+          "mae": 348.9837,
+          "rmse": 449.4115,
+          "wape": 0.126097,
+          "wape_available": true
+        },
+        {
+          "label": "72",
+          "n": 86,
+          "mae": 318.5602,
+          "rmse": 395.5592,
+          "wape": 0.113721,
+          "wape_available": true
+        },
+        {
+          "label": "73",
+          "n": 85,
+          "mae": 376.408,
+          "rmse": 476.9285,
+          "wape": 0.130299,
+          "wape_available": true
+        },
+        {
+          "label": "74",
+          "n": 84,
+          "mae": 374.2408,
+          "rmse": 476.4017,
+          "wape": 0.136493,
+          "wape_available": true
+        },
+        {
+          "label": "75",
+          "n": 85,
+          "mae": 400.9386,
+          "rmse": 480.8864,
+          "wape": 0.142957,
+          "wape_available": true
+        },
+        {
+          "label": "76",
+          "n": 86,
+          "mae": 346.9154,
+          "rmse": 452.2198,
+          "wape": 0.123379,
+          "wape_available": true
+        },
+        {
+          "label": "77",
+          "n": 86,
+          "mae": 417.5741,
+          "rmse": 488.7306,
+          "wape": 0.149474,
+          "wape_available": true
+        },
+        {
+          "label": "78",
+          "n": 85,
+          "mae": 366.551,
+          "rmse": 534.6279,
+          "wape": 0.130971,
+          "wape_available": true
+        },
+        {
+          "label": "79",
+          "n": 86,
+          "mae": 549.3427,
+          "rmse": 683.6548,
+          "wape": 0.137437,
+          "wape_available": true
+        },
+        {
+          "label": "8",
+          "n": 87,
+          "mae": 381.321,
+          "rmse": 479.3775,
+          "wape": 0.139106,
+          "wape_available": true
+        },
+        {
+          "label": "80",
+          "n": 85,
+          "mae": 330.1888,
+          "rmse": 438.8762,
+          "wape": 0.115071,
+          "wape_available": true
+        },
+        {
+          "label": "81",
+          "n": 84,
+          "mae": 383.0477,
+          "rmse": 462.653,
+          "wape": 0.137837,
+          "wape_available": true
+        },
+        {
+          "label": "82",
+          "n": 85,
+          "mae": 381.1927,
+          "rmse": 445.3249,
+          "wape": 0.136587,
+          "wape_available": true
+        },
+        {
+          "label": "84",
+          "n": 86,
+          "mae": 328.4266,
+          "rmse": 416.7231,
+          "wape": 0.117156,
+          "wape_available": true
+        },
+        {
+          "label": "85",
+          "n": 86,
+          "mae": 341.3687,
+          "rmse": 449.7016,
+          "wape": 0.122494,
+          "wape_available": true
+        },
+        {
+          "label": "86",
+          "n": 85,
+          "mae": 438.3524,
+          "rmse": 546.0055,
+          "wape": 0.161008,
+          "wape_available": true
+        },
+        {
+          "label": "87",
+          "n": 86,
+          "mae": 422.6703,
+          "rmse": 493.4803,
+          "wape": 0.145486,
+          "wape_available": true
+        },
+        {
+          "label": "88",
+          "n": 86,
+          "mae": 371.3754,
+          "rmse": 459.1038,
+          "wape": 0.132412,
+          "wape_available": true
+        },
+        {
+          "label": "9",
+          "n": 84,
+          "mae": 471.0261,
+          "rmse": 583.3559,
+          "wape": 0.118754,
+          "wape_available": true
+        },
+        {
+          "label": "90",
+          "n": 84,
+          "mae": 342.867,
+          "rmse": 448.1496,
+          "wape": 0.122342,
+          "wape_available": true
+        },
+        {
+          "label": "91",
+          "n": 85,
+          "mae": 408.0999,
+          "rmse": 512.4992,
+          "wape": 0.148551,
+          "wape_available": true
+        },
+        {
+          "label": "92",
+          "n": 86,
+          "mae": 378.4281,
+          "rmse": 487.6039,
+          "wape": 0.133744,
+          "wape_available": true
+        },
+        {
+          "label": "93",
+          "n": 85,
+          "mae": 343.1991,
+          "rmse": 444.2702,
+          "wape": 0.120925,
+          "wape_available": true
+        },
+        {
+          "label": "94",
+          "n": 85,
+          "mae": 319.3468,
+          "rmse": 406.6288,
+          "wape": 0.112716,
+          "wape_available": true
+        },
+        {
+          "label": "95",
+          "n": 86,
+          "mae": 403.3038,
+          "rmse": 581.716,
+          "wape": 0.146742,
+          "wape_available": true
+        },
+        {
+          "label": "96",
+          "n": 86,
+          "mae": 353.1442,
+          "rmse": 440.4645,
+          "wape": 0.122765,
+          "wape_available": true
+        },
+        {
+          "label": "97",
+          "n": 85,
+          "mae": 364.8498,
+          "rmse": 466.2737,
+          "wape": 0.130735,
+          "wape_available": true
+        },
+        {
+          "label": "J14",
+          "n": 85,
+          "mae": 429.4658,
+          "rmse": 530.7809,
+          "wape": 0.152117,
+          "wape_available": true
+        },
+        {
+          "label": "N20",
+          "n": 86,
+          "mae": 248.6783,
+          "rmse": 326.9343,
+          "wape": 0.122495,
+          "wape_available": true
+        },
+        {
+          "label": "N22",
+          "n": 86,
+          "mae": 253.7343,
+          "rmse": 312.4744,
+          "wape": 0.122967,
+          "wape_available": true
+        },
+        {
+          "label": "N4",
+          "n": 85,
+          "mae": 262.6158,
+          "rmse": 328.5065,
+          "wape": 0.129248,
+          "wape_available": true
+        },
+        {
+          "label": "N66",
+          "n": 85,
+          "mae": 266.0857,
+          "rmse": 329.0524,
+          "wape": 0.129505,
+          "wape_available": true
+        },
+        {
+          "label": "N9",
+          "n": 86,
+          "mae": 299.5038,
+          "rmse": 424.1657,
+          "wape": 0.147546,
+          "wape_available": true
+        },
+        {
+          "label": "X49",
+          "n": 62,
+          "mae": 340.4683,
+          "rmse": 451.532,
+          "wape": 0.103637,
+          "wape_available": true
+        }
+      ]
+    }
+  },
+  "matched_service": {
+    "split": "matched_service",
+    "split_sizes": {
+      "train": 14501,
+      "val": 6859,
+      "test": 7014
+    },
+    "baselines": {
+      "lag_7d": {
+        "val": {
+          "label": "lag_7d_val",
+          "n": 6859,
+          "mae": 499.7921,
+          "rmse": 654.8207,
+          "wape": 0.179459,
+          "wape_available": true
+        },
+        "test": {
+          "label": "lag_7d_test",
+          "n": 7014,
+          "mae": 509.2705,
+          "rmse": 665.6249,
+          "wape": 0.178994,
+          "wape_available": true
+        }
+      },
+      "seasonal_mean": {
+        "val": {
+          "label": "seasonal_mean_val",
+          "n": 6859,
+          "mae": 389.3415,
+          "rmse": 512.6945,
+          "wape": 0.1398,
+          "wape_available": true
+        },
+        "test": {
+          "label": "seasonal_mean_test",
+          "n": 7014,
+          "mae": 394.1061,
+          "rmse": 516.1718,
+          "wape": 0.138517,
+          "wape_available": true
+        }
+      }
+    },
+    "models": {
+      "ridge_pooled": {
+        "val": {
+          "label": "ridge_pooled_val",
+          "n": 6859,
+          "mae": 234.3619,
+          "rmse": 297.2317,
+          "wape": 0.084152,
+          "wape_available": true
+        },
+        "test": {
+          "label": "ridge_pooled_test",
+          "n": 7014,
+          "mae": 241.1834,
+          "rmse": 304.5714,
+          "wape": 0.084769,
+          "wape_available": true
+        }
+      },
+      "random_forest": {
+        "val": {
+          "label": "random_forest_val",
+          "n": 6859,
+          "mae": 224.0313,
+          "rmse": 286.9776,
+          "wape": 0.080442,
+          "wape_available": true
+        },
+        "test": {
+          "label": "random_forest_test",
+          "n": 7014,
+          "mae": 229.8436,
+          "rmse": 293.2661,
+          "wape": 0.080784,
+          "wape_available": true
+        }
+      },
+      "xgboost": {
+        "val": {
+          "label": "xgboost_val",
+          "n": 6859,
+          "mae": 221.6901,
+          "rmse": 284.8394,
+          "wape": 0.079602,
+          "wape_available": true
+        },
+        "test": {
+          "label": "xgboost_test",
+          "n": 7014,
+          "mae": 229.1948,
+          "rmse": 292.8588,
+          "wape": 0.080556,
+          "wape_available": true
+        }
+      }
+    },
+    "route_level_test": {
+      "best_model": "xgboost",
+      "route_count": 125,
+      "route_metrics": [
+        {
+          "label": "1",
+          "n": 57,
+          "mae": 235.2321,
+          "rmse": 291.5863,
+          "wape": 0.081166,
+          "wape_available": true
+        },
+        {
+          "label": "100",
+          "n": 57,
+          "mae": 255.4083,
+          "rmse": 322.1002,
+          "wape": 0.087004,
+          "wape_available": true
+        },
+        {
+          "label": "103",
+          "n": 57,
+          "mae": 225.4386,
+          "rmse": 283.2652,
+          "wape": 0.076741,
+          "wape_available": true
+        },
+        {
+          "label": "106",
+          "n": 57,
+          "mae": 210.8964,
+          "rmse": 256.895,
+          "wape": 0.073751,
+          "wape_available": true
+        },
+        {
+          "label": "108",
+          "n": 56,
+          "mae": 197.686,
+          "rmse": 255.5218,
+          "wape": 0.067117,
+          "wape_available": true
+        },
+        {
+          "label": "11",
+          "n": 56,
+          "mae": 223.9859,
+          "rmse": 279.2326,
+          "wape": 0.078063,
+          "wape_available": true
+        },
+        {
+          "label": "111",
+          "n": 55,
+          "mae": 219.1356,
+          "rmse": 283.2976,
+          "wape": 0.079912,
+          "wape_available": true
+        },
+        {
+          "label": "112",
+          "n": 56,
+          "mae": 202.1823,
+          "rmse": 259.6959,
+          "wape": 0.072149,
+          "wape_available": true
+        },
+        {
+          "label": "115",
+          "n": 57,
+          "mae": 234.9058,
+          "rmse": 290.7434,
+          "wape": 0.085825,
+          "wape_available": true
+        },
+        {
+          "label": "119",
+          "n": 56,
+          "mae": 248.1299,
+          "rmse": 312.3431,
+          "wape": 0.088463,
+          "wape_available": true
+        },
+        {
+          "label": "12",
+          "n": 56,
+          "mae": 207.2048,
+          "rmse": 264.4505,
+          "wape": 0.073676,
+          "wape_available": true
+        },
+        {
+          "label": "120",
+          "n": 56,
+          "mae": 271.4851,
+          "rmse": 345.4956,
+          "wape": 0.091461,
+          "wape_available": true
+        },
+        {
+          "label": "121",
+          "n": 56,
+          "mae": 208.0176,
+          "rmse": 269.5424,
+          "wape": 0.069446,
+          "wape_available": true
+        },
+        {
+          "label": "124",
+          "n": 56,
+          "mae": 205.1641,
+          "rmse": 276.7161,
+          "wape": 0.071099,
+          "wape_available": true
+        },
+        {
+          "label": "125",
+          "n": 55,
+          "mae": 229.3424,
+          "rmse": 270.0815,
+          "wape": 0.080331,
+          "wape_available": true
+        },
+        {
+          "label": "126",
+          "n": 56,
+          "mae": 208.6771,
+          "rmse": 265.2773,
+          "wape": 0.074269,
+          "wape_available": true
+        },
+        {
+          "label": "130",
+          "n": 57,
+          "mae": 205.8947,
+          "rmse": 248.6048,
+          "wape": 0.072374,
+          "wape_available": true
+        },
+        {
+          "label": "134",
+          "n": 56,
+          "mae": 200.4008,
+          "rmse": 248.3388,
+          "wape": 0.070645,
+          "wape_available": true
+        },
+        {
+          "label": "135",
+          "n": 56,
+          "mae": 205.1396,
+          "rmse": 251.4433,
+          "wape": 0.072337,
+          "wape_available": true
+        },
+        {
+          "label": "136",
+          "n": 57,
+          "mae": 275.644,
+          "rmse": 361.4497,
+          "wape": 0.093559,
+          "wape_available": true
+        },
+        {
+          "label": "143",
+          "n": 57,
+          "mae": 224.1311,
+          "rmse": 282.7222,
+          "wape": 0.079578,
+          "wape_available": true
+        },
+        {
+          "label": "146",
+          "n": 57,
+          "mae": 201.4326,
+          "rmse": 296.958,
+          "wape": 0.071568,
+          "wape_available": true
+        },
+        {
+          "label": "147",
+          "n": 56,
+          "mae": 253.4461,
+          "rmse": 328.025,
+          "wape": 0.089802,
+          "wape_available": true
+        },
+        {
+          "label": "148",
+          "n": 56,
+          "mae": 213.0413,
+          "rmse": 282.399,
+          "wape": 0.076154,
+          "wape_available": true
+        },
+        {
+          "label": "151",
+          "n": 57,
+          "mae": 249.4898,
+          "rmse": 319.3137,
+          "wape": 0.08725,
+          "wape_available": true
+        },
+        {
+          "label": "152",
+          "n": 56,
+          "mae": 231.5552,
+          "rmse": 300.2091,
+          "wape": 0.083857,
+          "wape_available": true
+        },
+        {
+          "label": "156",
+          "n": 56,
+          "mae": 207.4583,
+          "rmse": 275.0231,
+          "wape": 0.072513,
+          "wape_available": true
+        },
+        {
+          "label": "157",
+          "n": 57,
+          "mae": 252.7013,
+          "rmse": 325.2013,
+          "wape": 0.089321,
+          "wape_available": true
+        },
+        {
+          "label": "165",
+          "n": 56,
+          "mae": 223.7519,
+          "rmse": 281.8544,
+          "wape": 0.078577,
+          "wape_available": true
+        },
+        {
+          "label": "169",
+          "n": 56,
+          "mae": 227.5761,
+          "rmse": 283.6265,
+          "wape": 0.080489,
+          "wape_available": true
+        },
+        {
+          "label": "171",
+          "n": 55,
+          "mae": 227.2244,
+          "rmse": 290.2749,
+          "wape": 0.079533,
+          "wape_available": true
+        },
+        {
+          "label": "172",
+          "n": 55,
+          "mae": 236.5303,
+          "rmse": 325.6884,
+          "wape": 0.083051,
+          "wape_available": true
+        },
+        {
+          "label": "18",
+          "n": 56,
+          "mae": 267.277,
+          "rmse": 333.3918,
+          "wape": 0.093184,
+          "wape_available": true
+        },
+        {
+          "label": "192",
+          "n": 55,
+          "mae": 181.5617,
+          "rmse": 232.9941,
+          "wape": 0.064632,
+          "wape_available": true
+        },
+        {
+          "label": "2",
+          "n": 56,
+          "mae": 214.5611,
+          "rmse": 267.7695,
+          "wape": 0.078197,
+          "wape_available": true
+        },
+        {
+          "label": "20",
+          "n": 57,
+          "mae": 328.1103,
+          "rmse": 413.322,
+          "wape": 0.082446,
+          "wape_available": true
+        },
+        {
+          "label": "201",
+          "n": 56,
+          "mae": 228.5986,
+          "rmse": 293.8668,
+          "wape": 0.084583,
+          "wape_available": true
+        },
+        {
+          "label": "206",
+          "n": 56,
+          "mae": 176.5328,
+          "rmse": 246.3239,
+          "wape": 0.06022,
+          "wape_available": true
+        },
+        {
+          "label": "21",
+          "n": 56,
+          "mae": 237.924,
+          "rmse": 302.7914,
+          "wape": 0.084361,
+          "wape_available": true
+        },
+        {
+          "label": "22",
+          "n": 56,
+          "mae": 350.0701,
+          "rmse": 443.1321,
+          "wape": 0.093689,
+          "wape_available": true
+        },
+        {
+          "label": "24",
+          "n": 57,
+          "mae": 241.2466,
+          "rmse": 313.3709,
+          "wape": 0.08621,
+          "wape_available": true
+        },
+        {
+          "label": "26",
+          "n": 56,
+          "mae": 232.7701,
+          "rmse": 288.9183,
+          "wape": 0.083922,
+          "wape_available": true
+        },
+        {
+          "label": "28",
+          "n": 56,
+          "mae": 200.3926,
+          "rmse": 252.3026,
+          "wape": 0.073396,
+          "wape_available": true
+        },
+        {
+          "label": "29",
+          "n": 57,
+          "mae": 220.7733,
+          "rmse": 275.332,
+          "wape": 0.0764,
+          "wape_available": true
+        },
+        {
+          "label": "3",
+          "n": 56,
+          "mae": 232.9121,
+          "rmse": 281.1644,
+          "wape": 0.080034,
+          "wape_available": true
+        },
+        {
+          "label": "30",
+          "n": 56,
+          "mae": 251.1303,
+          "rmse": 306.7855,
+          "wape": 0.088929,
+          "wape_available": true
+        },
+        {
+          "label": "300",
+          "n": 57,
+          "mae": 208.9141,
+          "rmse": 268.2819,
+          "wape": 0.074902,
+          "wape_available": true
+        },
+        {
+          "label": "301",
+          "n": 56,
+          "mae": 243.4904,
+          "rmse": 310.5122,
+          "wape": 0.088949,
+          "wape_available": true
+        },
+        {
+          "label": "302",
+          "n": 56,
+          "mae": 226.8871,
+          "rmse": 283.1578,
+          "wape": 0.079568,
+          "wape_available": true
+        },
+        {
+          "label": "303",
+          "n": 57,
+          "mae": 236.6691,
+          "rmse": 300.4981,
+          "wape": 0.080661,
+          "wape_available": true
+        },
+        {
+          "label": "304",
+          "n": 56,
+          "mae": 242.9043,
+          "rmse": 339.796,
+          "wape": 0.082824,
+          "wape_available": true
+        },
+        {
+          "label": "305",
+          "n": 55,
+          "mae": 230.7403,
+          "rmse": 292.9221,
+          "wape": 0.079991,
+          "wape_available": true
+        },
+        {
+          "label": "306",
+          "n": 56,
+          "mae": 220.4285,
+          "rmse": 285.0392,
+          "wape": 0.079768,
+          "wape_available": true
+        },
+        {
+          "label": "307",
+          "n": 56,
+          "mae": 249.1618,
+          "rmse": 302.8741,
+          "wape": 0.09174,
+          "wape_available": true
+        },
+        {
+          "label": "308",
+          "n": 56,
+          "mae": 199.3696,
+          "rmse": 241.0882,
+          "wape": 0.068801,
+          "wape_available": true
+        },
+        {
+          "label": "309",
+          "n": 56,
+          "mae": 230.7027,
+          "rmse": 294.1101,
+          "wape": 0.08078,
+          "wape_available": true
+        },
+        {
+          "label": "31",
+          "n": 56,
+          "mae": 227.4858,
+          "rmse": 276.9358,
+          "wape": 0.078943,
+          "wape_available": true
+        },
+        {
+          "label": "310",
+          "n": 56,
+          "mae": 215.0164,
+          "rmse": 277.7786,
+          "wape": 0.072535,
+          "wape_available": true
+        },
+        {
+          "label": "311",
+          "n": 57,
+          "mae": 184.9832,
+          "rmse": 231.7536,
+          "wape": 0.064503,
+          "wape_available": true
+        },
+        {
+          "label": "312",
+          "n": 56,
+          "mae": 259.7021,
+          "rmse": 332.2662,
+          "wape": 0.092312,
+          "wape_available": true
+        },
+        {
+          "label": "313",
+          "n": 55,
+          "mae": 228.9138,
+          "rmse": 302.898,
+          "wape": 0.083425,
+          "wape_available": true
+        },
+        {
+          "label": "314",
+          "n": 56,
+          "mae": 208.2673,
+          "rmse": 253.3828,
+          "wape": 0.072015,
+          "wape_available": true
+        },
+        {
+          "label": "34",
+          "n": 55,
+          "mae": 231.1071,
+          "rmse": 287.724,
+          "wape": 0.081594,
+          "wape_available": true
+        },
+        {
+          "label": "35",
+          "n": 56,
+          "mae": 207.49,
+          "rmse": 250.5416,
+          "wape": 0.073501,
+          "wape_available": true
+        },
+        {
+          "label": "36",
+          "n": 55,
+          "mae": 183.233,
+          "rmse": 235.0236,
+          "wape": 0.068477,
+          "wape_available": true
+        },
+        {
+          "label": "37",
+          "n": 55,
+          "mae": 258.5672,
+          "rmse": 323.9792,
+          "wape": 0.093091,
+          "wape_available": true
+        },
+        {
+          "label": "39",
+          "n": 56,
+          "mae": 230.4213,
+          "rmse": 288.9155,
+          "wape": 0.082826,
+          "wape_available": true
+        },
+        {
+          "label": "4",
+          "n": 55,
+          "mae": 199.2464,
+          "rmse": 247.6501,
+          "wape": 0.06996,
+          "wape_available": true
+        },
+        {
+          "label": "43",
+          "n": 56,
+          "mae": 224.7838,
+          "rmse": 301.7875,
+          "wape": 0.080018,
+          "wape_available": true
+        },
+        {
+          "label": "44",
+          "n": 56,
+          "mae": 199.7804,
+          "rmse": 257.158,
+          "wape": 0.070529,
+          "wape_available": true
+        },
+        {
+          "label": "47",
+          "n": 55,
+          "mae": 221.3027,
+          "rmse": 275.0775,
+          "wape": 0.081183,
+          "wape_available": true
+        },
+        {
+          "label": "48",
+          "n": 56,
+          "mae": 233.0235,
+          "rmse": 276.5153,
+          "wape": 0.083814,
+          "wape_available": true
+        },
+        {
+          "label": "49",
+          "n": 56,
+          "mae": 280.5914,
+          "rmse": 385.1638,
+          "wape": 0.073533,
+          "wape_available": true
+        },
+        {
+          "label": "50",
+          "n": 56,
+          "mae": 199.4489,
+          "rmse": 246.1642,
+          "wape": 0.072789,
+          "wape_available": true
+        },
+        {
+          "label": "51",
+          "n": 57,
+          "mae": 262.3374,
+          "rmse": 329.8882,
+          "wape": 0.092947,
+          "wape_available": true
+        },
+        {
+          "label": "52",
+          "n": 56,
+          "mae": 232.5279,
+          "rmse": 277.3108,
+          "wape": 0.081416,
+          "wape_available": true
+        },
+        {
+          "label": "53",
+          "n": 56,
+          "mae": 225.7077,
+          "rmse": 269.2459,
+          "wape": 0.081984,
+          "wape_available": true
+        },
+        {
+          "label": "54",
+          "n": 57,
+          "mae": 245.5443,
+          "rmse": 309.1708,
+          "wape": 0.085937,
+          "wape_available": true
+        },
+        {
+          "label": "55",
+          "n": 56,
+          "mae": 246.6957,
+          "rmse": 305.4707,
+          "wape": 0.086575,
+          "wape_available": true
+        },
+        {
+          "label": "56",
+          "n": 57,
+          "mae": 271.8949,
+          "rmse": 332.7463,
+          "wape": 0.098794,
+          "wape_available": true
+        },
+        {
+          "label": "57",
+          "n": 57,
+          "mae": 192.7385,
+          "rmse": 263.9425,
+          "wape": 0.067658,
+          "wape_available": true
+        },
+        {
+          "label": "59",
+          "n": 56,
+          "mae": 219.8371,
+          "rmse": 287.5927,
+          "wape": 0.078706,
+          "wape_available": true
+        },
+        {
+          "label": "6",
+          "n": 57,
+          "mae": 180.9108,
+          "rmse": 236.6014,
+          "wape": 0.06448,
+          "wape_available": true
+        },
+        {
+          "label": "60",
+          "n": 56,
+          "mae": 201.6236,
+          "rmse": 254.7365,
+          "wape": 0.07528,
+          "wape_available": true
+        },
+        {
+          "label": "62",
+          "n": 56,
+          "mae": 233.896,
+          "rmse": 298.1028,
+          "wape": 0.084931,
+          "wape_available": true
+        },
+        {
+          "label": "63",
+          "n": 57,
+          "mae": 232.267,
+          "rmse": 282.8371,
+          "wape": 0.082361,
+          "wape_available": true
+        },
+        {
+          "label": "65",
+          "n": 56,
+          "mae": 238.6262,
+          "rmse": 282.9432,
+          "wape": 0.085355,
+          "wape_available": true
+        },
+        {
+          "label": "66",
+          "n": 56,
+          "mae": 378.7477,
+          "rmse": 459.3054,
+          "wape": 0.095762,
+          "wape_available": true
+        },
+        {
+          "label": "67",
+          "n": 56,
+          "mae": 212.7642,
+          "rmse": 277.4744,
+          "wape": 0.078789,
+          "wape_available": true
+        },
+        {
+          "label": "7",
+          "n": 55,
+          "mae": 187.4062,
+          "rmse": 233.0386,
+          "wape": 0.067766,
+          "wape_available": true
+        },
+        {
+          "label": "70",
+          "n": 56,
+          "mae": 242.4593,
+          "rmse": 293.5708,
+          "wape": 0.091974,
+          "wape_available": true
+        },
+        {
+          "label": "71",
+          "n": 56,
+          "mae": 229.9424,
+          "rmse": 287.6328,
+          "wape": 0.081214,
+          "wape_available": true
+        },
+        {
+          "label": "72",
+          "n": 56,
+          "mae": 184.7176,
+          "rmse": 262.4036,
+          "wape": 0.066514,
+          "wape_available": true
+        },
+        {
+          "label": "73",
+          "n": 57,
+          "mae": 223.3834,
+          "rmse": 307.8597,
+          "wape": 0.0777,
+          "wape_available": true
+        },
+        {
+          "label": "74",
+          "n": 56,
+          "mae": 233.7416,
+          "rmse": 298.7858,
+          "wape": 0.08502,
+          "wape_available": true
+        },
+        {
+          "label": "75",
+          "n": 56,
+          "mae": 247.0773,
+          "rmse": 313.6522,
+          "wape": 0.088805,
+          "wape_available": true
+        },
+        {
+          "label": "76",
+          "n": 57,
+          "mae": 198.0527,
+          "rmse": 255.5237,
+          "wape": 0.070402,
+          "wape_available": true
+        },
+        {
+          "label": "77",
+          "n": 56,
+          "mae": 275.9449,
+          "rmse": 347.4576,
+          "wape": 0.099649,
+          "wape_available": true
+        },
+        {
+          "label": "78",
+          "n": 57,
+          "mae": 232.8696,
+          "rmse": 293.1388,
+          "wape": 0.084745,
+          "wape_available": true
+        },
+        {
+          "label": "79",
+          "n": 57,
+          "mae": 338.9401,
+          "rmse": 406.3587,
+          "wape": 0.084696,
+          "wape_available": true
+        },
+        {
+          "label": "8",
+          "n": 57,
+          "mae": 257.2418,
+          "rmse": 314.1106,
+          "wape": 0.096467,
+          "wape_available": true
+        },
+        {
+          "label": "80",
+          "n": 57,
+          "mae": 235.478,
+          "rmse": 310.1859,
+          "wape": 0.081396,
+          "wape_available": true
+        },
+        {
+          "label": "81",
+          "n": 56,
+          "mae": 201.228,
+          "rmse": 264.2429,
+          "wape": 0.071956,
+          "wape_available": true
+        },
+        {
+          "label": "82",
+          "n": 56,
+          "mae": 196.9406,
+          "rmse": 252.6556,
+          "wape": 0.070186,
+          "wape_available": true
+        },
+        {
+          "label": "84",
+          "n": 57,
+          "mae": 208.37,
+          "rmse": 261.4858,
+          "wape": 0.074755,
+          "wape_available": true
+        },
+        {
+          "label": "85",
+          "n": 56,
+          "mae": 245.7561,
+          "rmse": 305.0046,
+          "wape": 0.088072,
+          "wape_available": true
+        },
+        {
+          "label": "86",
+          "n": 56,
+          "mae": 242.6893,
+          "rmse": 313.6874,
+          "wape": 0.086129,
+          "wape_available": true
+        },
+        {
+          "label": "87",
+          "n": 56,
+          "mae": 282.7914,
+          "rmse": 337.7002,
+          "wape": 0.096647,
+          "wape_available": true
+        },
+        {
+          "label": "88",
+          "n": 56,
+          "mae": 236.1763,
+          "rmse": 298.7825,
+          "wape": 0.083024,
+          "wape_available": true
+        },
+        {
+          "label": "9",
+          "n": 57,
+          "mae": 292.3803,
+          "rmse": 359.5556,
+          "wape": 0.07331,
+          "wape_available": true
+        },
+        {
+          "label": "90",
+          "n": 56,
+          "mae": 210.6758,
+          "rmse": 264.9224,
+          "wape": 0.074828,
+          "wape_available": true
+        },
+        {
+          "label": "91",
+          "n": 56,
+          "mae": 266.5415,
+          "rmse": 323.049,
+          "wape": 0.097849,
+          "wape_available": true
+        },
+        {
+          "label": "92",
+          "n": 57,
+          "mae": 229.2864,
+          "rmse": 287.4326,
+          "wape": 0.082681,
+          "wape_available": true
+        },
+        {
+          "label": "93",
+          "n": 56,
+          "mae": 227.6042,
+          "rmse": 300.9397,
+          "wape": 0.079658,
+          "wape_available": true
+        },
+        {
+          "label": "94",
+          "n": 56,
+          "mae": 213.1211,
+          "rmse": 264.8337,
+          "wape": 0.07403,
+          "wape_available": true
+        },
+        {
+          "label": "95",
+          "n": 57,
+          "mae": 231.3622,
+          "rmse": 281.1946,
+          "wape": 0.084965,
+          "wape_available": true
+        },
+        {
+          "label": "96",
+          "n": 57,
+          "mae": 229.8216,
+          "rmse": 291.5561,
+          "wape": 0.079218,
+          "wape_available": true
+        },
+        {
+          "label": "97",
+          "n": 58,
+          "mae": 208.9262,
+          "rmse": 265.9229,
+          "wape": 0.074443,
+          "wape_available": true
+        },
+        {
+          "label": "J14",
+          "n": 57,
+          "mae": 261.3134,
+          "rmse": 320.7536,
+          "wape": 0.092729,
+          "wape_available": true
+        },
+        {
+          "label": "N20",
+          "n": 57,
+          "mae": 145.1405,
+          "rmse": 170.079,
+          "wape": 0.071006,
+          "wape_available": true
+        },
+        {
+          "label": "N22",
+          "n": 57,
+          "mae": 167.5897,
+          "rmse": 199.4782,
+          "wape": 0.081595,
+          "wape_available": true
+        },
+        {
+          "label": "N4",
+          "n": 56,
+          "mae": 168.9084,
+          "rmse": 207.9131,
+          "wape": 0.081685,
+          "wape_available": true
+        },
+        {
+          "label": "N66",
+          "n": 56,
+          "mae": 207.8804,
+          "rmse": 268.866,
+          "wape": 0.09946,
+          "wape_available": true
+        },
+        {
+          "label": "N9",
+          "n": 57,
+          "mae": 188.4609,
+          "rmse": 224.1907,
+          "wape": 0.092261,
+          "wape_available": true
+        },
+        {
+          "label": "X49",
+          "n": 43,
+          "mae": 262.0308,
+          "rmse": 329.3226,
+          "wape": 0.080108,
+          "wape_available": true
+        }
+      ]
+    }
+  },
+  "controlled_comparison": {
+    "split": "matched_service",
+    "demand_only_aligned": {
+      "split": "matched_service",
+      "split_sizes": {
+        "train": 14501,
+        "val": 6859,
+        "test": 7014
+      },
+      "baselines": {
+        "lag_7d": {
+          "val": {
+            "label": "lag_7d_val",
+            "n": 6859,
+            "mae": 499.7921,
+            "rmse": 654.8207,
+            "wape": 0.179459,
+            "wape_available": true
+          },
+          "test": {
+            "label": "lag_7d_test",
+            "n": 7014,
+            "mae": 509.2705,
+            "rmse": 665.6249,
+            "wape": 0.178994,
+            "wape_available": true
+          }
+        },
+        "seasonal_mean": {
+          "val": {
+            "label": "seasonal_mean_val",
+            "n": 6859,
+            "mae": 389.3415,
+            "rmse": 512.6945,
+            "wape": 0.1398,
+            "wape_available": true
+          },
+          "test": {
+            "label": "seasonal_mean_test",
+            "n": 7014,
+            "mae": 394.1061,
+            "rmse": 516.1718,
+            "wape": 0.138517,
+            "wape_available": true
+          }
+        }
+      },
+      "models": {
+        "ridge_pooled": {
+          "val": {
+            "label": "ridge_pooled_val",
+            "n": 6859,
+            "mae": 351.159,
+            "rmse": 462.9916,
+            "wape": 0.12609,
+            "wape_available": true
+          },
+          "test": {
+            "label": "ridge_pooled_test",
+            "n": 7014,
+            "mae": 358.3925,
+            "rmse": 469.3894,
+            "wape": 0.125965,
+            "wape_available": true
+          }
+        },
+        "random_forest": {
+          "val": {
+            "label": "random_forest_val",
+            "n": 6859,
+            "mae": 348.2032,
+            "rmse": 462.4702,
+            "wape": 0.125028,
+            "wape_available": true
+          },
+          "test": {
+            "label": "random_forest_test",
+            "n": 7014,
+            "mae": 354.8659,
+            "rmse": 466.5603,
+            "wape": 0.124725,
+            "wape_available": true
+          }
+        },
+        "xgboost": {
+          "val": {
+            "label": "xgboost_val",
+            "n": 6859,
+            "mae": 349.0137,
+            "rmse": 462.6347,
+            "wape": 0.125319,
+            "wape_available": true
+          },
+          "test": {
+            "label": "xgboost_test",
+            "n": 7014,
+            "mae": 354.7185,
+            "rmse": 467.2551,
+            "wape": 0.124674,
+            "wape_available": true
+          }
+        }
+      },
+      "route_level_test": {
+        "best_model": "random_forest",
+        "route_count": 125,
+        "route_metrics": [
+          {
+            "label": "1",
+            "n": 57,
+            "mae": 323.6601,
+            "rmse": 432.324,
+            "wape": 0.111678,
+            "wape_available": true
+          },
+          {
+            "label": "100",
+            "n": 57,
+            "mae": 393.7366,
+            "rmse": 492.7823,
+            "wape": 0.134126,
+            "wape_available": true
+          },
+          {
+            "label": "103",
+            "n": 57,
+            "mae": 342.838,
+            "rmse": 422.5816,
+            "wape": 0.116704,
+            "wape_available": true
+          },
+          {
+            "label": "106",
+            "n": 57,
+            "mae": 293.7605,
+            "rmse": 381.6982,
+            "wape": 0.102729,
+            "wape_available": true
+          },
+          {
+            "label": "108",
+            "n": 56,
+            "mae": 358.9878,
+            "rmse": 447.4773,
+            "wape": 0.121881,
+            "wape_available": true
+          },
+          {
+            "label": "11",
+            "n": 56,
+            "mae": 359.0095,
+            "rmse": 442.7489,
+            "wape": 0.125121,
+            "wape_available": true
+          },
+          {
+            "label": "111",
+            "n": 55,
+            "mae": 328.8022,
+            "rmse": 429.4418,
+            "wape": 0.119904,
+            "wape_available": true
+          },
+          {
+            "label": "112",
+            "n": 56,
+            "mae": 347.4776,
+            "rmse": 444.7223,
+            "wape": 0.123998,
+            "wape_available": true
+          },
+          {
+            "label": "115",
+            "n": 57,
+            "mae": 344.5898,
+            "rmse": 453.6548,
+            "wape": 0.1259,
+            "wape_available": true
+          },
+          {
+            "label": "119",
+            "n": 56,
+            "mae": 469.0636,
+            "rmse": 705.0118,
+            "wape": 0.167229,
+            "wape_available": true
+          },
+          {
+            "label": "12",
+            "n": 56,
+            "mae": 399.183,
+            "rmse": 495.8858,
+            "wape": 0.141937,
+            "wape_available": true
+          },
+          {
+            "label": "120",
+            "n": 56,
+            "mae": 425.8171,
+            "rmse": 511.2673,
+            "wape": 0.143455,
+            "wape_available": true
+          },
+          {
+            "label": "121",
+            "n": 56,
+            "mae": 370.9291,
+            "rmse": 458.6791,
+            "wape": 0.123833,
+            "wape_available": true
+          },
+          {
+            "label": "124",
+            "n": 56,
+            "mae": 341.1111,
+            "rmse": 434.6838,
+            "wape": 0.118211,
+            "wape_available": true
+          },
+          {
+            "label": "125",
+            "n": 55,
+            "mae": 318.354,
+            "rmse": 401.8415,
+            "wape": 0.111508,
+            "wape_available": true
+          },
+          {
+            "label": "126",
+            "n": 56,
+            "mae": 272.1807,
+            "rmse": 345.6728,
+            "wape": 0.096871,
+            "wape_available": true
+          },
+          {
+            "label": "130",
+            "n": 57,
+            "mae": 316.0969,
+            "rmse": 429.6879,
+            "wape": 0.111111,
+            "wape_available": true
+          },
+          {
+            "label": "134",
+            "n": 56,
+            "mae": 291.8351,
+            "rmse": 382.8002,
+            "wape": 0.102877,
+            "wape_available": true
+          },
+          {
+            "label": "135",
+            "n": 56,
+            "mae": 297.3895,
+            "rmse": 386.5831,
+            "wape": 0.104867,
+            "wape_available": true
+          },
+          {
+            "label": "136",
+            "n": 57,
+            "mae": 377.1643,
+            "rmse": 496.7079,
+            "wape": 0.128017,
+            "wape_available": true
+          },
+          {
+            "label": "143",
+            "n": 57,
+            "mae": 393.5219,
+            "rmse": 507.4846,
+            "wape": 0.139721,
+            "wape_available": true
+          },
+          {
+            "label": "146",
+            "n": 57,
+            "mae": 361.2238,
+            "rmse": 483.0545,
+            "wape": 0.128341,
+            "wape_available": true
+          },
+          {
+            "label": "147",
+            "n": 56,
+            "mae": 385.4793,
+            "rmse": 499.8207,
+            "wape": 0.136584,
+            "wape_available": true
+          },
+          {
+            "label": "148",
+            "n": 56,
+            "mae": 313.921,
+            "rmse": 384.626,
+            "wape": 0.112215,
+            "wape_available": true
+          },
+          {
+            "label": "151",
+            "n": 57,
+            "mae": 400.8364,
+            "rmse": 489.4404,
+            "wape": 0.140178,
+            "wape_available": true
+          },
+          {
+            "label": "152",
+            "n": 56,
+            "mae": 456.448,
+            "rmse": 547.1434,
+            "wape": 0.165302,
+            "wape_available": true
+          },
+          {
+            "label": "156",
+            "n": 56,
+            "mae": 314.5127,
+            "rmse": 413.6771,
+            "wape": 0.109932,
+            "wape_available": true
+          },
+          {
+            "label": "157",
+            "n": 57,
+            "mae": 366.6368,
+            "rmse": 491.8436,
+            "wape": 0.129594,
+            "wape_available": true
+          },
+          {
+            "label": "165",
+            "n": 56,
+            "mae": 290.8534,
+            "rmse": 381.4575,
+            "wape": 0.102142,
+            "wape_available": true
+          },
+          {
+            "label": "169",
+            "n": 56,
+            "mae": 369.261,
+            "rmse": 467.6862,
+            "wape": 0.1306,
+            "wape_available": true
+          },
+          {
+            "label": "171",
+            "n": 55,
+            "mae": 324.3317,
+            "rmse": 417.2262,
+            "wape": 0.113522,
+            "wape_available": true
+          },
+          {
+            "label": "172",
+            "n": 55,
+            "mae": 322.6902,
+            "rmse": 420.9737,
+            "wape": 0.113304,
+            "wape_available": true
+          },
+          {
+            "label": "18",
+            "n": 56,
+            "mae": 383.9079,
+            "rmse": 503.064,
+            "wape": 0.133846,
+            "wape_available": true
+          },
+          {
+            "label": "192",
+            "n": 55,
+            "mae": 314.7255,
+            "rmse": 408.6441,
+            "wape": 0.112035,
+            "wape_available": true
+          },
+          {
+            "label": "2",
+            "n": 56,
+            "mae": 308.6517,
+            "rmse": 390.7657,
+            "wape": 0.112488,
+            "wape_available": true
+          },
+          {
+            "label": "20",
+            "n": 57,
+            "mae": 591.6606,
+            "rmse": 753.2091,
+            "wape": 0.14867,
+            "wape_available": true
+          },
+          {
+            "label": "201",
+            "n": 56,
+            "mae": 467.5917,
+            "rmse": 676.7858,
+            "wape": 0.173013,
+            "wape_available": true
+          },
+          {
+            "label": "206",
+            "n": 56,
+            "mae": 366.9675,
+            "rmse": 459.613,
+            "wape": 0.125182,
+            "wape_available": true
+          },
+          {
+            "label": "21",
+            "n": 56,
+            "mae": 306.1311,
+            "rmse": 394.1687,
+            "wape": 0.108545,
+            "wape_available": true
+          },
+          {
+            "label": "22",
+            "n": 56,
+            "mae": 413.7146,
+            "rmse": 556.6202,
+            "wape": 0.110722,
+            "wape_available": true
+          },
+          {
+            "label": "24",
+            "n": 57,
+            "mae": 350.3286,
+            "rmse": 435.6164,
+            "wape": 0.12519,
+            "wape_available": true
+          },
+          {
+            "label": "26",
+            "n": 56,
+            "mae": 338.147,
+            "rmse": 437.3513,
+            "wape": 0.121914,
+            "wape_available": true
+          },
+          {
+            "label": "28",
+            "n": 56,
+            "mae": 286.9767,
+            "rmse": 379.1242,
+            "wape": 0.105108,
+            "wape_available": true
+          },
+          {
+            "label": "29",
+            "n": 57,
+            "mae": 337.8113,
+            "rmse": 417.3584,
+            "wape": 0.116901,
+            "wape_available": true
+          },
+          {
+            "label": "3",
+            "n": 56,
+            "mae": 325.4061,
+            "rmse": 395.4311,
+            "wape": 0.111817,
+            "wape_available": true
+          },
+          {
+            "label": "30",
+            "n": 56,
+            "mae": 323.8777,
+            "rmse": 397.0843,
+            "wape": 0.11469,
+            "wape_available": true
+          },
+          {
+            "label": "300",
+            "n": 57,
+            "mae": 314.4294,
+            "rmse": 437.834,
+            "wape": 0.112732,
+            "wape_available": true
+          },
+          {
+            "label": "301",
+            "n": 56,
+            "mae": 461.4778,
+            "rmse": 692.5801,
+            "wape": 0.168582,
+            "wape_available": true
+          },
+          {
+            "label": "302",
+            "n": 56,
+            "mae": 368.4873,
+            "rmse": 456.6201,
+            "wape": 0.129226,
+            "wape_available": true
+          },
+          {
+            "label": "303",
+            "n": 57,
+            "mae": 349.3459,
+            "rmse": 433.189,
+            "wape": 0.119064,
+            "wape_available": true
+          },
+          {
+            "label": "304",
+            "n": 56,
+            "mae": 397.0157,
+            "rmse": 514.6293,
+            "wape": 0.135372,
+            "wape_available": true
+          },
+          {
+            "label": "305",
+            "n": 55,
+            "mae": 389.3111,
+            "rmse": 505.6889,
+            "wape": 0.134963,
+            "wape_available": true
+          },
+          {
+            "label": "306",
+            "n": 56,
+            "mae": 315.4803,
+            "rmse": 410.8066,
+            "wape": 0.114166,
+            "wape_available": true
+          },
+          {
+            "label": "307",
+            "n": 56,
+            "mae": 373.383,
+            "rmse": 470.1319,
+            "wape": 0.137478,
+            "wape_available": true
+          },
+          {
+            "label": "308",
+            "n": 56,
+            "mae": 334.8663,
+            "rmse": 448.7625,
+            "wape": 0.115559,
+            "wape_available": true
+          },
+          {
+            "label": "309",
+            "n": 56,
+            "mae": 426.7226,
+            "rmse": 632.2761,
+            "wape": 0.149416,
+            "wape_available": true
+          },
+          {
+            "label": "31",
+            "n": 56,
+            "mae": 311.3775,
+            "rmse": 388.1011,
+            "wape": 0.108055,
+            "wape_available": true
+          },
+          {
+            "label": "310",
+            "n": 56,
+            "mae": 346.2409,
+            "rmse": 447.4009,
+            "wape": 0.116803,
+            "wape_available": true
+          },
+          {
+            "label": "311",
+            "n": 57,
+            "mae": 263.2404,
+            "rmse": 331.922,
+            "wape": 0.09179,
+            "wape_available": true
+          },
+          {
+            "label": "312",
+            "n": 56,
+            "mae": 406.4663,
+            "rmse": 513.9974,
+            "wape": 0.144479,
+            "wape_available": true
+          },
+          {
+            "label": "313",
+            "n": 55,
+            "mae": 387.8201,
+            "rmse": 519.4716,
+            "wape": 0.141336,
+            "wape_available": true
+          },
+          {
+            "label": "314",
+            "n": 56,
+            "mae": 322.6944,
+            "rmse": 417.3121,
+            "wape": 0.111582,
+            "wape_available": true
+          },
+          {
+            "label": "34",
+            "n": 55,
+            "mae": 333.8631,
+            "rmse": 436.3483,
+            "wape": 0.117872,
+            "wape_available": true
+          },
+          {
+            "label": "35",
+            "n": 56,
+            "mae": 312.776,
+            "rmse": 390.6705,
+            "wape": 0.110797,
+            "wape_available": true
+          },
+          {
+            "label": "36",
+            "n": 55,
+            "mae": 413.5329,
+            "rmse": 621.034,
+            "wape": 0.154544,
+            "wape_available": true
+          },
+          {
+            "label": "37",
+            "n": 55,
+            "mae": 381.2195,
+            "rmse": 492.2498,
+            "wape": 0.137249,
+            "wape_available": true
+          },
+          {
+            "label": "39",
+            "n": 56,
+            "mae": 357.2981,
+            "rmse": 459.5274,
+            "wape": 0.128432,
+            "wape_available": true
+          },
+          {
+            "label": "4",
+            "n": 55,
+            "mae": 309.4198,
+            "rmse": 419.4044,
+            "wape": 0.108644,
+            "wape_available": true
+          },
+          {
+            "label": "43",
+            "n": 56,
+            "mae": 317.9076,
+            "rmse": 425.5343,
+            "wape": 0.113167,
+            "wape_available": true
+          },
+          {
+            "label": "44",
+            "n": 56,
+            "mae": 307.035,
+            "rmse": 401.7923,
+            "wape": 0.108394,
+            "wape_available": true
+          },
+          {
+            "label": "47",
+            "n": 55,
+            "mae": 329.1885,
+            "rmse": 424.2824,
+            "wape": 0.12076,
+            "wape_available": true
+          },
+          {
+            "label": "48",
+            "n": 56,
+            "mae": 270.7609,
+            "rmse": 350.0327,
+            "wape": 0.097387,
+            "wape_available": true
+          },
+          {
+            "label": "49",
+            "n": 56,
+            "mae": 421.8114,
+            "rmse": 511.2114,
+            "wape": 0.110541,
+            "wape_available": true
+          },
+          {
+            "label": "50",
+            "n": 56,
+            "mae": 326.9635,
+            "rmse": 415.7262,
+            "wape": 0.119325,
+            "wape_available": true
+          },
+          {
+            "label": "51",
+            "n": 57,
+            "mae": 425.849,
+            "rmse": 538.7188,
+            "wape": 0.15088,
+            "wape_available": true
+          },
+          {
+            "label": "52",
+            "n": 56,
+            "mae": 384.5469,
+            "rmse": 477.3764,
+            "wape": 0.134643,
+            "wape_available": true
+          },
+          {
+            "label": "53",
+            "n": 56,
+            "mae": 316.6644,
+            "rmse": 386.9053,
+            "wape": 0.115022,
+            "wape_available": true
+          },
+          {
+            "label": "54",
+            "n": 57,
+            "mae": 355.0976,
+            "rmse": 469.435,
+            "wape": 0.12428,
+            "wape_available": true
+          },
+          {
+            "label": "55",
+            "n": 56,
+            "mae": 356.2041,
+            "rmse": 443.4718,
+            "wape": 0.125005,
+            "wape_available": true
+          },
+          {
+            "label": "56",
+            "n": 57,
+            "mae": 373.6004,
+            "rmse": 511.9813,
+            "wape": 0.135749,
+            "wape_available": true
+          },
+          {
+            "label": "57",
+            "n": 57,
+            "mae": 302.2846,
+            "rmse": 402.4631,
+            "wape": 0.106113,
+            "wape_available": true
+          },
+          {
+            "label": "59",
+            "n": 56,
+            "mae": 382.6018,
+            "rmse": 485.2546,
+            "wape": 0.136979,
+            "wape_available": true
+          },
+          {
+            "label": "6",
+            "n": 57,
+            "mae": 292.3604,
+            "rmse": 368.7427,
+            "wape": 0.104204,
+            "wape_available": true
+          },
+          {
+            "label": "60",
+            "n": 56,
+            "mae": 354.8107,
+            "rmse": 454.5559,
+            "wape": 0.132475,
+            "wape_available": true
+          },
+          {
+            "label": "62",
+            "n": 56,
+            "mae": 323.7673,
+            "rmse": 392.0055,
+            "wape": 0.117564,
+            "wape_available": true
+          },
+          {
+            "label": "63",
+            "n": 57,
+            "mae": 382.0223,
+            "rmse": 491.2286,
+            "wape": 0.135463,
+            "wape_available": true
+          },
+          {
+            "label": "65",
+            "n": 56,
+            "mae": 346.8104,
+            "rmse": 452.5132,
+            "wape": 0.124052,
+            "wape_available": true
+          },
+          {
+            "label": "66",
+            "n": 56,
+            "mae": 534.1189,
+            "rmse": 648.5338,
+            "wape": 0.135045,
+            "wape_available": true
+          },
+          {
+            "label": "67",
+            "n": 56,
+            "mae": 396.6795,
+            "rmse": 600.251,
+            "wape": 0.146894,
+            "wape_available": true
+          },
+          {
+            "label": "7",
+            "n": 55,
+            "mae": 292.6072,
+            "rmse": 386.4515,
+            "wape": 0.105806,
+            "wape_available": true
+          },
+          {
+            "label": "70",
+            "n": 56,
+            "mae": 365.4673,
+            "rmse": 504.975,
+            "wape": 0.138635,
+            "wape_available": true
+          },
+          {
+            "label": "71",
+            "n": 56,
+            "mae": 362.1884,
+            "rmse": 464.963,
+            "wape": 0.127923,
+            "wape_available": true
+          },
+          {
+            "label": "72",
+            "n": 56,
+            "mae": 292.9778,
+            "rmse": 396.395,
+            "wape": 0.105497,
+            "wape_available": true
+          },
+          {
+            "label": "73",
+            "n": 57,
+            "mae": 382.0153,
+            "rmse": 489.0094,
+            "wape": 0.132877,
+            "wape_available": true
+          },
+          {
+            "label": "74",
+            "n": 56,
+            "mae": 368.1058,
+            "rmse": 465.0389,
+            "wape": 0.133892,
+            "wape_available": true
+          },
+          {
+            "label": "75",
+            "n": 56,
+            "mae": 368.2679,
+            "rmse": 462.6752,
+            "wape": 0.132364,
+            "wape_available": true
+          },
+          {
+            "label": "76",
+            "n": 57,
+            "mae": 323.0565,
+            "rmse": 410.539,
+            "wape": 0.114837,
+            "wape_available": true
+          },
+          {
+            "label": "77",
+            "n": 56,
+            "mae": 391.8312,
+            "rmse": 471.1119,
+            "wape": 0.141498,
+            "wape_available": true
+          },
+          {
+            "label": "78",
+            "n": 57,
+            "mae": 334.868,
+            "rmse": 552.6551,
+            "wape": 0.121863,
+            "wape_available": true
+          },
+          {
+            "label": "79",
+            "n": 57,
+            "mae": 498.1019,
+            "rmse": 596.7278,
+            "wape": 0.124468,
+            "wape_available": true
+          },
+          {
+            "label": "8",
+            "n": 57,
+            "mae": 399.3748,
+            "rmse": 495.4682,
+            "wape": 0.149768,
+            "wape_available": true
+          },
+          {
+            "label": "80",
+            "n": 57,
+            "mae": 331.9344,
+            "rmse": 432.5127,
+            "wape": 0.114737,
+            "wape_available": true
+          },
+          {
+            "label": "81",
+            "n": 56,
+            "mae": 319.6785,
+            "rmse": 402.9093,
+            "wape": 0.114312,
+            "wape_available": true
+          },
+          {
+            "label": "82",
+            "n": 56,
+            "mae": 344.6358,
+            "rmse": 424.9276,
+            "wape": 0.122823,
+            "wape_available": true
+          },
+          {
+            "label": "84",
+            "n": 57,
+            "mae": 308.5088,
+            "rmse": 389.76,
+            "wape": 0.110681,
+            "wape_available": true
+          },
+          {
+            "label": "85",
+            "n": 56,
+            "mae": 393.1629,
+            "rmse": 490.7917,
+            "wape": 0.140899,
+            "wape_available": true
+          },
+          {
+            "label": "86",
+            "n": 56,
+            "mae": 381.8211,
+            "rmse": 503.7541,
+            "wape": 0.135506,
+            "wape_available": true
+          },
+          {
+            "label": "87",
+            "n": 56,
+            "mae": 421.2845,
+            "rmse": 510.1739,
+            "wape": 0.143979,
+            "wape_available": true
+          },
+          {
+            "label": "88",
+            "n": 56,
+            "mae": 298.8014,
+            "rmse": 394.9409,
+            "wape": 0.105039,
+            "wape_available": true
+          },
+          {
+            "label": "9",
+            "n": 57,
+            "mae": 466.5871,
+            "rmse": 588.4508,
+            "wape": 0.11699,
+            "wape_available": true
+          },
+          {
+            "label": "90",
+            "n": 56,
+            "mae": 333.1639,
+            "rmse": 448.6408,
+            "wape": 0.118333,
+            "wape_available": true
+          },
+          {
+            "label": "91",
+            "n": 56,
+            "mae": 395.0446,
+            "rmse": 495.0675,
+            "wape": 0.145023,
+            "wape_available": true
+          },
+          {
+            "label": "92",
+            "n": 57,
+            "mae": 379.8286,
+            "rmse": 493.478,
+            "wape": 0.136966,
+            "wape_available": true
+          },
+          {
+            "label": "93",
+            "n": 56,
+            "mae": 342.1323,
+            "rmse": 449.0876,
+            "wape": 0.119741,
+            "wape_available": true
+          },
+          {
+            "label": "94",
+            "n": 56,
+            "mae": 298.6073,
+            "rmse": 368.153,
+            "wape": 0.103724,
+            "wape_available": true
+          },
+          {
+            "label": "95",
+            "n": 57,
+            "mae": 414.2392,
+            "rmse": 627.3471,
+            "wape": 0.152125,
+            "wape_available": true
+          },
+          {
+            "label": "96",
+            "n": 57,
+            "mae": 355.9042,
+            "rmse": 451.972,
+            "wape": 0.122677,
+            "wape_available": true
+          },
+          {
+            "label": "97",
+            "n": 58,
+            "mae": 375.4376,
+            "rmse": 472.8836,
+            "wape": 0.133774,
+            "wape_available": true
+          },
+          {
+            "label": "J14",
+            "n": 57,
+            "mae": 411.9773,
+            "rmse": 508.5651,
+            "wape": 0.146193,
+            "wape_available": true
+          },
+          {
+            "label": "N20",
+            "n": 57,
+            "mae": 179.5257,
+            "rmse": 231.9463,
+            "wape": 0.087828,
+            "wape_available": true
+          },
+          {
+            "label": "N22",
+            "n": 57,
+            "mae": 252.9895,
+            "rmse": 305.9701,
+            "wape": 0.123173,
+            "wape_available": true
+          },
+          {
+            "label": "N4",
+            "n": 56,
+            "mae": 299.8407,
+            "rmse": 376.0394,
+            "wape": 0.145004,
+            "wape_available": true
+          },
+          {
+            "label": "N66",
+            "n": 56,
+            "mae": 268.992,
+            "rmse": 319.7639,
+            "wape": 0.128699,
+            "wape_available": true
+          },
+          {
+            "label": "N9",
+            "n": 57,
+            "mae": 313.3692,
+            "rmse": 451.5582,
+            "wape": 0.153409,
+            "wape_available": true
+          },
+          {
+            "label": "X49",
+            "n": 43,
+            "mae": 310.6245,
+            "rmse": 393.8904,
+            "wape": 0.094964,
+            "wape_available": true
+          }
+        ]
+      }
+    },
+    "demand_plus_service": {
+      "split": "matched_service",
+      "split_sizes": {
+        "train": 14501,
+        "val": 6859,
+        "test": 7014
+      },
+      "baselines": {
+        "lag_7d": {
+          "val": {
+            "label": "lag_7d_val",
+            "n": 6859,
+            "mae": 499.7921,
+            "rmse": 654.8207,
+            "wape": 0.179459,
+            "wape_available": true
+          },
+          "test": {
+            "label": "lag_7d_test",
+            "n": 7014,
+            "mae": 509.2705,
+            "rmse": 665.6249,
+            "wape": 0.178994,
+            "wape_available": true
+          }
+        },
+        "seasonal_mean": {
+          "val": {
+            "label": "seasonal_mean_val",
+            "n": 6859,
+            "mae": 389.3415,
+            "rmse": 512.6945,
+            "wape": 0.1398,
+            "wape_available": true
+          },
+          "test": {
+            "label": "seasonal_mean_test",
+            "n": 7014,
+            "mae": 394.1061,
+            "rmse": 516.1718,
+            "wape": 0.138517,
+            "wape_available": true
+          }
+        }
+      },
+      "models": {
+        "ridge_pooled": {
+          "val": {
+            "label": "ridge_pooled_val",
+            "n": 6859,
+            "mae": 234.3619,
+            "rmse": 297.2317,
+            "wape": 0.084152,
+            "wape_available": true
+          },
+          "test": {
+            "label": "ridge_pooled_test",
+            "n": 7014,
+            "mae": 241.1834,
+            "rmse": 304.5714,
+            "wape": 0.084769,
+            "wape_available": true
+          }
+        },
+        "random_forest": {
+          "val": {
+            "label": "random_forest_val",
+            "n": 6859,
+            "mae": 224.0313,
+            "rmse": 286.9776,
+            "wape": 0.080442,
+            "wape_available": true
+          },
+          "test": {
+            "label": "random_forest_test",
+            "n": 7014,
+            "mae": 229.8436,
+            "rmse": 293.2661,
+            "wape": 0.080784,
+            "wape_available": true
+          }
+        },
+        "xgboost": {
+          "val": {
+            "label": "xgboost_val",
+            "n": 6859,
+            "mae": 221.6901,
+            "rmse": 284.8394,
+            "wape": 0.079602,
+            "wape_available": true
+          },
+          "test": {
+            "label": "xgboost_test",
+            "n": 7014,
+            "mae": 229.1948,
+            "rmse": 292.8588,
+            "wape": 0.080556,
+            "wape_available": true
+          }
+        }
+      },
+      "route_level_test": {
+        "best_model": "xgboost",
+        "route_count": 125,
+        "route_metrics": [
+          {
+            "label": "1",
+            "n": 57,
+            "mae": 235.2321,
+            "rmse": 291.5863,
+            "wape": 0.081166,
+            "wape_available": true
+          },
+          {
+            "label": "100",
+            "n": 57,
+            "mae": 255.4083,
+            "rmse": 322.1002,
+            "wape": 0.087004,
+            "wape_available": true
+          },
+          {
+            "label": "103",
+            "n": 57,
+            "mae": 225.4386,
+            "rmse": 283.2652,
+            "wape": 0.076741,
+            "wape_available": true
+          },
+          {
+            "label": "106",
+            "n": 57,
+            "mae": 210.8964,
+            "rmse": 256.895,
+            "wape": 0.073751,
+            "wape_available": true
+          },
+          {
+            "label": "108",
+            "n": 56,
+            "mae": 197.686,
+            "rmse": 255.5218,
+            "wape": 0.067117,
+            "wape_available": true
+          },
+          {
+            "label": "11",
+            "n": 56,
+            "mae": 223.9859,
+            "rmse": 279.2326,
+            "wape": 0.078063,
+            "wape_available": true
+          },
+          {
+            "label": "111",
+            "n": 55,
+            "mae": 219.1356,
+            "rmse": 283.2976,
+            "wape": 0.079912,
+            "wape_available": true
+          },
+          {
+            "label": "112",
+            "n": 56,
+            "mae": 202.1823,
+            "rmse": 259.6959,
+            "wape": 0.072149,
+            "wape_available": true
+          },
+          {
+            "label": "115",
+            "n": 57,
+            "mae": 234.9058,
+            "rmse": 290.7434,
+            "wape": 0.085825,
+            "wape_available": true
+          },
+          {
+            "label": "119",
+            "n": 56,
+            "mae": 248.1299,
+            "rmse": 312.3431,
+            "wape": 0.088463,
+            "wape_available": true
+          },
+          {
+            "label": "12",
+            "n": 56,
+            "mae": 207.2048,
+            "rmse": 264.4505,
+            "wape": 0.073676,
+            "wape_available": true
+          },
+          {
+            "label": "120",
+            "n": 56,
+            "mae": 271.4851,
+            "rmse": 345.4956,
+            "wape": 0.091461,
+            "wape_available": true
+          },
+          {
+            "label": "121",
+            "n": 56,
+            "mae": 208.0176,
+            "rmse": 269.5424,
+            "wape": 0.069446,
+            "wape_available": true
+          },
+          {
+            "label": "124",
+            "n": 56,
+            "mae": 205.1641,
+            "rmse": 276.7161,
+            "wape": 0.071099,
+            "wape_available": true
+          },
+          {
+            "label": "125",
+            "n": 55,
+            "mae": 229.3424,
+            "rmse": 270.0815,
+            "wape": 0.080331,
+            "wape_available": true
+          },
+          {
+            "label": "126",
+            "n": 56,
+            "mae": 208.6771,
+            "rmse": 265.2773,
+            "wape": 0.074269,
+            "wape_available": true
+          },
+          {
+            "label": "130",
+            "n": 57,
+            "mae": 205.8947,
+            "rmse": 248.6048,
+            "wape": 0.072374,
+            "wape_available": true
+          },
+          {
+            "label": "134",
+            "n": 56,
+            "mae": 200.4008,
+            "rmse": 248.3388,
+            "wape": 0.070645,
+            "wape_available": true
+          },
+          {
+            "label": "135",
+            "n": 56,
+            "mae": 205.1396,
+            "rmse": 251.4433,
+            "wape": 0.072337,
+            "wape_available": true
+          },
+          {
+            "label": "136",
+            "n": 57,
+            "mae": 275.644,
+            "rmse": 361.4497,
+            "wape": 0.093559,
+            "wape_available": true
+          },
+          {
+            "label": "143",
+            "n": 57,
+            "mae": 224.1311,
+            "rmse": 282.7222,
+            "wape": 0.079578,
+            "wape_available": true
+          },
+          {
+            "label": "146",
+            "n": 57,
+            "mae": 201.4326,
+            "rmse": 296.958,
+            "wape": 0.071568,
+            "wape_available": true
+          },
+          {
+            "label": "147",
+            "n": 56,
+            "mae": 253.4461,
+            "rmse": 328.025,
+            "wape": 0.089802,
+            "wape_available": true
+          },
+          {
+            "label": "148",
+            "n": 56,
+            "mae": 213.0413,
+            "rmse": 282.399,
+            "wape": 0.076154,
+            "wape_available": true
+          },
+          {
+            "label": "151",
+            "n": 57,
+            "mae": 249.4898,
+            "rmse": 319.3137,
+            "wape": 0.08725,
+            "wape_available": true
+          },
+          {
+            "label": "152",
+            "n": 56,
+            "mae": 231.5552,
+            "rmse": 300.2091,
+            "wape": 0.083857,
+            "wape_available": true
+          },
+          {
+            "label": "156",
+            "n": 56,
+            "mae": 207.4583,
+            "rmse": 275.0231,
+            "wape": 0.072513,
+            "wape_available": true
+          },
+          {
+            "label": "157",
+            "n": 57,
+            "mae": 252.7013,
+            "rmse": 325.2013,
+            "wape": 0.089321,
+            "wape_available": true
+          },
+          {
+            "label": "165",
+            "n": 56,
+            "mae": 223.7519,
+            "rmse": 281.8544,
+            "wape": 0.078577,
+            "wape_available": true
+          },
+          {
+            "label": "169",
+            "n": 56,
+            "mae": 227.5761,
+            "rmse": 283.6265,
+            "wape": 0.080489,
+            "wape_available": true
+          },
+          {
+            "label": "171",
+            "n": 55,
+            "mae": 227.2244,
+            "rmse": 290.2749,
+            "wape": 0.079533,
+            "wape_available": true
+          },
+          {
+            "label": "172",
+            "n": 55,
+            "mae": 236.5303,
+            "rmse": 325.6884,
+            "wape": 0.083051,
+            "wape_available": true
+          },
+          {
+            "label": "18",
+            "n": 56,
+            "mae": 267.277,
+            "rmse": 333.3918,
+            "wape": 0.093184,
+            "wape_available": true
+          },
+          {
+            "label": "192",
+            "n": 55,
+            "mae": 181.5617,
+            "rmse": 232.9941,
+            "wape": 0.064632,
+            "wape_available": true
+          },
+          {
+            "label": "2",
+            "n": 56,
+            "mae": 214.5611,
+            "rmse": 267.7695,
+            "wape": 0.078197,
+            "wape_available": true
+          },
+          {
+            "label": "20",
+            "n": 57,
+            "mae": 328.1103,
+            "rmse": 413.322,
+            "wape": 0.082446,
+            "wape_available": true
+          },
+          {
+            "label": "201",
+            "n": 56,
+            "mae": 228.5986,
+            "rmse": 293.8668,
+            "wape": 0.084583,
+            "wape_available": true
+          },
+          {
+            "label": "206",
+            "n": 56,
+            "mae": 176.5328,
+            "rmse": 246.3239,
+            "wape": 0.06022,
+            "wape_available": true
+          },
+          {
+            "label": "21",
+            "n": 56,
+            "mae": 237.924,
+            "rmse": 302.7914,
+            "wape": 0.084361,
+            "wape_available": true
+          },
+          {
+            "label": "22",
+            "n": 56,
+            "mae": 350.0701,
+            "rmse": 443.1321,
+            "wape": 0.093689,
+            "wape_available": true
+          },
+          {
+            "label": "24",
+            "n": 57,
+            "mae": 241.2466,
+            "rmse": 313.3709,
+            "wape": 0.08621,
+            "wape_available": true
+          },
+          {
+            "label": "26",
+            "n": 56,
+            "mae": 232.7701,
+            "rmse": 288.9183,
+            "wape": 0.083922,
+            "wape_available": true
+          },
+          {
+            "label": "28",
+            "n": 56,
+            "mae": 200.3926,
+            "rmse": 252.3026,
+            "wape": 0.073396,
+            "wape_available": true
+          },
+          {
+            "label": "29",
+            "n": 57,
+            "mae": 220.7733,
+            "rmse": 275.332,
+            "wape": 0.0764,
+            "wape_available": true
+          },
+          {
+            "label": "3",
+            "n": 56,
+            "mae": 232.9121,
+            "rmse": 281.1644,
+            "wape": 0.080034,
+            "wape_available": true
+          },
+          {
+            "label": "30",
+            "n": 56,
+            "mae": 251.1303,
+            "rmse": 306.7855,
+            "wape": 0.088929,
+            "wape_available": true
+          },
+          {
+            "label": "300",
+            "n": 57,
+            "mae": 208.9141,
+            "rmse": 268.2819,
+            "wape": 0.074902,
+            "wape_available": true
+          },
+          {
+            "label": "301",
+            "n": 56,
+            "mae": 243.4904,
+            "rmse": 310.5122,
+            "wape": 0.088949,
+            "wape_available": true
+          },
+          {
+            "label": "302",
+            "n": 56,
+            "mae": 226.8871,
+            "rmse": 283.1578,
+            "wape": 0.079568,
+            "wape_available": true
+          },
+          {
+            "label": "303",
+            "n": 57,
+            "mae": 236.6691,
+            "rmse": 300.4981,
+            "wape": 0.080661,
+            "wape_available": true
+          },
+          {
+            "label": "304",
+            "n": 56,
+            "mae": 242.9043,
+            "rmse": 339.796,
+            "wape": 0.082824,
+            "wape_available": true
+          },
+          {
+            "label": "305",
+            "n": 55,
+            "mae": 230.7403,
+            "rmse": 292.9221,
+            "wape": 0.079991,
+            "wape_available": true
+          },
+          {
+            "label": "306",
+            "n": 56,
+            "mae": 220.4285,
+            "rmse": 285.0392,
+            "wape": 0.079768,
+            "wape_available": true
+          },
+          {
+            "label": "307",
+            "n": 56,
+            "mae": 249.1618,
+            "rmse": 302.8741,
+            "wape": 0.09174,
+            "wape_available": true
+          },
+          {
+            "label": "308",
+            "n": 56,
+            "mae": 199.3696,
+            "rmse": 241.0882,
+            "wape": 0.068801,
+            "wape_available": true
+          },
+          {
+            "label": "309",
+            "n": 56,
+            "mae": 230.7027,
+            "rmse": 294.1101,
+            "wape": 0.08078,
+            "wape_available": true
+          },
+          {
+            "label": "31",
+            "n": 56,
+            "mae": 227.4858,
+            "rmse": 276.9358,
+            "wape": 0.078943,
+            "wape_available": true
+          },
+          {
+            "label": "310",
+            "n": 56,
+            "mae": 215.0164,
+            "rmse": 277.7786,
+            "wape": 0.072535,
+            "wape_available": true
+          },
+          {
+            "label": "311",
+            "n": 57,
+            "mae": 184.9832,
+            "rmse": 231.7536,
+            "wape": 0.064503,
+            "wape_available": true
+          },
+          {
+            "label": "312",
+            "n": 56,
+            "mae": 259.7021,
+            "rmse": 332.2662,
+            "wape": 0.092312,
+            "wape_available": true
+          },
+          {
+            "label": "313",
+            "n": 55,
+            "mae": 228.9138,
+            "rmse": 302.898,
+            "wape": 0.083425,
+            "wape_available": true
+          },
+          {
+            "label": "314",
+            "n": 56,
+            "mae": 208.2673,
+            "rmse": 253.3828,
+            "wape": 0.072015,
+            "wape_available": true
+          },
+          {
+            "label": "34",
+            "n": 55,
+            "mae": 231.1071,
+            "rmse": 287.724,
+            "wape": 0.081594,
+            "wape_available": true
+          },
+          {
+            "label": "35",
+            "n": 56,
+            "mae": 207.49,
+            "rmse": 250.5416,
+            "wape": 0.073501,
+            "wape_available": true
+          },
+          {
+            "label": "36",
+            "n": 55,
+            "mae": 183.233,
+            "rmse": 235.0236,
+            "wape": 0.068477,
+            "wape_available": true
+          },
+          {
+            "label": "37",
+            "n": 55,
+            "mae": 258.5672,
+            "rmse": 323.9792,
+            "wape": 0.093091,
+            "wape_available": true
+          },
+          {
+            "label": "39",
+            "n": 56,
+            "mae": 230.4213,
+            "rmse": 288.9155,
+            "wape": 0.082826,
+            "wape_available": true
+          },
+          {
+            "label": "4",
+            "n": 55,
+            "mae": 199.2464,
+            "rmse": 247.6501,
+            "wape": 0.06996,
+            "wape_available": true
+          },
+          {
+            "label": "43",
+            "n": 56,
+            "mae": 224.7838,
+            "rmse": 301.7875,
+            "wape": 0.080018,
+            "wape_available": true
+          },
+          {
+            "label": "44",
+            "n": 56,
+            "mae": 199.7804,
+            "rmse": 257.158,
+            "wape": 0.070529,
+            "wape_available": true
+          },
+          {
+            "label": "47",
+            "n": 55,
+            "mae": 221.3027,
+            "rmse": 275.0775,
+            "wape": 0.081183,
+            "wape_available": true
+          },
+          {
+            "label": "48",
+            "n": 56,
+            "mae": 233.0235,
+            "rmse": 276.5153,
+            "wape": 0.083814,
+            "wape_available": true
+          },
+          {
+            "label": "49",
+            "n": 56,
+            "mae": 280.5914,
+            "rmse": 385.1638,
+            "wape": 0.073533,
+            "wape_available": true
+          },
+          {
+            "label": "50",
+            "n": 56,
+            "mae": 199.4489,
+            "rmse": 246.1642,
+            "wape": 0.072789,
+            "wape_available": true
+          },
+          {
+            "label": "51",
+            "n": 57,
+            "mae": 262.3374,
+            "rmse": 329.8882,
+            "wape": 0.092947,
+            "wape_available": true
+          },
+          {
+            "label": "52",
+            "n": 56,
+            "mae": 232.5279,
+            "rmse": 277.3108,
+            "wape": 0.081416,
+            "wape_available": true
+          },
+          {
+            "label": "53",
+            "n": 56,
+            "mae": 225.7077,
+            "rmse": 269.2459,
+            "wape": 0.081984,
+            "wape_available": true
+          },
+          {
+            "label": "54",
+            "n": 57,
+            "mae": 245.5443,
+            "rmse": 309.1708,
+            "wape": 0.085937,
+            "wape_available": true
+          },
+          {
+            "label": "55",
+            "n": 56,
+            "mae": 246.6957,
+            "rmse": 305.4707,
+            "wape": 0.086575,
+            "wape_available": true
+          },
+          {
+            "label": "56",
+            "n": 57,
+            "mae": 271.8949,
+            "rmse": 332.7463,
+            "wape": 0.098794,
+            "wape_available": true
+          },
+          {
+            "label": "57",
+            "n": 57,
+            "mae": 192.7385,
+            "rmse": 263.9425,
+            "wape": 0.067658,
+            "wape_available": true
+          },
+          {
+            "label": "59",
+            "n": 56,
+            "mae": 219.8371,
+            "rmse": 287.5927,
+            "wape": 0.078706,
+            "wape_available": true
+          },
+          {
+            "label": "6",
+            "n": 57,
+            "mae": 180.9108,
+            "rmse": 236.6014,
+            "wape": 0.06448,
+            "wape_available": true
+          },
+          {
+            "label": "60",
+            "n": 56,
+            "mae": 201.6236,
+            "rmse": 254.7365,
+            "wape": 0.07528,
+            "wape_available": true
+          },
+          {
+            "label": "62",
+            "n": 56,
+            "mae": 233.896,
+            "rmse": 298.1028,
+            "wape": 0.084931,
+            "wape_available": true
+          },
+          {
+            "label": "63",
+            "n": 57,
+            "mae": 232.267,
+            "rmse": 282.8371,
+            "wape": 0.082361,
+            "wape_available": true
+          },
+          {
+            "label": "65",
+            "n": 56,
+            "mae": 238.6262,
+            "rmse": 282.9432,
+            "wape": 0.085355,
+            "wape_available": true
+          },
+          {
+            "label": "66",
+            "n": 56,
+            "mae": 378.7477,
+            "rmse": 459.3054,
+            "wape": 0.095762,
+            "wape_available": true
+          },
+          {
+            "label": "67",
+            "n": 56,
+            "mae": 212.7642,
+            "rmse": 277.4744,
+            "wape": 0.078789,
+            "wape_available": true
+          },
+          {
+            "label": "7",
+            "n": 55,
+            "mae": 187.4062,
+            "rmse": 233.0386,
+            "wape": 0.067766,
+            "wape_available": true
+          },
+          {
+            "label": "70",
+            "n": 56,
+            "mae": 242.4593,
+            "rmse": 293.5708,
+            "wape": 0.091974,
+            "wape_available": true
+          },
+          {
+            "label": "71",
+            "n": 56,
+            "mae": 229.9424,
+            "rmse": 287.6328,
+            "wape": 0.081214,
+            "wape_available": true
+          },
+          {
+            "label": "72",
+            "n": 56,
+            "mae": 184.7176,
+            "rmse": 262.4036,
+            "wape": 0.066514,
+            "wape_available": true
+          },
+          {
+            "label": "73",
+            "n": 57,
+            "mae": 223.3834,
+            "rmse": 307.8597,
+            "wape": 0.0777,
+            "wape_available": true
+          },
+          {
+            "label": "74",
+            "n": 56,
+            "mae": 233.7416,
+            "rmse": 298.7858,
+            "wape": 0.08502,
+            "wape_available": true
+          },
+          {
+            "label": "75",
+            "n": 56,
+            "mae": 247.0773,
+            "rmse": 313.6522,
+            "wape": 0.088805,
+            "wape_available": true
+          },
+          {
+            "label": "76",
+            "n": 57,
+            "mae": 198.0527,
+            "rmse": 255.5237,
+            "wape": 0.070402,
+            "wape_available": true
+          },
+          {
+            "label": "77",
+            "n": 56,
+            "mae": 275.9449,
+            "rmse": 347.4576,
+            "wape": 0.099649,
+            "wape_available": true
+          },
+          {
+            "label": "78",
+            "n": 57,
+            "mae": 232.8696,
+            "rmse": 293.1388,
+            "wape": 0.084745,
+            "wape_available": true
+          },
+          {
+            "label": "79",
+            "n": 57,
+            "mae": 338.9401,
+            "rmse": 406.3587,
+            "wape": 0.084696,
+            "wape_available": true
+          },
+          {
+            "label": "8",
+            "n": 57,
+            "mae": 257.2418,
+            "rmse": 314.1106,
+            "wape": 0.096467,
+            "wape_available": true
+          },
+          {
+            "label": "80",
+            "n": 57,
+            "mae": 235.478,
+            "rmse": 310.1859,
+            "wape": 0.081396,
+            "wape_available": true
+          },
+          {
+            "label": "81",
+            "n": 56,
+            "mae": 201.228,
+            "rmse": 264.2429,
+            "wape": 0.071956,
+            "wape_available": true
+          },
+          {
+            "label": "82",
+            "n": 56,
+            "mae": 196.9406,
+            "rmse": 252.6556,
+            "wape": 0.070186,
+            "wape_available": true
+          },
+          {
+            "label": "84",
+            "n": 57,
+            "mae": 208.37,
+            "rmse": 261.4858,
+            "wape": 0.074755,
+            "wape_available": true
+          },
+          {
+            "label": "85",
+            "n": 56,
+            "mae": 245.7561,
+            "rmse": 305.0046,
+            "wape": 0.088072,
+            "wape_available": true
+          },
+          {
+            "label": "86",
+            "n": 56,
+            "mae": 242.6893,
+            "rmse": 313.6874,
+            "wape": 0.086129,
+            "wape_available": true
+          },
+          {
+            "label": "87",
+            "n": 56,
+            "mae": 282.7914,
+            "rmse": 337.7002,
+            "wape": 0.096647,
+            "wape_available": true
+          },
+          {
+            "label": "88",
+            "n": 56,
+            "mae": 236.1763,
+            "rmse": 298.7825,
+            "wape": 0.083024,
+            "wape_available": true
+          },
+          {
+            "label": "9",
+            "n": 57,
+            "mae": 292.3803,
+            "rmse": 359.5556,
+            "wape": 0.07331,
+            "wape_available": true
+          },
+          {
+            "label": "90",
+            "n": 56,
+            "mae": 210.6758,
+            "rmse": 264.9224,
+            "wape": 0.074828,
+            "wape_available": true
+          },
+          {
+            "label": "91",
+            "n": 56,
+            "mae": 266.5415,
+            "rmse": 323.049,
+            "wape": 0.097849,
+            "wape_available": true
+          },
+          {
+            "label": "92",
+            "n": 57,
+            "mae": 229.2864,
+            "rmse": 287.4326,
+            "wape": 0.082681,
+            "wape_available": true
+          },
+          {
+            "label": "93",
+            "n": 56,
+            "mae": 227.6042,
+            "rmse": 300.9397,
+            "wape": 0.079658,
+            "wape_available": true
+          },
+          {
+            "label": "94",
+            "n": 56,
+            "mae": 213.1211,
+            "rmse": 264.8337,
+            "wape": 0.07403,
+            "wape_available": true
+          },
+          {
+            "label": "95",
+            "n": 57,
+            "mae": 231.3622,
+            "rmse": 281.1946,
+            "wape": 0.084965,
+            "wape_available": true
+          },
+          {
+            "label": "96",
+            "n": 57,
+            "mae": 229.8216,
+            "rmse": 291.5561,
+            "wape": 0.079218,
+            "wape_available": true
+          },
+          {
+            "label": "97",
+            "n": 58,
+            "mae": 208.9262,
+            "rmse": 265.9229,
+            "wape": 0.074443,
+            "wape_available": true
+          },
+          {
+            "label": "J14",
+            "n": 57,
+            "mae": 261.3134,
+            "rmse": 320.7536,
+            "wape": 0.092729,
+            "wape_available": true
+          },
+          {
+            "label": "N20",
+            "n": 57,
+            "mae": 145.1405,
+            "rmse": 170.079,
+            "wape": 0.071006,
+            "wape_available": true
+          },
+          {
+            "label": "N22",
+            "n": 57,
+            "mae": 167.5897,
+            "rmse": 199.4782,
+            "wape": 0.081595,
+            "wape_available": true
+          },
+          {
+            "label": "N4",
+            "n": 56,
+            "mae": 168.9084,
+            "rmse": 207.9131,
+            "wape": 0.081685,
+            "wape_available": true
+          },
+          {
+            "label": "N66",
+            "n": 56,
+            "mae": 207.8804,
+            "rmse": 268.866,
+            "wape": 0.09946,
+            "wape_available": true
+          },
+          {
+            "label": "N9",
+            "n": 57,
+            "mae": 188.4609,
+            "rmse": 224.1907,
+            "wape": 0.092261,
+            "wape_available": true
+          },
+          {
+            "label": "X49",
+            "n": 43,
+            "mae": 262.0308,
+            "rmse": 329.3226,
+            "wape": 0.080108,
+            "wape_available": true
+          }
+        ]
+      }
+    },
+    "comparison": {
+      "rf_test_wape_demand_only": 0.124725,
+      "rf_test_wape_with_service": 0.080784,
+      "wape_delta": -0.043941
+    }
+  },
+  "productivity_summary": {
+    "n_routes_total": 125,
+    "n_eligible_wd": 125,
+    "top5_weekday": [
+      {
+        "route_short_name": "311",
+        "daytype": "W",
+        "boardings_per_scheduled_service_hour": 44.454047511779315,
+        "service_productivity_metric_rank": 1.0
+      },
+      {
+        "route_short_name": "N20",
+        "daytype": "W",
+        "boardings_per_scheduled_service_hour": 43.49009713727831,
+        "service_productivity_metric_rank": 2.0
+      },
+      {
+        "route_short_name": "146",
+        "daytype": "W",
+        "boardings_per_scheduled_service_hour": 44.316702157961124,
+        "service_productivity_metric_rank": 3.0
+      },
+      {
+        "route_short_name": "147",
+        "daytype": "W",
+        "boardings_per_scheduled_service_hour": 45.40402240872309,
+        "service_productivity_metric_rank": 5.0
+      },
+      {
+        "route_short_name": "34",
+        "daytype": "W",
+        "boardings_per_scheduled_service_hour": 44.972252323834624,
+        "service_productivity_metric_rank": 6.0
+      }
     ]
   },
-  "xgb_metrics": {
-    "accuracy": 1.0,
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1_score": 1.0,
-    "confusion_matrix": [
-      [
-        3,
-        0,
-        0
-      ],
-      [
-        0,
-        3,
-        0
-      ],
-      [
-        0,
-        0,
-        2
-      ]
-    ],
-    "labels": [
-      "Underutilized",
-      "Balanced",
-      "Overcrowded"
-    ]
-  },
-  "rf_feature_importance": [
-    {
-      "feature": "peak_load_factor",
-      "importance": 0.3470059167791695
-    },
-    {
-      "feature": "avg_load_factor",
-      "importance": 0.26048979241688197
-    },
-    {
-      "feature": "avg_trip_duration_min",
-      "importance": 0.11499605107989787
-    },
-    {
-      "feature": "route_length_km",
-      "importance": 0.08008395015289516
-    },
-    {
-      "feature": "avg_stop_spacing_km",
-      "importance": 0.07589859224573199
-    },
-    {
-      "feature": "avg_speed_kmh",
-      "importance": 0.06913797951085394
-    },
-    {
-      "feature": "num_stops",
-      "importance": 0.019236657282324703
-    },
-    {
-      "feature": "total_daily_trips",
-      "importance": 0.01036217309671389
-    },
-    {
-      "feature": "avg_headway_min",
-      "importance": 0.010133699781880431
-    },
-    {
-      "feature": "peak_evening_trips",
-      "importance": 0.007852774079219763
-    },
-    {
-      "feature": "peak_morning_trips",
-      "importance": 0.004802413574430767
+  "clustering_summary": {
+    "n_clusters": 5,
+    "cluster_sizes": {
+      "0": 113,
+      "1": 2,
+      "2": 4,
+      "3": 5,
+      "4": 1
     }
-  ],
-  "xgb_feature_importance": [
-    {
-      "feature": "peak_load_factor",
-      "importance": 0.5472195148468018
-    },
-    {
-      "feature": "avg_load_factor",
-      "importance": 0.44136843085289
-    },
-    {
-      "feature": "avg_speed_kmh",
-      "importance": 0.006319172214716673
-    },
-    {
-      "feature": "route_length_km",
-      "importance": 0.00509290536865592
-    },
-    {
-      "feature": "num_stops",
-      "importance": 0.0
-    },
-    {
-      "feature": "avg_stop_spacing_km",
-      "importance": 0.0
-    },
-    {
-      "feature": "avg_trip_duration_min",
-      "importance": 0.0
-    },
-    {
-      "feature": "total_daily_trips",
-      "importance": 0.0
-    },
-    {
-      "feature": "peak_morning_trips",
-      "importance": 0.0
-    },
-    {
-      "feature": "peak_evening_trips",
-      "importance": 0.0
-    },
-    {
-      "feature": "avg_headway_min",
-      "importance": 0.0
-    }
-  ]
+  }
 }

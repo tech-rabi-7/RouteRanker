@@ -1,5 +1,25 @@
+# Virtual environments
 .venv/
+env/
+venv/
+
+# Byte-compiled / optimized / cache files
 __pycache__/
 *.py[cod]
+*$py.class
+.pytest_cache/
+
+# OS artifacts
 .DS_Store
+Thumbs.db
 .system_generated/
+
+# Frontend dependencies and builds
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Temporary / raw artifacts
+data/raw/ridership/*.csv
+data/raw/gtfs/**/*.zip
+data/raw/gtfs/**/*.txt

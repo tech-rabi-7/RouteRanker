@@ -1,0 +1,26 @@
+{
+  "categorical": [
+    "route",
+    "daytype"
+  ],
+  "calendar": [
+    "day_of_week",
+    "month",
+    "is_weekend"
+  ],
+  "lag_features": [
+    "lag_1d",
+    "lag_7d",
+    "lag_14d",
+    "lag_21d",
+    "lag_28d"
+  ],
+  "seasonal_aggregate": [
+    "seasonal_mean_lag",
+    "n_seasonal_lags_available"
+  ],
+  "service_features": [
+    "scheduled_trips",
+    "scheduled_service_hours"
+  ]
+}
